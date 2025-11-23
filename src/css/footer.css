@@ -1,151 +1,81 @@
-.footer-card {
-    border-radius: 10px;
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    padding: 14px 18px;
-    max-width: 320px;
+.footer > .container{
+    background-color: #121212;
 }
 
-.footer-card>h3 {
-    color: #1e90ff;
-}
-
-.footer>.container {
+.footer .container {
     display: flex;
-    gap: 30px;
+    justify-content: space-between;
 }
 
-.contacts-map {
+.footer-social,
+.footer-contacts,
+.footer-map {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.footer-social,
+.footer-contacts {
+    border-right: 1px solid #FFFFFF;
+    /* Красный разделитель */
+}
+
+.footer-map {
+    border-right: none;
+}
+
+.footer-map>iframe {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.social-link{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer h3{
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 24px;
+    font-size: 20px;
+}
+
+.footer-contacts-list svg.contact-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-contacts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    height: 600px;
-    width: 100%;
+    gap: 12px;
 }
 
-.contacts-map>div {
-    flex: 1;
-    min-height: 0;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    /* Добавлено для полной ширины */
-}
-
-.contacts-map img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.contacts-map iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-}
-
-.footer-card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(5px);
-    border-left: 5px solid #000080;
-}
-
-.footer-card h3 {
-    font-size: 24px;
-    color: #1e90ff;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-}
-
-.footer-card>p {
-    color: #7f8c8d;
-    margin-bottom: 20px;
-    font-style: italic;
-}
-
-.footer-list {
-    list-style: none;
-}
-
-.footer-list li {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #f1f1f1;
-}
-
-.footer-list li:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.footer-list a {
-    color: #2c3e50;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    display: inline-block;
-    font-weight: 500;
-}
-
-.footer-list a[href^="tel:"] {
-    font-size: 18px;
-    margin-bottom: 5px;
-}
-
-.footer-list p {
-    color: #34495e;
-    line-height: 1.5;
-}
-
-.icon {
-    display: inline-flex;
+.footer-contacts-list li {
+    display: flex;
     align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    background: #ff2340;
-    color: white;
-    border-radius: 50%;
-    margin-right: 10px;
-    font-size: 14px;
+    gap: 10px;
+    color: #FFFFFF;
+    font-size: 18px;
+    margin-left: 10px;
 }
 
-@media (max-width: 900px) {
-    .footer>.container {
-        flex-direction: column-reverse;
-    }
-
-    .footer-card {
-        max-width: none;
-        /* Убираем ограничение ширины */
-        /* width: 100%; */
-        /* Занимает всю доступную ширину */
-    }
-
-    .contacts-map>div {
-        width: 100%;
-        /* Гарантируем полную ширину */
-    }
-
-    .footer iframe {
-        width: 100%;
-        /* iframe занимает всю ширину контейнера */
-        margin: 0 auto;
-    }
+.contact-icon {
+    width: 18px;
+    height: 18px;
+    color: #FFFFFF;
+    flex-shrink: 0;
 }
 
-@media (max-width: 440px) {
-    h1 {
-        font-size: 28px;
-    }
-
-    .contacts-map {
-    height: 400px;
-    }
+.phone-link {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: inherit;
 }

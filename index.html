@@ -1,39 +1,6 @@
 <!DOCTYPE html>
 <html lang="uk">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-DTR426WGKE"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-DTR426WGKE");
-    </script>
-    <meta
-      name="google-site-verification"
-      content="EhvP4x2vabkYnpq5X1Cqwa5CWqWFRD3Jp7497cd5q7I"
-    />
-
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-PMFZMZTD");
-    </script>
-    <!-- End Google Tag Manager -->
-
     <!-- Кодировка и масштабирование -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -145,953 +112,348 @@
     <meta name="MobileOptimized" content="width" />
 
     <!-- Тема браузера -->
-    <meta name="theme-color" content="#1a5fb4" />
-    <meta name="msapplication-TileColor" content="#1a5fb4" />
+    <meta name="theme-color" content="#121212" />
+    <meta name="msapplication-TileColor" content="#121212" />
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
       {
-        "@context": "https://schema.org",
-        "@type": "AutoRepair",
-        "name": "СТО АВТО ГАЗ ЗП",
-        "alternateName": "AVTO GAZ ZP",
-        "description": "Станція технічного обслуговування з встановлення газобалонного обладнання в Запоріжжі",
-        "url": "https://avto-gaz.zp.ua/",
-        "telephone": "+380664661178",
-        "email": "info@avto-gaz.zp.ua",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "вул. Лисичанська, 20",
-          "addressLocality": "Запоріжжя",
-          "addressCountry": "UA",
-          "postalCode": "69000"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 47.8388,
-          "longitude": 35.1396
-        },
-        "openingHours": ["Mo-Fr 09:00-18:00", "Sa 09:00-15:00"],
-        "priceRange": "від 13000 грн",
-        "serviceType": "Встановлення ГБО, сертифікація ГБО, ремонт ГБО, діагностика ГБО",
-        "areaServed": "Запоріжжя та область",
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Послуги з ГБО",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Встановлення ГБО під ключ"
-              },
-              "price": "13000",
-              "priceCurrency": "UAH"
-            }
-          ]
-        },
-        "founder": {
-          "@type": "Person",
-          "name": "Андрій"
-        },
-        "foundingDate": "2013",
-        "knowsAbout": [
-          "ГБО",
-          "газобалонне обладнання",
-          "автомобільний газ",
-          "встановлення ГБО"
-        ]
+        "@context": "https://schema.org"
       }
     </script>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-PMFZMZTD"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <header class="header">
       <div class="container">
-        <div class="logo-div">
-          <a href="./index.html" class="logo"> AVTO GAZ ZP </a>
-        </div>
-        <div class="burger-menu">
-          <div class="burger-line"></div>
-          <div class="burger-line"></div>
-          <div class="burger-line"></div>
-        </div>
-        <div class="mobile-header-colum">
-          <nav class="navigation">
-            <ul class="nav-list nav-list-mobile">
-              <li><a href="./index.html" class="nav-link">ГОЛОВНА</a></li>
-              <li>
-                <a href="./works.html" class="nav-link">НАШІ РОБОТИ</a>
-              </li>
-              <li>
-                <a href="./price.html" class="nav-link">НАШІ ЦІНИ</a>
-              </li>
-              <li>
-                <a href="./contacts.html" class="nav-link">КОНТАКТИ</a>
-              </li>
-            </ul>
-          </nav>
-          <div class="header-contacts">
-            <div class="phones-column">
-              <div>
-                <a href="tel:+380664661178" class="phone-link phone-link-mobile"
-                  >+38 (066) 466-11-78</a
+        <a href="./index.html" class="logo"
+          >G<span class="logo-span">BO </span><br />
+          STATION</a
+        >
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item dropdown">
+              <img src="./src/img/uslugi.png" alt="" />
+              <a href="#services" class="dropdown-toggle">Послуги</a>
+              <ul class="dropdown-menu">
+                <li><a href="#gbo">Встановлення ГБО</a></li>
+                <li><a href="#lenses">Встановлення лінз</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <img src="./src/img/o-nas.png" alt="gbo-station" /><a
+                href="#gbo-station"
+                >Про нас</a
+              >
+            </li>
+            <li class="nav-item">
+              <img src="./src/img/phone.png" alt="callback" />
+              <a href="#callback">Заявка на дзвінок</a>
+            </li>
+            <li class="nav-item">
+              <img src="./src/img/geo.png" alt="footer" /><a href="#footer"
+                >Як нас знайти</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="viber://chat?number=+380979092678"
+                class="social-btn viber"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="30"
+                  height="30"
+                  viewBox="0,0,256,256"
+                  style="fill: #ffffff"
                 >
-              </div>
-              <div>
-                <a href="tel:+380685633878" class="phone-link phone-link-mobile"
-                  >+38 (068) 563-38-78</a
+                  <g
+                    fill="#ffffff"
+                    fill-rule="nonzero"
+                    stroke="none"
+                    stroke-width="4"
+                    stroke-linecap="butt"
+                    stroke-linejoin="miter"
+                    stroke-miterlimit="10"
+                    stroke-dasharray=""
+                    stroke-dashoffset="0"
+                    font-family="none"
+                    font-weight="none"
+                    font-size="none"
+                    text-anchor="none"
+                    style="mix-blend-mode: normal"
+                  >
+                    <g transform="scale(8,8)">
+                      <path
+                        d="M15.69922,4c-1.9,0 -6.59961,0.19961 -9.09961,2.59961c-1.8,1.7 -2.49961,4.30039 -2.59961,7.40039c-0.2,4.9 0.89922,7.99961 2.69922,9.59961c0.4,0.3 1.40078,1.10117 3.30078,1.70117v2.5c0,0 -0.00039,0.99922 0.59961,1.19922c0.1,0 0.20078,0.09961 0.30078,0.09961c0.6,0 1.09883,-0.70039 1.79883,-1.40039c0.6,-0.7 1.10039,-1.19922 1.40039,-1.69922h1.40039h0.80078c1.9,0 6.59961,-0.19961 9.09961,-2.59961c1.8,-1.8 2.5,-4.40117 2.5,-7.70117c0.1,-0.5 0.09961,-1.09922 0.09961,-1.69922c-0.1,-3.7 -1.19922,-6.19961 -2.69922,-7.59961c-0.6,-0.5 -3.20078,-2.40039 -8.80078,-2.40039zM15.5,5.90039h0.69922h0.10156h0.09961c5.3,0 7.3,1.70039 7.5,1.90039c1.2,1 1.9,3.19961 2,6.09961v0.40039c0.1,0.6 0.09961,1.09844 0.09961,1.39844c-0.1,3 -0.70039,5.00078 -1.90039,6.30078c-2.1,1.9 -6.49922,2 -7.69922,2h-0.70117h-0.09961h-0.09961h-1l-1.59961,1.80078l-1,1.09961l-0.20117,0.29883c-0.2,0.2 -0.49922,0.60117 -0.69922,0.70117v-0.20117v-4.29883c-2,-0.5 -2.8,-1.20039 -3,-1.40039c-1.4,-1.2 -2.2,-4.1 -2,-8v-1c0.2,-2.4 0.80078,-3.99961 1.80078,-5.09961c2.1,-1.9 6.49922,-2 7.69922,-2zM15.40039,8.09961c-0.5,0 -0.5,0.70117 0,0.70117c3.7,0 6.90039,2.49922 6.90039,7.19922c0,0.5 0.69922,0.5 0.69922,0c0,-5.1 -3.39961,-8.00039 -7.59961,-7.90039zM11.4375,9.02539c-0.2125,-0.025 -0.43672,0.02383 -0.63672,0.17383c-1,0.5 -2.00117,1.50156 -1.70117,2.60156c0,0 0.20078,0.89883 1.30078,2.79883c0.6,0.9 1.09961,1.70078 1.59961,2.30078c0.5,0.7 1.29961,1.49961 2.09961,2.09961c1.6,1.3 4.10117,2.60039 5.20117,2.90039c1,0.3 2.09961,-0.70117 2.59961,-1.70117c0.2,-0.4 0.09922,-0.89922 -0.30078,-1.19922c-0.6,-0.6 -1.59883,-1.29922 -2.29883,-1.69922c-0.5,-0.3 -1.10078,-0.10078 -1.30078,0.19922l-0.5,0.59961c-0.2,0.3 -0.69922,0.30078 -0.69922,0.30078c-3.3,-0.9 -4.20117,-4.30078 -4.20117,-4.30078c0,0 0.00078,-0.39922 0.30078,-0.69922l0.59961,-0.5c0.3,-0.2 0.49922,-0.80078 0.19922,-1.30078c-0.2,-0.3 -0.49883,-0.89922 -0.79883,-1.19922c-0.3,-0.4 -0.90039,-1.09961 -0.90039,-1.09961c-0.15,-0.15 -0.35,-0.25039 -0.5625,-0.27539zM16.09961,10.09961c-0.5,-0.1 -0.59961,0.70117 -0.09961,0.70117c2.8,0.2 4.40078,2.1 4.30078,4.5c-0.1,0.5 0.69922,0.5 0.69922,0c0.1,-2.8 -1.70039,-5.10117 -4.90039,-5.20117zM16.40039,12c-0.5,-0.1 -0.5,0.69922 0,0.69922c1.2,0 1.79883,0.70039 1.79883,1.90039c0.1,0.5 0.80078,0.5 0.80078,0c-0.1,-1.6 -0.99961,-2.59961 -2.59961,-2.59961z"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+                <i class="fab fa-viber social-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://t.me/GBOStstion"
+                target="_blank"
+                class="social-btn telegram"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="30"
+                  height="30"
+                  viewBox="0,0,256,256"
+                  style="fill: #ffffff"
                 >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="header-line">
-          <div class="logo-div">
-            <a href="./index.html" class="logo"> AVTO GAZ ZP </a>
-          </div>
-          <nav class="navigation">
-            <ul class="nav-list">
-              <li><a href="./index.html" class="nav-link">ГОЛОВНА</a></li>
-              <li>
-                <a href="./works.html" class="nav-link">НАШІ РОБОТИ</a>
-              </li>
-              <li>
-                <a href="./price.html" class="nav-link">НАШІ ЦІНИ</a>
-              </li>
-              <li>
-                <a href="./contacts.html" class="nav-link">КОНТАКТИ</a>
-              </li>
-            </ul>
-          </nav>
-          <div class="header-contacts">
-            <div class="phones-column">
-              <div>
-                <a href="tel:+380664661178" class="phone-link phone-link-mobile"
-                  >+38 (066) 466-11-78</a
+                  <g
+                    fill="#ffffff"
+                    fill-rule="nonzero"
+                    stroke="none"
+                    stroke-width="1"
+                    stroke-linecap="butt"
+                    stroke-linejoin="miter"
+                    stroke-miterlimit="10"
+                    stroke-dasharray=""
+                    stroke-dashoffset="0"
+                    font-family="none"
+                    font-weight="none"
+                    font-size="none"
+                    text-anchor="none"
+                    style="mix-blend-mode: normal"
+                  >
+                    <g transform="scale(5.12,5.12)">
+                      <path
+                        d="M46.137,6.552c-0.75,-0.636 -1.928,-0.727 -3.146,-0.238h-0.002c-1.281,0.514 -36.261,15.518 -37.685,16.131c-0.259,0.09 -2.521,0.934 -2.288,2.814c0.208,1.695 2.026,2.397 2.248,2.478l8.893,3.045c0.59,1.964 2.765,9.21 3.246,10.758c0.3,0.965 0.789,2.233 1.646,2.494c0.752,0.29 1.5,0.025 1.984,-0.355l5.437,-5.043l8.777,6.845l0.209,0.125c0.596,0.264 1.167,0.396 1.712,0.396c0.421,0 0.825,-0.079 1.211,-0.237c1.315,-0.54 1.841,-1.793 1.896,-1.935l6.556,-34.077c0.4,-1.82 -0.156,-2.746 -0.694,-3.201zM22,32l-3,8l-3,-10l23,-17z"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+                <i class="fab fa-telegram social-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://www.facebook.com/"
+                class="social-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                  width="30"
+                  height="30"
                 >
-              </div>
-              <div>
-                <a href="tel:+380685633878" class="phone-link phone-link-mobile"
-                  >+38 (068) 563-38-78</a
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    fill="#FFFFFF"
+                    d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://www.instagram.com/"
+                class="social-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                  width="30"
+                  height="30"
                 >
-              </div>
-            </div>
-          </div>
-        </div>
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    fill="#FFFFFF"
+                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://www.tiktok.com/@gbo.station"
+                class="social-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                  width="30"
+                  height="30"
+                >
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    fill="#FFFFFF"
+                    d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
     <main class="main">
       <section class="hero">
         <div class="container">
-          <h1 class="hero-title">
-            ВСТАНОВЛЕННЯ ГБО<br />
-            У ЗАПОРІЖЖІ
-          </h1>
-          <p class="hero-content">Заощаджуй на паливі до 50%</p>
-          <button type="button" class="details-hero-btn">ЗАПИСАТИСЬ</button>
-          <div class="hero-location" style="font-size: 22px">
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 50 50"
-                fill="white"
-                stroke="hsl(0, 0%, 90%)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M25 5 C35 5 43 13 43 23 C43 35 25 48 25 48 C25 48 7 35 7 23 C7 13 15 5 25 5 Z"
-                />
-                <circle cx="25" cy="23" r="5" />
-              </svg>
-              <p class="location-text">
-                Запоріжжя, вул. Гончарова (Лисичанська), 20
-              </p>
+          <div class="hero-div">
+            <div class="section-title">
+              <h1 id="animated-title">GBO STATION</h1>
             </div>
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 50 50"
-                fill="white"
-                stroke="hsl(0, 0%, 90%)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="25" cy="25" r="20" />
-                <line x1="25" y1="25" x2="25" y2="12" />
-                <line x1="25" y1="25" x2="35" y2="30" />
-              </svg>
-              <p class="location-text">Відкриті з понеділка по суботу!</p>
-            </div>
+            <button type="button" class="details-hero-btn" id="openModalBtn">
+              ЗАПИСАТЬСЯ
+            </button>
           </div>
-          <div class="hero-icon-container">
-            <div>
-              <!-- Иконка Календарь -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="50"
-                height="50"
-                fill="none"
-                stroke="white"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="5" y="10" width="40" height="35" rx="3" ry="3" />
-                <line x1="5" y1="18" x2="45" y2="18" />
-                <line x1="15" y1="5" x2="15" y2="15" />
-                <line x1="35" y1="5" x2="35" y2="15" />
-                <circle cx="15" cy="25" r="1.5" />
-                <circle cx="25" cy="25" r="1.5" />
-                <circle cx="35" cy="25" r="1.5" />
-                <circle cx="15" cy="33" r="1.5" />
-                <circle cx="25" cy="33" r="1.5" />
-                <circle cx="35" cy="33" r="1.5" />
-              </svg>
-              <p>
-                Працюєм з<br />
-                2014 року
-              </p>
+        </div>
+      </section>
+      <section id="experience" class="experience">
+        <div class="container">
+          <h2 id="experience-title">БІЛЬШЕ 15 РОКІВ ДОСВІДУ</h2>
+          <p class="sub-title-experience">Про нас говорять цифри:</p>
+          <div class="our-experience">
+            <div class="counter-item">
+              <p class="counter" data-target="1257">0</p>
+              <p class="counter-text">Машин переведено на газ</p>
             </div>
-            <div>
-              <!-- Иконка Щит -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="50"
-                height="50"
-                fill="none"
-                stroke="white"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M25 5 L45 12 V25 C45 38 35 46 25 50 C15 46 5 38 5 25 V12 Z"
-                />
-                <path d="M15 28 L23 36 L35 20" />
-              </svg>
-              <p>
-                Гарантія<br />
-                на роботу
-              </p>
+            <div class="counter-item">
+              <p class="counter" data-target="800">0</p>
+              <p class="counter-text">ТО проводиться кожен рік</p>
             </div>
-            <div>
-              <svg
-                width="90"
-                height="90"
-                viewBox="0 -10 100 100"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <!-- Головка ключа (круглая) -->
-                <circle
-                  cx="30"
-                  cy="40"
-                  r="18"
-                  fill="none"
-                  stroke="white"
-                  stroke-width="3"
-                />
-                <!-- Отверстие в головке -->
-                <circle
-                  cx="30"
-                  cy="40"
-                  r="8"
-                  fill="none"
-                  stroke="white"
-                  stroke-width="2"
-                />
-
-                <!-- Стержень ключа -->
-                <rect
-                  x="48"
-                  y="36"
-                  width="45"
-                  height="8"
-                  fill="none"
-                  stroke="white"
-                  stroke-width="3"
-                />
-
-                <!-- Зубцы ключа (бороздки) -->
-                <rect
-                  x="75"
-                  y="44"
-                  width="6"
-                  height="8"
-                  fill="none"
-                  stroke="white"
-                  stroke-width="3"
-                />
-                <rect
-                  x="83"
-                  y="44"
-                  width="4"
-                  height="12"
-                  fill="none"
-                  stroke="white"
-                  stroke-width="3"
-                />
-                <rect
-                  x="89"
-                  y="44"
-                  width="4"
-                  height="6"
-                  fill="none"
-                  stroke="white"
-                  stroke-width="3"
-                />
-
-                <!-- Объёмность - тени и грани -->
-                <!-- Тень головки -->
-                <path
-                  d="M 30 58 A 18 18 0 0 0 48 40"
-                  fill="none"
-                  stroke="white"
-                  stroke-width="3"
-                  opacity="0.6"
-                />
-                <!-- Тень стержня -->
-                <line
-                  x1="48"
-                  y1="44"
-                  x2="93"
-                  y2="44"
-                  stroke="white"
-                  stroke-width="3"
-                  opacity="0.6"
-                />
-
-                <!-- Дополнительные детали для объёма -->
-                <circle
-                  cx="30"
-                  cy="40"
-                  r="12"
-                  fill="none"
-                  stroke="white"
-                  stroke-width="3"
-                  opacity="0.4"
-                />
-              </svg>
-
-              <p>
-                Якісне<br />
-                обладнання
-              </p>
+            <div class="counter-item">
+              <p class="counter" data-target="361">0</p>
+              <p class="counter-text">Встановленно нових лінз</p>
             </div>
-            <div>
-              <!-- Иконка Документ -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="50"
-                height="50"
-                fill="none"
-                stroke="white"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M15 5 H35 L45 15 V45 H15 Z" />
-                <line x1="20" y1="22" x2="40" y2="22" />
-                <line x1="20" y1="30" x2="40" y2="30" />
-                <line x1="20" y1="38" x2="32" y2="38" />
-              </svg>
-              <p>
-                Сертифікація<br />
-                ГБО
-              </p>
+            <div class="counter-item">
+              <p class="counter" data-target="361">0</p>
+              <p class="counter-text">Встановленно нових лінз</p>
+            </div>
+            <div class="counter-item">
+              <p class="counter" data-target="361">0</p>
+              <p class="counter-text">Встановленно нових лінз</p>
             </div>
           </div>
         </div>
       </section>
-      <section class="station">
+      <section id="gbo-station" class="gbo-station">
         <div class="container">
-          <h2 class="station-title">Ми надаємо <span> послуги</span>:</h2>
-          <div class="station-card-container">
-            <div>
-              <h3>Демонтаж Вашого обладнання</h3>
-              <p style="font-size: 22px">Від 1250 грн</p>
-              <img src="./src/img/svg/icon_1_blue_nobg.png" alt="монтаж ГБО" />
+          <h2>Про нас</h2>
+
+          <div class="about-content">
+            <div class="about-section">
+              <h3>Досвід</h3>
+              <p>
+                Компанія «GBO STATION» була заснована у 2010 році. Основним
+                напрямком нашої діяльності є професійне встановлення та
+                обслуговування газобалонного обладнання (ГБО). Протягом останніх
+                6 років ми також успішно спеціалізуємося на встановленні лінз,
+                біксенону та наданні повного спектру послуг з обладнання фар.
+              </p>
             </div>
-            <div>
-              <h3>Встановлення ГБО на АВТО</h3>
-              <p style="font-size: 22px">Від 2500 грн</p>
-              <img
-                src="./src/img/svg/icon_2_blue_nobg.png"
-                alt="Встановлення 4 покоління"
-              />
+
+            <div class="about-section">
+              <h3>Локація</h3>
+              <p>
+                Наша компанія розташована у Львові, де ми обслуговуємо клієнтів
+                нашого міста та області. Ми пишаємося тим, що пропонуємо якісні
+                послуги автовласникам, які цінують професійний підхід та
+                надійність.
+              </p>
             </div>
-            <div>
-              <h3>Діагностика та налаштування ГБО</h3>
-              <p style="font-size: 22px">від 200 грн</p>
-              <img
-                src="./src/img/svg/icon_3_blue_nobg.png"
-                alt="налаштування ГБО"
-              />
-            </div>
-            <div>
-              <h3>Деталі та комплектуючі до ГБО</h3>
-              <p style="font-size: 22px">від 100 грн</p>
-              <img
-                src="./src/img/svg/icon_4_blue_nobg.png"
-                alt="комплектуючі до ГБО"
-              />
-            </div>
-          </div>
-          <button type="button" class="details-hero-btn station-btn">
-            ЗАМОВИТИ ПОСЛУГУ
-          </button>
-          <h2 class="station-title">Чому саме наш <span>сервіс ГБО</span>?</h2>
-          <div class="our-servise">
-            <div>
-              <ul class="our-servise-list">
+
+            <div class="about-section">
+              <h3>Наші переваги</h3>
+              <ul class="advantages-list">
                 <li>
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5 12L10 17L20 7"
-                      stroke="#1e90ff"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                  <p>
-                    <strong>Досвід:</strong> Багаторічна практика та позитивні
-                    відгуки клієнтів.
-                  </p>
+                  Понад 13 років досвіду у встановленні та обслуговуванні ГБО
                 </li>
-                <li>
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5 12L10 17L20 7"
-                      stroke="#1e90ff"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                  <p>
-                    <strong>Надійність:</strong> Чітко дотримуємося умов та
-                    взятих зобов'язань.
-                  </p>
-                </li>
-                <li>
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5 12L10 17L20 7"
-                      stroke="#1e90ff"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                  <p>
-                    <strong>Матеріали:</strong> Використовуємо лише якісні
-                    комплектуючі.
-                  </p>
-                </li>
-                <li>
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5 12L10 17L20 7"
-                      stroke="#1e90ff"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                  <p>
-                    <strong>Ціна:</strong> Доступні тарифи за високого рівня
-                    послуг.
-                  </p>
-                </li>
-                <li>
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5 12L10 17L20 7"
-                      stroke="#1e90ff"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                  <p>
-                    <strong>Терміни:</strong> Швидке виконання поставлених
-                    завдань.
-                  </p>
-                </li>
-                <li>
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5 12L10 17L20 7"
-                      stroke="#1e90ff"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                  <p>
-                    <strong>Сервіс:</strong> Гарантійне обслуговування робіт та
-                    обладнання.
-                  </p>
-                </li>
+                <li>6 років спеціалізації на роботах з фарами та оптикою</li>
+                <li>Сучасне обладнання та інструменти</li>
+                <li>Кваліфіковані майстри з багаторічним досвідом</li>
+                <li>Гарантія на всі види робіт</li>
+                <li>Індивідуальний підхід до кожного клієнта</li>
+                <li>Використання якісних матеріалів та комплектуючих</li>
               </ul>
             </div>
-            <div>
-              <img
-                src="./src/img/sisteema-gbo-na-avto.webp"
-                alt="Схема ГБО на АВТО"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="steps-section">
-        <div class="container">
-          <h2 class="steps-title">АВТО НА ГАЗ ВСЬОГО В 5 КРОКІВ</h2>
-          <div class="steps-container">
-            <div class="step-pentagon">
-              <div class="step-number">1</div>
-              <div class="step-content">
-                <h3 class="step-title">
-                  Зателефонуй, або залиш заявку на сайті
-                </h3>
-              </div>
-            </div>
-            <div class="step-pentagon">
-              <div class="step-number">2</div>
-              <div class="step-content">
-                <h3 class="step-title">Обери найліпший варіант обладнання</h3>
-              </div>
-            </div>
-            <div class="step-pentagon">
-              <div class="step-number">3</div>
-              <div class="step-content">
-                <h3 class="step-title">Завітай до нас</h3>
-              </div>
-            </div>
-            <div class="step-pentagon">
-              <div class="step-number">4</div>
-              <div class="step-content">
-                <h3 class="step-title">Встанови ГБО з гарантією до 5 років</h3>
-              </div>
-            </div>
-            <div class="step-pentagon">
-              <div class="step-number">5</div>
-              <div class="step-content">
-                <h3 class="step-title">
-                  Пройди сертифікацію для сервісного центру
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="faq">
-        <div class="container">
-          <h2 class="station-title">
-            Часті питання <span>щодо монтажу ГБО</span>
-          </h2>
-          <p class="faq-subtitle">
-            Розкриваємо ключові моменти про газове обладнання для авто
-          </p>
 
-          <div class="faq-container">
-            <div class="faq-column">
-              <div class="faq-item">
-                <div class="faq-question">
-                  <span>Чи економно ставити ГБО зараз?</span>
-                  <div class="faq-icon">+</div>
-                </div>
-                <div class="faq-answer">
-                  <p>
-                    ГБО дає змогу знизити витрати на паливо на 40-50%. При
-                    щомісячному пробігу 2000 км заощадження сягають 3500-4500
-                    грн. Вкладення відбиваються за 7-9 місяців активного
-                    користування.
-                  </p>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <div class="faq-question">
-                  <span>Де замовити ГБО у Запоріжжі з гарантією?</span>
-                  <div class="faq-icon">+</div>
-                </div>
-                <div class="faq-answer">
-                  <p>
-                    СТО AUTO GAZ ZP у Запоріжжі (вул. Лисичанська 20) надає
-                    професійний монтаж газового обладнання з офіційною
-                    гарантією. Працюємо на сертифікованих комплектуючих та
-                    сучасному обладнанні.
-                  </p>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <div class="faq-question">
-                  <span>Яке ГБО оптимальне для України?</span>
-                  <div class="faq-icon">+</div>
-                </div>
-                <div class="faq-answer">
-                  <p>
-                    Радимо надійні системи: STAG, Tomasetto, AEB. Вони стійкі до
-                    українського палива та мають доступне обслуговування.
-                    Підберемо найкращий варіант під ваше авто та фінанси.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="faq-column">
-              <div class="faq-item">
-                <div class="faq-question">
-                  <span>Чи зменшується потужність мотора з ГБО?</span>
-                  <div class="faq-icon">+</div>
-                </div>
-                <div class="faq-answer">
-                  <p>
-                    Новітні системи 4-5 генерації знижують втрати потужності (до
-                    3-4%). Кваліфіковане налаштування та якісне обладнання
-                    допомагають зберегти динаміку автомобіля.
-                  </p>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <div class="faq-question">
-                  <span>Як часто проводити сервіс газової системи?</span>
-                  <div class="faq-icon">+</div>
-                </div>
-                <div class="faq-answer">
-                  <p>
-                    Планова перевірка проводиться кожні 8-10 тис. км. Включає
-                    заміну фільтрів, контроль герметичності, комп'ютерну
-                    діагностику та корегування налаштувань.
-                  </p>
-                </div>
-              </div>
-
-              <div class="faq-item">
-                <div class="faq-question">
-                  <span>Чи важко перемикатися між бензином і газом?</span>
-                  <div class="faq-icon">+</div>
-                </div>
-                <div class="faq-answer">
-                  <p>
-                    Перемикання відбувається автоматично за 1-2 секунди. Система
-                    сама переходить на газ після прогріву двигуна. Крім того,
-                    водій може перемикати паливо вручну однією кнопкою.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button type="button" class="details-hero-btn brend-btn">
-            ЗАЛИШИЛИСЬ ПИТАННЯ?
-          </button>
-        </div>
-      </section>
-      <section class="gbo-calculator">
-        <div class="container">
-          <div class="calculator-header">
-            <h2 class="station-title">
-              Калькулятор <span> окупності ГБО</span>
-            </h2>
-            <p class="calculator-subtitle">
-              Розрахуйте, скільки ви заощадите на встановленні газового
-              обладнання
-            </p>
-          </div>
-          <div class="calculator-content">
-            <div class="calculator-form">
-              <div class="input-group">
-                <label for="fuel-consumption">Витрата бензину (л/100 км)</label>
-                <input
-                  type="number"
-                  id="fuel-consumption"
-                  min="5"
-                  max="30"
-                  step="0.1"
-                  value="10"
-                />
-              </div>
-              <div class="input-group">
-                <label for="annual-mileage">Річний пробіг (км)</label>
-                <input
-                  type="number"
-                  id="annual-mileage"
-                  min="1000"
-                  max="100000"
-                  step="1000"
-                  value="15000"
-                />
-              </div>
-              <div class="input-group">
-                <label for="petrol-price">Ціна бензину (₴/л)</label>
-                <input
-                  type="number"
-                  id="petrol-price"
-                  min="10"
-                  max="100"
-                  step="0.1"
-                  value="55"
-                />
-              </div>
-              <div class="input-group">
-                <label for="gas-price">Ціна газу (₴/л)</label>
-                <input
-                  type="number"
-                  id="gas-price"
-                  min="5"
-                  max="50"
-                  step="0.1"
-                  value="28"
-                />
-              </div>
-              <div class="input-group">
-                <label for="gbo-cost">Вартість встановлення ГБО (₴)</label>
-                <input
-                  type="number"
-                  id="gbo-cost"
-                  min="10000"
-                  max="50000"
-                  step="1000"
-                  value="25000"
-                />
-              </div>
-            </div>
-            <div class="calculator-results">
-              <div class="result-card">
-                <h3>Економія на рік</h3>
-                <p class="result-value" id="annual-saving">0 ₴</p>
-              </div>
-              <div class="result-card">
-                <h3>Окупність</h3>
-                <p class="result-value" id="payback-period">0 місяців</p>
-              </div>
-              <div class="result-card">
-                <h3>Економія на 100 км</h3>
-                <p class="result-value" id="per-100km">0 ₴</p>
-              </div>
-              <div class="result-card highlight">
-                <h3>Загальна економія за 3 роки</h3>
-                <p class="result-value" id="total-saving">0 ₴</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="brend">
-        <div class="container">
-          <h2 class="station-title brend-title">
-            Вибір виробника газобалонного обладнання:
-
-            <span>як обрати найкраще ГБО для вашого автомобіля</span>
-          </h2>
-          <p class="brend-content">
-            Український ринок пропонує численні бренди газобалонного обладнання
-            з різними технічними характеристиками. Зрозумівши особливості
-            кожного виробника, ви зможете прийняти правильне рішення щодо
-            встановлення ГБО саме для вашого авто.
-          </p>
-          <div class="brends-container">
-            <div><img src="./src/img/logo/brc.webp" alt="Бренд ГБО BRC" /></div>
-            <div>
-              <img src="./src/img/logo/lovato.webp" alt="Бренд ГБО Lovato" />
-            </div>
-            <div>
-              <img src="./src/img/logo/stag-logo.webp" alt="Бренд ГБО STAG" />
-            </div>
-            <div>
-              <img
-                src="./src/img/logo/landi_renzo.webp"
-                alt="Бренд ГБО Landi Renzo"
-              />
-            </div>
-            <div>
-              <img src="./src/img/logo/omvl.webp" alt="Бренд ГБО OMVL" />
-            </div>
-            <div>
-              <img
-                src="./src/img/logo/tomasetto-logo.webp"
-                alt="Бренд ГБО Tomasetto"
-              />
-            </div>
-            <div><img src="./src/img/logo/aeb.webp" alt="Бренд ГБО AEB" /></div>
-            <div><img src="./src/img/logo/kme.webp" alt="Бренд ГБО KME" /></div>
-            <div>
-              <img
-                src="./src/img/logo/valtec-logo.webp"
-                alt="Бренд ГБО Valtec"
-              />
-            </div>
-            <div>
-              <img src="./src/img/logo/prins.webp" alt="Бренд ГБО Prins" />
-            </div>
-            <div>
-              <img
-                src="./src/img/logo/digitronic.webp"
-                alt="Бренд ГБО Digitronic"
-              />
-            </div>
-            <div>
-              <img src="./src/img/logo/atiker.webp" alt="Бренд ГБО Atiker" />
-            </div>
-            <div>
-              <img
-                src="./src/img/logo/hl-propan.webp"
-                alt="Бренд ГБО HL Propane"
-              />
-            </div>
-            <div>
-              <img
-                src="./src/img/logo/lpg-tech.webp"
-                alt="Бренд ГБО LPG Tech"
-              />
-            </div>
-            <div>
-              <img src="./src/img/logo/versus.webp" alt="Бренд ГБО Versus" />
-            </div>
-            <div>
-              <img
-                src="./src/img/logo/tartarini.webp"
-                alt="Бренд ГБО Tartarini"
-              />
-            </div>
-            <div>
-              <img src="./src/img/logo/alex-logo.webp" alt="Бренд ГБО Alex" />
-            </div>
-            <div>
-              <img src="./src/img/logo/yota.webp" alt="Бренд ГБО Yota" />
-            </div>
-            <div>
-              <img src="./src/img/logo/king.webp" alt="Бренд ГБО King" />
-            </div>
-            <div>
-              <img src="./src/img/logo/pride.webp" alt="Бренд ГБО Pride" />
-            </div>
-          </div>
-
-          <div class="seo-content" style="flex-direction: column">
-            <div>
-              <h3>Критерії вибору газобалонного обладнання</h3>
+            <div class="about-section">
+              <h3>Професіоналізм</h3>
               <p>
-                Вибираючи ГБО, враховуйте тип двигуна вашого автомобіля, якість
-                електронних компонентів, наявність сервісного обслуговування у
-                вашому регіоні та гарантійні умови. Досвідчені майстри з
-                установки ГБО допоможуть підібрати оптимальну систему для вашого
-                авто.
-              </p>
-            </div>
-            <div>
-              <h3>Широке представництво брендів ГБО на українському ринку</h3>
-              <p>
-                Український ринок газобалонного обладнання пропонує різноманітні
-                рішення - від бюджетних до преміальних систем. Переважають
-                європейські виробники, зокрема польські та італійські бренди, що
-                постачають надійне обладнання, адаптоване до місцевих умов.
-                Найпопулярніші серед автовласників - STAG, KME, Lovato,
-                Tomasetto та AEB, які пропонують оптимальне співвідношення ціни
-                та якості. Турецькі бренди як Atiker задовольняють попит
-                економного сегменту, а українські виробники розвивають власні
-                розробки з урахуванням вітчизняного палива.
-              </p>
-            </div>
-            <div>
-              <h3>Гарантія якості та безпека</h3>
-              <p>
-                Усі представлені бренди мають необхідні сертифікати якості та
-                безпеки. Сучасне газове обладнання оснащене системами захисту
-                від витоку газу, автоматичним переключенням на бензин та іншими
-                захисними механізмами для безпечної експлуатації.
+                Наша команда — це досвідчені фахівці, які постійно вдосконалюють
+                свої навички та слідкують за новітніми технологіями у сфері ГБО
+                та автомобільного світла. Ми використовуємо тільки сертифіковане
+                обладнання та якісні матеріали, що гарантує довговічність та
+                надійність наших робіт.
               </p>
               <p>
-                Вибір якісного газобалонного обладнання - це інвестиція в
-                економію та довговічність роботи двигуна. Звертайтеся до
-                професійних установників ГБО, які допоможуть підібрати ідеальне
-                рішення для вашого автомобіля.
+                Звертаючись до «GBO STATION», ви отримуєте не лише якісні
+                послуги, а й повну технічну підтримку, консультацію та
+                гарантійне обслуговування. Наша мета — забезпечити вашу безпеку
+                та комфорт на дорозі!
               </p>
             </div>
           </div>
         </div>
       </section>
-      <section class="callback">
-        <div class="container callback-container">
-          <div>
-            <img
-              src="./src/img/discount-callback-img.webp"
-              alt="Отримай знижку на встановленні ГБО у Бучі!"
-            />
-          </div>
-          <div>
-            <h2 class="callback-title">
-              Залиште Ваш номер і<span> отримаєте знижку 5 %</span> на
-              встановлення <span>ГБО протягом тижня</span>
-            </h2>
-
+      <section id="callback" class="callback">
+        <div class="container">
+          <h2>Встановлення ГБО, ксенону, біксенону, світлодіодних LED ламп</h2>
+          <div class="callback-form">
+            <h3 class="callback-title">ЗАМОВЛЕННЯ ПОСЛУГИ ЧИ КОНСУЛЬТАЦІЇ</h3>
             <form class="form">
               <div>
-                <button type="button" class="details-hero-btn callback-btn">
-                  ОТРИМАТИ ЗНИЖКУ
-                </button>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="name"
+                    class="form-input"
+                    placeholder="Ваше ім'я"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="tel"
+                    id="phone"
+                    class="form-input"
+                    required
+                    placeholder="+38 (0__) ___ __ __"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="car"
+                    class="form-input"
+                    placeholder="Марка та модель авто"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <div class="form-group">
+                  <select id="service" class="form-select">
+                    <option value="" disabled selected>Тип послуги</option>
+                    <option value="gbo">Обслуговування ГБО</option>
+                    <option value="lights">Обслуговування фар</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="form-submit">НАДІСЛАТИ</button>
               </div>
             </form>
-            <p class="discount-subtitle">
-              Залиште свій номер телефону і наш менеджер зв'яжеться з вами для
-              оформлення знижки
-            </p>
           </div>
         </div>
       </section>
 
       <!-- Основное модальное окно -->
-      <div id="callbackModal" class="modal">
+      <!-- <div id="callbackModal" class="modal">
         <div class="modal-content-wrapper">
           <div class="modal-img">
             <h2 style="text-align: center">
@@ -1149,205 +511,219 @@
             </form>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Модальное окно успеха -->
-      <div id="successModal" class="success-modal">
+      <!-- <div id="successModal" class="success-modal">
         <div class="success-content">
           <div class="success-icon">✓</div>
           <h3>Ваш запит відправлено!</h3>
           <p>Наші спеціалісти зателефонують Вам протягом 10 хвилин!</p>
         </div>
-      </div>
+      </div> -->
     </main>
-    <footer class="footer">
+    <footer id="footer" class="footer">
       <div class="container">
-        <div class="footer-card">
-          <h3>СТО АВТО ГАЗ</h3>
-          <p>Встановлення, налаштування та сертифікація ГБО</p>
-          <ul class="footer-list">
+        <div class="footer-social">
+          <h3>Знаходь нас у соціальних мережах:</h3>
+          <ul class="social-link">
             <li>
-              <p>
-                Працюєм:<br />
-                Понеділок-Субота з 09:00 до 18:00 <br />
-                Субота та неділя - вихідні
-              </p>
-            </li>
-            <li>
-              <a href="tel:+380664661178" type="phone-link"
-                >+38 (066) 466-11-78</a
-              >
-              <br />
-              <a href="tel:+380685633878" class="phone-link"
-                >+38 (068) 563-38-78</a
-              >
-            </li>
-            <li>
-              <ul class="social-link">
-                <li>
-                  <a href="viber://chat?number=+380664661178" class="social-btn"
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      x="0px"
-                      y="0px"
-                      width="30"
-                      height="30"
-                      viewBox="0,0,256,256"
-                    >
-                      <g
-                        fill-rule="nonzero"
-                        stroke="none"
-                        stroke-width="4"
-                        stroke-linecap="butt"
-                        stroke-linejoin="miter"
-                        stroke-miterlimit="10"
-                        stroke-dasharray=""
-                        stroke-dashoffset="0"
-                        font-family="none"
-                        font-weight="none"
-                        font-size="none"
-                        text-anchor="none"
-                        style="mix-blend-mode: normal"
-                      >
-                        <g transform="scale(8,8)">
-                          <path
-                            d="M15.69922,4c-1.9,0 -6.59961,0.19961 -9.09961,2.59961c-1.8,1.7 -2.49961,4.30039 -2.59961,7.40039c-0.2,4.9 0.89922,7.99961 2.69922,9.59961c0.4,0.3 1.40078,1.10117 3.30078,1.70117v2.5c0,0 -0.00039,0.99922 0.59961,1.19922c0.1,0 0.20078,0.09961 0.30078,0.09961c0.6,0 1.09883,-0.70039 1.79883,-1.40039c0.6,-0.7 1.10039,-1.19922 1.40039,-1.69922h1.40039h0.80078c1.9,0 6.59961,-0.19961 9.09961,-2.59961c1.8,-1.8 2.5,-4.40117 2.5,-7.70117c0.1,-0.5 0.09961,-1.09922 0.09961,-1.69922c-0.1,-3.7 -1.19922,-6.19961 -2.69922,-7.59961c-0.6,-0.5 -3.20078,-2.40039 -8.80078,-2.40039zM15.5,5.90039h0.69922h0.10156h0.09961c5.3,0 7.3,1.70039 7.5,1.90039c1.2,1 1.9,3.19961 2,6.09961v0.40039c0.1,0.6 0.09961,1.09844 0.09961,1.39844c-0.1,3 -0.70039,5.00078 -1.90039,6.30078c-2.1,1.9 -6.49922,2 -7.69922,2h-0.70117h-0.09961h-0.09961h-1l-1.59961,1.80078l-1,1.09961l-0.20117,0.29883c-0.2,0.2 -0.49922,0.60117 -0.69922,0.70117v-0.20117v-4.29883c-2,-0.5 -2.8,-1.20039 -3,-1.40039c-1.4,-1.2 -2.2,-4.1 -2,-8v-1c0.2,-2.4 0.80078,-3.99961 1.80078,-5.09961c2.1,-1.9 6.49922,-2 7.69922,-2zM15.40039,8.09961c-0.5,0 -0.5,0.70117 0,0.70117c3.7,0 6.90039,2.49922 6.90039,7.19922c0,0.5 0.69922,0.5 0.69922,0c0,-5.1 -3.39961,-8.00039 -7.59961,-7.90039zM11.4375,9.02539c-0.2125,-0.025 -0.43672,0.02383 -0.63672,0.17383c-1,0.5 -2.00117,1.50156 -1.70117,2.60156c0,0 0.20078,0.89883 1.30078,2.79883c0.6,0.9 1.09961,1.70078 1.59961,2.30078c0.5,0.7 1.29961,1.49961 2.09961,2.09961c1.6,1.3 4.10117,2.60039 5.20117,2.90039c1,0.3 2.09961,-0.70117 2.59961,-1.70117c0.2,-0.4 0.09922,-0.89922 -0.30078,-1.19922c-0.6,-0.6 -1.59883,-1.29922 -2.29883,-1.69922c-0.5,-0.3 -1.10078,-0.10078 -1.30078,0.19922l-0.5,0.59961c-0.2,0.3 -0.69922,0.30078 -0.69922,0.30078c-3.3,-0.9 -4.20117,-4.30078 -4.20117,-4.30078c0,0 0.00078,-0.39922 0.30078,-0.69922l0.59961,-0.5c0.3,-0.2 0.49922,-0.80078 0.19922,-1.30078c-0.2,-0.3 -0.49883,-0.89922 -0.79883,-1.19922c-0.3,-0.4 -0.90039,-1.09961 -0.90039,-1.09961c-0.15,-0.15 -0.35,-0.25039 -0.5625,-0.27539zM16.09961,10.09961c-0.5,-0.1 -0.59961,0.70117 -0.09961,0.70117c2.8,0.2 4.40078,2.1 4.30078,4.5c-0.1,0.5 0.69922,0.5 0.69922,0c0.1,-2.8 -1.70039,-5.10117 -4.90039,-5.20117zM16.40039,12c-0.5,-0.1 -0.5,0.69922 0,0.69922c1.2,0 1.79883,0.70039 1.79883,1.90039c0.1,0.5 0.80078,0.5 0.80078,0c-0.1,-1.6 -0.99961,-2.59961 -2.59961,-2.59961z"
-                          ></path>
-                        </g>
-                      </g>
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://t.me/avto_gaz"
-                    target="_blank"
-                    class="social-btn telegram"
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      x="0px"
-                      y="0px"
-                      width="30"
-                      height="30"
-                      viewBox="0,0,256,256"
-                    >
-                      <g
-                        fill-rule="nonzero"
-                        stroke="none"
-                        stroke-width="1"
-                        stroke-linecap="butt"
-                        stroke-linejoin="miter"
-                        stroke-miterlimit="10"
-                        stroke-dasharray=""
-                        stroke-dashoffset="0"
-                        font-family="none"
-                        font-weight="none"
-                        font-size="none"
-                        text-anchor="none"
-                        style="mix-blend-mode: normal"
-                      >
-                        <g transform="scale(5.12,5.12)">
-                          <path
-                            d="M46.137,6.552c-0.75,-0.636 -1.928,-0.727 -3.146,-0.238h-0.002c-1.281,0.514 -36.261,15.518 -37.685,16.131c-0.259,0.09 -2.521,0.934 -2.288,2.814c0.208,1.695 2.026,2.397 2.248,2.478l8.893,3.045c0.59,1.964 2.765,9.21 3.246,10.758c0.3,0.965 0.789,2.233 1.646,2.494c0.752,0.29 1.5,0.025 1.984,-0.355l5.437,-5.043l8.777,6.845l0.209,0.125c0.596,0.264 1.167,0.396 1.712,0.396c0.421,0 0.825,-0.079 1.211,-0.237c1.315,-0.54 1.841,-1.793 1.896,-1.935l6.556,-34.077c0.4,-1.82 -0.156,-2.746 -0.694,-3.201zM22,32l-3,8l-3,-10l23,-17z"
-                          ></path>
-                        </g>
-                      </g>
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.facebook.com/"
-                    class="social-btn"
-                    target="_blank"
-                    rel="noopener noreferrer"
+              <a
+                href="viber://chat?number=+380979092678"
+                class="social-btn viber"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="30"
+                  height="30"
+                  viewBox="0,0,256,256"
+                  style="fill: #ffffff"
+                >
+                  <g
+                    fill="#ffffff"
+                    fill-rule="nonzero"
+                    stroke="none"
+                    stroke-width="4"
+                    stroke-linecap="butt"
+                    stroke-linejoin="miter"
+                    stroke-miterlimit="10"
+                    stroke-dasharray=""
+                    stroke-dashoffset="0"
+                    font-family="none"
+                    font-weight="none"
+                    font-size="none"
+                    text-anchor="none"
+                    style="mix-blend-mode: normal"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 320 512"
-                      width="30"
-                      height="30"
-                    >
-                      <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <g transform="scale(8,8)">
                       <path
-                        fill="currentColor"
-                        d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
-                      />
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.instagram.com/avto_gaz.zp?igsh=bDBjdzYxNzBmbWUz&utm_source=qr"
-                    class="social-btn"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 448 512"
-                      width="30"
-                      height="30"
-                    >
-                      <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                      <path
-                        fill="currentColor"
-                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-                      />
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.tiktok.com"
-                    class="social-btn"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 448 512"
-                      width="30"
-                      height="30"
-                    >
-                      <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                      <path
-                        fill="currentColor"
-                        d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"
-                      />
-                    </svg>
-                  </a>
-                </li>
-              </ul>
+                        d="M15.69922,4c-1.9,0 -6.59961,0.19961 -9.09961,2.59961c-1.8,1.7 -2.49961,4.30039 -2.59961,7.40039c-0.2,4.9 0.89922,7.99961 2.69922,9.59961c0.4,0.3 1.40078,1.10117 3.30078,1.70117v2.5c0,0 -0.00039,0.99922 0.59961,1.19922c0.1,0 0.20078,0.09961 0.30078,0.09961c0.6,0 1.09883,-0.70039 1.79883,-1.40039c0.6,-0.7 1.10039,-1.19922 1.40039,-1.69922h1.40039h0.80078c1.9,0 6.59961,-0.19961 9.09961,-2.59961c1.8,-1.8 2.5,-4.40117 2.5,-7.70117c0.1,-0.5 0.09961,-1.09922 0.09961,-1.69922c-0.1,-3.7 -1.19922,-6.19961 -2.69922,-7.59961c-0.6,-0.5 -3.20078,-2.40039 -8.80078,-2.40039zM15.5,5.90039h0.69922h0.10156h0.09961c5.3,0 7.3,1.70039 7.5,1.90039c1.2,1 1.9,3.19961 2,6.09961v0.40039c0.1,0.6 0.09961,1.09844 0.09961,1.39844c-0.1,3 -0.70039,5.00078 -1.90039,6.30078c-2.1,1.9 -6.49922,2 -7.69922,2h-0.70117h-0.09961h-0.09961h-1l-1.59961,1.80078l-1,1.09961l-0.20117,0.29883c-0.2,0.2 -0.49922,0.60117 -0.69922,0.70117v-0.20117v-4.29883c-2,-0.5 -2.8,-1.20039 -3,-1.40039c-1.4,-1.2 -2.2,-4.1 -2,-8v-1c0.2,-2.4 0.80078,-3.99961 1.80078,-5.09961c2.1,-1.9 6.49922,-2 7.69922,-2zM15.40039,8.09961c-0.5,0 -0.5,0.70117 0,0.70117c3.7,0 6.90039,2.49922 6.90039,7.19922c0,0.5 0.69922,0.5 0.69922,0c0,-5.1 -3.39961,-8.00039 -7.59961,-7.90039zM11.4375,9.02539c-0.2125,-0.025 -0.43672,0.02383 -0.63672,0.17383c-1,0.5 -2.00117,1.50156 -1.70117,2.60156c0,0 0.20078,0.89883 1.30078,2.79883c0.6,0.9 1.09961,1.70078 1.59961,2.30078c0.5,0.7 1.29961,1.49961 2.09961,2.09961c1.6,1.3 4.10117,2.60039 5.20117,2.90039c1,0.3 2.09961,-0.70117 2.59961,-1.70117c0.2,-0.4 0.09922,-0.89922 -0.30078,-1.19922c-0.6,-0.6 -1.59883,-1.29922 -2.29883,-1.69922c-0.5,-0.3 -1.10078,-0.10078 -1.30078,0.19922l-0.5,0.59961c-0.2,0.3 -0.69922,0.30078 -0.69922,0.30078c-3.3,-0.9 -4.20117,-4.30078 -4.20117,-4.30078c0,0 0.00078,-0.39922 0.30078,-0.69922l0.59961,-0.5c0.3,-0.2 0.49922,-0.80078 0.19922,-1.30078c-0.2,-0.3 -0.49883,-0.89922 -0.79883,-1.19922c-0.3,-0.4 -0.90039,-1.09961 -0.90039,-1.09961c-0.15,-0.15 -0.35,-0.25039 -0.5625,-0.27539zM16.09961,10.09961c-0.5,-0.1 -0.59961,0.70117 -0.09961,0.70117c2.8,0.2 4.40078,2.1 4.30078,4.5c-0.1,0.5 0.69922,0.5 0.69922,0c0.1,-2.8 -1.70039,-5.10117 -4.90039,-5.20117zM16.40039,12c-0.5,-0.1 -0.5,0.69922 0,0.69922c1.2,0 1.79883,0.70039 1.79883,1.90039c0.1,0.5 0.80078,0.5 0.80078,0c-0.1,-1.6 -0.99961,-2.59961 -2.59961,-2.59961z"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+                <i class="fab fa-viber social-icon"></i>
+              </a>
             </li>
             <li>
-              <p>
-                Адреса: <br />
-                місто Запоріжжя,<br />
-                вул. Лисичанська, 20 <br />
-                (вул. Гончарова, 20)
-              </p>
+              <a
+                href="https://t.me/GBOStstion"
+                target="_blank"
+                class="social-btn telegram"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="30"
+                  height="30"
+                  viewBox="0,0,256,256"
+                  style="fill: #ffffff"
+                >
+                  <g
+                    fill="#ffffff"
+                    fill-rule="nonzero"
+                    stroke="none"
+                    stroke-width="1"
+                    stroke-linecap="butt"
+                    stroke-linejoin="miter"
+                    stroke-miterlimit="10"
+                    stroke-dasharray=""
+                    stroke-dashoffset="0"
+                    font-family="none"
+                    font-weight="none"
+                    font-size="none"
+                    text-anchor="none"
+                    style="mix-blend-mode: normal"
+                  >
+                    <g transform="scale(5.12,5.12)">
+                      <path
+                        d="M46.137,6.552c-0.75,-0.636 -1.928,-0.727 -3.146,-0.238h-0.002c-1.281,0.514 -36.261,15.518 -37.685,16.131c-0.259,0.09 -2.521,0.934 -2.288,2.814c0.208,1.695 2.026,2.397 2.248,2.478l8.893,3.045c0.59,1.964 2.765,9.21 3.246,10.758c0.3,0.965 0.789,2.233 1.646,2.494c0.752,0.29 1.5,0.025 1.984,-0.355l5.437,-5.043l8.777,6.845l0.209,0.125c0.596,0.264 1.167,0.396 1.712,0.396c0.421,0 0.825,-0.079 1.211,-0.237c1.315,-0.54 1.841,-1.793 1.896,-1.935l6.556,-34.077c0.4,-1.82 -0.156,-2.746 -0.694,-3.201zM22,32l-3,8l-3,-10l23,-17z"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+                <i class="fab fa-telegram social-icon"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/"
+                class="social-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                  width="30"
+                  height="30"
+                >
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    fill="#FFFFFF"
+                    d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/"
+                class="social-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                  width="30"
+                  height="30"
+                >
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    fill="#FFFFFF"
+                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.tiktok.com/@gbo.station"
+                class="social-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                  width="30"
+                  height="30"
+                >
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    fill="#FFFFFF"
+                    d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"
+                  />
+                </svg>
+              </a>
             </li>
           </ul>
         </div>
-        <div class="contacts-map">
-          <div>
-            <img
-              src="./src/img/sto-avto-gaz-zp.webp"
-              alt="СТО АВТО ГАЗ ЗП, як нас знайти"
-            />
-          </div>
-          <div>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d669.6007436815485!2d35.17261446962346!3d47.83178609849724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dc5d8296f934eb%3A0x6bfed4b8b32327e3!2sAvto%20Gaz!5e0!3m2!1sru!2sua!4v1760477967589!5m2!1sru!2sua&z=15"
-              width="600"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            >
-            </iframe>
-          </div>
+        <div class="footer-contacts">
+          <h3>Наші контакти:</h3>
+          <ul class="footer-contacts-list">
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="contact-icon"
+              >
+                <path
+                  fill="#FFFFFF"
+                  d="M17 1H7C5.9 1 5 1.9 5 3v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 19H7V4h10v16z"
+                />
+              </svg>
+              <a href="tel:+380979092678" class="phone-link">+380979092678</a>
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="contact-icon"
+              >
+                <path
+                  fill="#FFFFFF"
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+              <p>м. Львів, вул. Конюшинна 8а</p>
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="contact-icon"
+              >
+                <path
+                  fill="#FFFFFF"
+                  d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"
+                />
+              </svg>
+              <p>Пн-Пт 09:00-17:00</p>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d643.4199468596927!2d23.933522000589385!3d49.829683303018214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ae7768912798b%3A0xa00538e1cfc8a40f!2sHaz%20Na%20Avto!5e0!3m2!1sru!2sua!4v1763828193540!5m2!1sua!2sua"
+            width="auto"
+            height="auto"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </div>
     </footer>

@@ -1,0 +1,65 @@
+.gbo-station {
+    background-color: #121212;
+    min-height: 80vh;
+}
+
+.gbo-station h2 {
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+    color: #FFFFFF;
+}
+
+.gbo-station h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background-color: #E5252A;
+    border-radius: 2px;
+}
+
+.about-section h3 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.about-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+}
+
+.advantages-list {
+    list-style: none;
+    padding: 0;
+}
+
+.advantages-list li {
+    padding: 10px 0;
+    padding-left: 30px;
+    position: relative;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #FFFFFF;
+}
+
+.advantages-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #E5252A;
+    font-weight: bold;
+    font-size: 18px;
+}

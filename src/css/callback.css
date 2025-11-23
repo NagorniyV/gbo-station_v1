@@ -1,93 +1,209 @@
-.callback-container{
+.callback {
+    position: relative;
+    background-image: url(../img/callback-bg.webp);
+    min-height: 80vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
 }
 
-.callback-container > div:first-child{
-    width: 50%;
+.callback::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
 }
 
-.callback-title {
-    font-size: 36px;
-}
-
-.callback-title>span {
-    color: #1e90ff;
-}
-
-.discount-subtitle {
-    color: #2c3e50;
-    font-size: 18px;
-    margin-bottom: 30px;
-    font-weight: 500;
-}
-
-.form-group label {
-    display: block;
-}
-
-.form{
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 16px;
-    align-items: center;
-    margin: 24px 0px;
-}
-
-.phone-input {
-    padding: 12px 16px;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    background: white;
-    border: none;
-    border-bottom: 1px solid black;
-    margin: 12px 0px;
+.callback .container {
+    position: relative;
+    z-index: 2;
+    /* Важно! Чтобы контент был поверх затемнения */
     width: 100%;
-    box-sizing: border-box;
 }
 
-.phone-input:focus {
-    border-bottom: 1px solid #f81a37;
-    outline: none;
+.callback-header {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #FFFFFF;
+}
+
+.callback h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+    color: #FFFFFF;
+}
+
+.callback h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background-color: #E5252A;
+    border-radius: 2px;
+}
+
+.callback h3 {
+    font-size: 26px;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.callback-form {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .form-group {
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.form>div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #121212;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Обязательные поля */
+.form-label[for="phone"]::after {
+    content: '*';
+    color: #E5252A;
+    margin-left: 4px;
+}
+
+.form-input,
+.form-select {
     width: 100%;
+    padding: 14px 18px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+    font-family: inherit;
+    min-height: 50px;
+    color: #FFFFFF;
+    backdrop-filter: blur(10px);
 }
 
-/* .callback-btn {
-    margin-left: auto;
-    margin-right: 0px;
-} */
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(229, 37, 42, 0.1);
+}
 
-         /* .callback-btn{
-            width: 100%;
-        } */
+.form-input::placeholder {
+    color: #FFFFFF;
+    opacity: 1;
+}
 
+.form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23121212' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 12px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+}
 
-@media (max-width: 440px) {
-    .discount-subtitle {
-        font-size: 16px;
-        text-align: center;
+.form-select option {
+    background: rgba(255, 255, 255, 0.1);
+    color: #000;
+    padding: 10px;
+}
+
+/* Для браузеров на основе WebKit (Chrome, Safari) */
+.form-select option:hover,
+.form-select option:focus,
+.form-select option:checked {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.form-submit {
+    width: 100%;
+    background: linear-gradient(135deg, #E5252A, #F77A2D);
+    color: #FFFFFF;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-size: 200% 200%;
+    animation: gradientFlow 3s ease infinite;
+}
+
+.form-submit:hover {
+    animation: none;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(229, 37, 42, 0.4);
+}
+
+@keyframes gradientFlow {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
     }
 
-    .callback-container{
-        flex-direction: column-reverse;
-    }
-
-    .form{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .callback-title{
-        font-size: 32px;
-        text-align: center;
-    }
-
-    .phone-input{
-        font-size: 32px;
-        text-align: center;
+    50% {
+        background-position: 100% 50%;
     }
 }
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .callback-form {
+        padding: 30px 20px;
+        margin: 0 15px;
+    }
+
+    .callback-title {
+        font-size: 20px;
+    }
+
+    .form-input,
+    .form-select {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+}
+

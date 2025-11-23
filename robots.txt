@@ -19,4 +19,4 @@ Disallow: /package.json
 Allow: /src/img/       # Разрешить индексацию изображений для Google Images
 
 # ===== ССЫЛКА НА КАРТУ САЙТА =====
-Sitemap: https://alex-gaz.zp.ua/sitemap.xml
+Sitemap: 
