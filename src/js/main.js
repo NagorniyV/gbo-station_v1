@@ -153,3 +153,39 @@ function initExperienceAnimations() {
 
 // Запускаем при загрузке DOM
 document.addEventListener('DOMContentLoaded', initExperienceAnimations);
+
+// СБОР ТЕКСТА
+// Функция для проверки видимости элемента
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+        rect.bottom >= 0
+    );
+}
+
+// Функция для запуска анимаций
+function initAboutAnimations() {
+    const aboutSection = document.getElementById('gbo-station');
+    const elementsToAnimate = document.querySelectorAll('#about-title, .about-section h3, .animate-text, .animate-item');
+    let animated = false;
+
+    function checkAnimation() {
+        if (!animated && isElementInViewport(aboutSection)) {
+            animated = true;
+            
+            // Добавляем класс visible всем элементам с задержками
+            elementsToAnimate.forEach(element => {
+                element.classList.add('visible');
+            });
+        }
+    }
+
+    // Проверяем при загрузке и скролле
+    window.addEventListener('scroll', checkAnimation);
+    window.addEventListener('load', checkAnimation);
+    checkAnimation(); // Проверить сразу
+}
+
+// Запускаем при загрузке DOM
+document.addEventListener('DOMContentLoaded', initAboutAnimations);
