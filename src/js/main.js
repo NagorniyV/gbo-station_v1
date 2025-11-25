@@ -139,7 +139,7 @@ function initExperienceAnimations() {
             setTimeout(() => {
                 counters.forEach(counter => {
                     const target = parseInt(counter.getAttribute('data-target'));
-                    animateCounter(counter, target, 2000);
+                    animateCounter(counter, target, 1500);
                 });
             }, 1500);
         }
@@ -159,26 +159,25 @@ document.addEventListener('DOMContentLoaded', initExperienceAnimations);
 function isElementInViewport(el) {
     const rect = el.getBoundingClientRect();
     return (
-        rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
         rect.bottom >= 0
     );
 }
 
 // Функция для запуска анимаций
 function initAboutAnimations() {
-    const aboutSection = document.getElementById('gbo-station');
     const elementsToAnimate = document.querySelectorAll('#about-title, .about-section h3, .animate-text, .animate-item');
-    let animated = false;
-
+    
     function checkAnimation() {
-        if (!animated && isElementInViewport(aboutSection)) {
-            animated = true;
-            
-            // Добавляем класс visible всем элементам с задержками
-            elementsToAnimate.forEach(element => {
-                element.classList.add('visible');
-            });
-        }
+        elementsToAnimate.forEach(element => {
+            if (isElementInViewport(element) && !element.classList.contains('visible')) {
+                // Добавляем небольшую случайную задержку для естественности
+                const delay = Math.random() * 300 + 200; // 200-500ms
+                setTimeout(() => {
+                    element.classList.add('visible');
+                }, delay);
+            }
+        });
     }
 
     // Проверяем при загрузке и скролле

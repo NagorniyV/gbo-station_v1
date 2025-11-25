@@ -6,7 +6,7 @@
 .gbo-station h2 {
     font-size: 34px;
     font-weight: bold;
-    margin-bottom: 50px;
+    margin-bottom: 26px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     position: relative;
     display: inline-block;
@@ -34,7 +34,7 @@
 }
 
 .about-section h3 {
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
     color: #FFFFFF;
     margin-bottom: 20px;
@@ -43,6 +43,7 @@
     opacity: 0;
     transform: translateX(-30px);
     transition: opacity 0.8s ease, transform 0.8s ease;
+    margin-top: 16px;
 }
 
 .about-section h3.visible {
@@ -51,7 +52,7 @@
 }
 
 .animate-text {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.6;
     color: #FFFFFF;
     margin-bottom: 15px;
@@ -69,7 +70,7 @@
     padding: 10px 0;
     padding-left: 30px;
     position: relative;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.5;
     color: #FFFFFF;
     opacity: 0;

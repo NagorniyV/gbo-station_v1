@@ -1,7 +1,7 @@
 .experience {
     position: relative;
     background-image: url(../img/white-garage.webp);
-    min-height: 80vh;
+    min-height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -25,11 +25,11 @@
     width: 100%;
 }
 
-.experience-main{
+.experience-main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 150px;
+    margin-top: 20vh;
 }
 
 .main-title {
@@ -108,7 +108,7 @@
     color: #FFFFFF;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 70px;
 }
 
 .counter-item {
@@ -117,11 +117,11 @@
 
 .counter-text{
     font-size: 18px;
-    max-width: 180px; /* Ограничение по ширине */
-    word-wrap: break-word; /* Перенос длинных слов */
-    line-height: 1.3; /* Межстрочный интервал */
-    margin: 0 auto; /* Центрирование если нужно */
-    text-align: center; /* Выравнивание текста */
+    max-width: 180px; 
+    word-wrap: break-word; 
+    line-height: 1.3; 
+    margin: 0 auto; 
+    text-align: center; 
 }
 
 .counter {
