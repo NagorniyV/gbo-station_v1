@@ -731,6 +731,72 @@
           </div>
         </div>
       </section>
+      <section class="calculator-section">
+        <div class="container">
+          <h2>Калькулятор окупності ГБО</h2>
+          <div class="calculator">
+            <div class="input-group">
+              <label for="petrol-price">Ціна бензину (грн/літр)</label>
+              <input
+                type="number"
+                id="petrol-price"
+                value="62"
+                min="0"
+                step="0.1"
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="gas-price">Ціна газу (грн/літр)</label>
+              <input
+                type="number"
+                id="gas-price"
+                value="37"
+                min="0"
+                step="0.1"
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="monthly-mileage">Середній пробіг в місяць (км)</label>
+              <input
+                type="number"
+                id="monthly-mileage"
+                value="1000"
+                min="0"
+                step="10"
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="fuel-consumption"
+                >Витрата бензину на 100 км (л)</label
+              >
+              <input
+                type="number"
+                id="fuel-consumption"
+                value="12"
+                min="0"
+                step="0.1"
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="gbo-kit">Оберіть комплект</label>
+              <select id="gbo-kit">
+                <option value="13000">Акційний</option>
+                <option value="18000">Оптимальний</option>
+                <option value="25000">Преміум</option>
+              </select>
+            </div>
+
+            <div class="form-submit result">
+              <h3>Окупність</h3>
+              <div class="result-value" id="result">0 місяців</div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section id="callback" class="callback">
         <div class="container">
           <h2>Станція технічного обслуговування GBO STATION</h2>

@@ -30,7 +30,8 @@
     color: #FFFFFF;
 }
 
-.callback h2 {
+.callback h2,
+.calculator-section h2, .by-price {
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 50px;
@@ -41,7 +42,9 @@
     color: #FFFFFF;
 }
 
-.callback h2::after {
+.callback h2::after,
+.calculator-section h2::after,
+.by-price::after {
     content: '';
     position: absolute;
     bottom: 0;

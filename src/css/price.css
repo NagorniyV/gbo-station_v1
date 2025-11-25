@@ -2,12 +2,6 @@
     background-color: #121212;
 }
 
-.price-title {
-    text-align: center;
-    font-size: 42px;
-    margin-bottom: 30px
-}
-
 .price-content{
     color: #ffffff;
     width: 80%;
@@ -18,7 +12,7 @@
 
 .by-price {
     text-align: center;
-    font-size: 36px;
+    /* font-size: 36px; */
     margin: 20px auto;
     color: #ffffff;
 }
@@ -59,7 +53,6 @@
 }
 
 .card-price {
-    /* min-width: 300px; */
     background: linear-gradient(to bottom, #005BBB 0%, #66b3ff 25%, #FFFFFF 45%, #FFFFFF 55%, #ffeb99 75%, #FFD500 100%);
     border-radius: 15px;
     padding: 14px;

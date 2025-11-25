@@ -188,3 +188,59 @@ function initAboutAnimations() {
 
 // Запускаем при загрузке DOM
 document.addEventListener('DOMContentLoaded', initAboutAnimations);
+
+  // Функция для расчета окупаемости
+        function calculatePayback() {
+            // Получаем значения из полей ввода
+            const petrolPrice = parseFloat(document.getElementById('petrol-price').value);
+            const gasPrice = parseFloat(document.getElementById('gas-price').value);
+            const monthlyMileage = parseFloat(document.getElementById('monthly-mileage').value);
+            const fuelConsumption = parseFloat(document.getElementById('fuel-consumption').value);
+            const gboKitPrice = parseFloat(document.getElementById('gbo-kit').value);
+            
+            // Проверяем корректность введенных данных
+            if (isNaN(petrolPrice) || isNaN(gasPrice) || isNaN(monthlyMileage) || 
+                isNaN(fuelConsumption) || isNaN(gboKitPrice) || 
+                petrolPrice <= 0 || gasPrice <= 0 || monthlyMileage <= 0 || 
+                fuelConsumption <= 0 || gboKitPrice <= 0) {
+                document.getElementById('result').textContent = 'Введіть коректні дані';
+                return;
+            }
+            
+            // Рассчитываем расход топлива в месяц
+            const monthlyFuelConsumption = (monthlyMileage / 100) * fuelConsumption;
+            
+            // Рассчитываем стоимость топлива в месяц
+            const monthlyPetrolCost = monthlyFuelConsumption * petrolPrice;
+            const monthlyGasCost = monthlyFuelConsumption * gasPrice;
+            
+            // Рассчитываем экономию в месяц
+            const monthlySavings = monthlyPetrolCost - monthlyGasCost;
+            
+            // Рассчитываем окупаемость (в месяцах)
+            if (monthlySavings <= 0) {
+                document.getElementById('result').textContent = 'Не окупиться';
+                return;
+            }
+            
+            const paybackMonths = gboKitPrice / monthlySavings;
+            
+            // Отображаем результат
+            if (paybackMonths < 1) {
+                document.getElementById('result').textContent = 'Менше 1 місяця';
+            } else if (paybackMonths > 120) { // 10 лет
+                document.getElementById('result').textContent = 'Більше 10 років';
+            } else {
+                document.getElementById('result').textContent = Math.ceil(paybackMonths) + ' місяців';
+            }
+        }
+        
+        // Добавляем обработчики событий для всех полей ввода
+        document.getElementById('petrol-price').addEventListener('input', calculatePayback);
+        document.getElementById('gas-price').addEventListener('input', calculatePayback);
+        document.getElementById('monthly-mileage').addEventListener('input', calculatePayback);
+        document.getElementById('fuel-consumption').addEventListener('input', calculatePayback);
+        document.getElementById('gbo-kit').addEventListener('change', calculatePayback);
+        
+        // Выполняем первоначальный расчет
+        calculatePayback();
