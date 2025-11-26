@@ -1,4 +1,4 @@
-.callback {
+.callback, .faq {
     position: relative;
     background-image: url(../img/callback-bg.webp);
     min-height: 80vh;
@@ -7,7 +7,7 @@
     background-position: center;
 }
 
-.callback::before {
+.callback::before, .faq::before {
     content: '';
     position: absolute;
     top: 0;
@@ -18,7 +18,7 @@
     backdrop-filter: blur(5px);
 }
 
-.callback .container {
+.callback .container, .faq .container {
     position: relative;
     z-index: 2;
     width: 100%;
@@ -30,7 +30,7 @@
     color: #FFFFFF;
 }
 
-.callback h2,
+.callback h2, .faq-title, .pro-nas h2,
 .calculator-section h2, .by-price {
     font-size: 22px;
     font-weight: bold;
@@ -42,7 +42,7 @@
     color: #FFFFFF;
 }
 
-.callback h2::after,
+.callback h2::after, .faq-title::after, .pro-nas h2::after,
 .calculator-section h2::after,
 .by-price::after {
     content: '';

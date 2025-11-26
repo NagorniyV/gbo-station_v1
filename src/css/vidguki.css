@@ -1,0 +1,97 @@
+.vidguki {
+    background-color: #121212;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.review-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e8ecef;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.review-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.review-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e5252a;
+}
+
+.review-info {
+    flex: 1;
+}
+
+.review-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #121212;
+    margin: 0 0 5px 0;
+}
+
+.review-date {
+    font-size: 12px;
+    color: #666;
+}
+
+.review-rating {
+    font-size: 18px;
+    color: #ffc107;
+    white-space: nowrap;
+}
+
+.review-text {
+    color: #333;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.review-text p {
+    margin: 0;
+}
+
+.review-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #E5252A;
+    flex-shrink: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .reviews-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .reviews-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .reviews {
+        padding: 50px 0;
+    }
+}

@@ -1,0 +1,155 @@
+.pro-nas {
+    background-color: #121212;
+}
+
+.seo-block {
+    margin-bottom: 50px;
+}
+
+.pro-nas p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+/* Стили для преимуществ */
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.advantage-item {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.advantage-item h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #121212;
+    margin-bottom: 10px;
+}
+
+.advantage-item p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+    margin: 0;
+}
+
+/* Стили для брендов */
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.brand-item {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    border: 1px solid #e8ecef;
+}
+
+.brand-item h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #E5252A;
+    margin-bottom: 10px;
+}
+
+.brand-item p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+    margin: 0;
+}
+
+/* Стили для причин */
+.reasons-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.reason-item {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.reason-item h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #121212;
+    margin-bottom: 10px;
+}
+
+.reason-item p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666;
+    margin: 0;
+}
+
+/* CTA блок */
+.cta-block {
+    background: linear-gradient(135deg, #E5252A 0%, #F77A2D 100%);
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 40px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.cta-block p {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.seo-cta-button {
+    display: inline-block;
+    background: #ffffff;
+    color: #E5252A;
+    padding: 12px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.seo-cta-button:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+
+    .advantages-grid,
+    .brands-grid,
+    .reasons-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .seo-block h2 {
+        font-size: 28px;
+    }
+
+    .seo-content p {
+        font-size: 16px;
+    }
+}
