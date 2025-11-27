@@ -31,28 +31,6 @@
     font-size: 48px;
 }
 
-/* .hero-submit {
-    background: linear-gradient(135deg, #E5252A, #F77A2D);
-    color: #FFFFFF;
-    padding: 14px 28px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background-size: 200% 200%;
-    animation: gradientFlow 3s ease infinite;
-}
-
-.hero-submit:hover {
-    animation: none;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(229, 37, 42, 0.4);
-} */
-
 @keyframes gradientFlow {
 
     0%,

@@ -26,7 +26,6 @@
 
 .callback-header {
     text-align: center;
-    margin-bottom: 50px;
     color: #FFFFFF;
 }
 
@@ -63,7 +62,7 @@
 }
 
 .callback-form {
-    max-width: 900px;
+    width: 100%;;
     margin: 0 auto;
     padding: 40px;
     border-radius: 10px;

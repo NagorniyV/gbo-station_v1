@@ -106,6 +106,18 @@
         grid-template-columns: 1fr;
         gap: 10px;
     }
+
+    .gbo-station h2{
+        font-size: 28px;
+    }
+
+    .about-section h3{
+        font-size: 24px;
+    }
+
+    .animate-text{
+        font-size: 18px;
+    }
 }
 
 /* Задержки для последовательной анимации */

@@ -132,3 +132,54 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+@media (max-width: 768px){
+    .our-experience {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 50px;
+    }
+
+    .main-title{
+        font-size: 28px;
+        margin-top: 40px;
+        margin-left: 20px;
+    }
+
+    .experience-main {
+        margin-top: 10vh;
+        font-size: 36px;
+        margin-left: 20px;
+    }
+
+    .sub-title-experience{
+        margin-bottom: 20px;
+    }
+
+    .counter{
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 480px){
+    .main-title{
+        font-size: 22px;
+        margin-top: 40px;
+    }
+
+    .experience h2{
+        font-size: 32px;
+    }
+
+    .experience-main {
+         margin-top: 10vh;
+    }
+
+    .our-experience {
+        gap: 30px;
+    }
+
+    .counter{
+        font-size: 48px;
+    }
+}
