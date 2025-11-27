@@ -1,22 +1,51 @@
 User-agent: *
 Allow: /
-Crawl-delay: 1
+Allow: /src/
+Allow: /src/css/
+Allow: /src/js/
+Allow: /src/img/
 
-# ===== ЗАПРЕТ СЛЕЖЕБНЫХ ПАПОК =====
-Disallow: /src/        # Исходные файлы (кроме изображений)
-Disallow: /admin/      # Админ-панель
-Disallow: /cgi-bin/    # CGI скрипты
-Disallow: /includes/   # Включаемые файлы
-Disallow: /tmp/        # Временные файлы
-Disallow: /private/    # Приватные данные
-Disallow: /node_modules/
-Disallow: /backup/
-Disallow: /.htaccess
-Disallow: /.env
-Disallow: /package.json
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
 
-# ===== РАЗРЕШЕНИЯ ДЛЯ ПОИСКА =====
-Allow: /src/img/       # Разрешить индексацию изображений для Google Images
+# Главные страницы
+Allow: /index.html
+Allow: /vstanovlenja-gbo.html
+Allow: /vstanovlenya-linz.html
 
-# ===== ССЫЛКА НА КАРТУ САЙТА =====
-Sitemap: 
+# Sitemap
+Sitemap: https://gbo-station.lviv.ua/sitemap.xml
+
+# Crawl delay (опционально, если будет большая нагрузка)
+# Crawl-delay: 1
+
+# Директивы для поисковых систем
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+
+User-agent: YandexBot
+Allow: /
+Disallow: /admin/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+
+# Запрет для агрессивных ботов
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
