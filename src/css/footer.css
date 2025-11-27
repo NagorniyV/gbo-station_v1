@@ -1,4 +1,4 @@
-.footer > .container{
+.footer{
     background-color: #121212;
 }
 
@@ -17,7 +17,6 @@
 .footer-social,
 .footer-contacts {
     border-right: 1px solid #FFFFFF;
-    /* Красный разделитель */
 }
 
 .footer-map {
@@ -41,11 +40,6 @@
     color: #FFFFFF;
     margin-bottom: 24px;
     font-size: 20px;
-}
-
-.footer-contacts-list svg.contact-icon {
-    width: 20px;
-    height: 20px;
 }
 
 .footer-contacts-list {
@@ -80,3 +74,35 @@
     cursor: pointer;
     font-size: inherit;
 }
+
+  @media (max-width: 768px) {
+    .footer .container {
+       flex-direction: column;
+    }
+
+    .footer-social,
+    .footer-contacts {
+        border-right: none;
+        border-bottom: 1px solid #FFFFFF;
+    }
+
+    .footer-social,
+    .footer-contacts,
+    .footer-map {
+        padding: 40px 60px;
+    }
+
+        .footer-map {
+        padding-bottom: 20px;
+    }
+
+  }
+
+  @media (max-width: 480px) {
+            .footer-contacts{
+            margin-left: 0px;
+        }
+            .footer-map {
+        padding: 40px 60px;
+    }
+  }

@@ -271,3 +271,105 @@ document.addEventListener('DOMContentLoaded', function() {
             faqItems[0].classList.add('active');
         }
     });
+
+
+// БУРГЕР КНОПКА
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const burgerMenu = document.getElementById('burgerMenu');
+            const header = document.getElementById('header');
+            const overlay = document.getElementById('overlay');
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            
+            // Открытие/закрытие меню на мобильных
+            burgerMenu.addEventListener('click', function() {
+                this.classList.toggle('active');
+                header.classList.toggle('active');
+                overlay.classList.toggle('active');
+                document.body.style.overflow = header.classList.contains('active') ? 'hidden' : '';
+            });
+            
+            // Закрытие меню при клике на оверлей
+            overlay.addEventListener('click', function() {
+                burgerMenu.classList.remove('active');
+                header.classList.remove('active');
+                this.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            // Обработка выпадающих меню на мобильных
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        const dropdown = this.parentElement;
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // Закрытие меню при клике вне его области
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768 && 
+                    !header.contains(e.target) && 
+                    !burgerMenu.contains(e.target) && 
+                    header.classList.contains('active')) {
+                    burgerMenu.classList.remove('active');
+                    header.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Закрытие выпадающих меню при изменении размера окна
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    burgerMenu.classList.remove('active');
+                    header.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                    
+                    // Сброс активных выпадающих меню
+                    document.querySelectorAll('.dropdown').forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            });
+        });
+
+// ПЛАВНЫЙ СКРОЛ
+
+// Плавная прокрутка для всех якорных ссылок включая #callback
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-item a[href^="#"]');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const href = this.getAttribute('href');
+            const targetElement = document.querySelector(href);
+            
+            if (targetElement) {
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Закрываем меню на мобильных
+                if (window.innerWidth <= 768) {
+                    const burgerMenu = document.getElementById('burgerMenu');
+                    const header = document.getElementById('header');
+                    const overlay = document.getElementById('overlay');
+                    
+                    burgerMenu?.classList.remove('active');
+                    header?.classList.remove('active');
+                    overlay?.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+    });
+});

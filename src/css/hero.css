@@ -28,11 +28,10 @@
 .hero h1{
     margin-top: 35vh;
     color: #FFFFFF;
-    margin-bottom: 50px;
     font-size: 48px;
 }
 
-.hero-submit {
+/* .hero-submit {
     background: linear-gradient(135deg, #E5252A, #F77A2D);
     color: #FFFFFF;
     padding: 14px 28px;
@@ -52,7 +51,7 @@
     animation: none;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(229, 37, 42, 0.4);
-}
+} */
 
 @keyframes gradientFlow {
 
@@ -65,3 +64,18 @@
         background-position: 100% 50%;
     }
 }
+
+  @media (max-width: 768px) {
+    .hero h1 {
+        font-size: 36px;
+        max-width: 80%;
+    }
+
+    .hero .container {
+    margin-left: 30px;
+    }
+  }
+
+  @media (max-width: 480px) {
+
+  }
