@@ -334,6 +334,10 @@
       .dropdown.active .dropdown-toggle::after {
           transform: rotate(180deg);
       }
+
+    .dropdown-menu a:hover {
+        width: 100%;
+    }
   }
 
   /* Адаптация для очень маленьких экранов */

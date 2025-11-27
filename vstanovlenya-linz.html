@@ -102,19 +102,30 @@
     </script>
   </head>
   <body>
-    <header class="header">
+    <!-- Бургер-меню -->
+    <div class="burger-menu" id="burgerMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Оверлей -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Хедер -->
+    <header class="header" id="header">
       <div class="container">
-        <a href="./index.html" class="logo"
-          ><span class="logo-span">GBO </span><br />
-          STATION</a
-        >
+        <a href="./index.html" class="logo">
+          <span class="logo-span">GBO </span>STATION
+        </a>
         <nav class="nav">
           <ul class="nav-list">
             <li class="nav-item dropdown">
-              <a href="#services" class="dropdown-toggle"
-                ><img src="./src/img/uslugi.png" alt="" />Послуги</a
-              >
+              <a href="#services" class="dropdown-toggle">
+                <img src="./src/img/uslugi.png" alt="Послуги" />Послуги
+              </a>
               <ul class="dropdown-menu">
+                <li><a href="./index.html">Головна</a></li>
                 <li><a href="./vstanovlenja-gbo.html">Встановлення ГБО</a></li>
                 <li>
                   <a href="./vstanovlenya-linz.html">Встановлення LED лінз</a>
@@ -122,20 +133,38 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a href="#gbo-station"
-                ><img src="./src/img/o-nas.png" alt="gbo-station" />Про нас</a
-              >
+              <a href="#pro-nas">
+                <img src="./src/img/o-nas.png" alt="Про нас" />Про нас
+              </a>
             </li>
             <li class="nav-item">
-              <a href="#callback"
-                ><img src="./src/img/phone.png" alt="callback" />Заявка на
-                дзвінок</a
-              >
+              <a href="#price-section">
+                <img src="./src/img/price.png" alt="Прайс" />Прайс
+              </a>
             </li>
             <li class="nav-item">
-              <a href="#footer"
-                ><img src="./src/img/geo.png" alt="footer" />Як нас знайти</a
-              >
+              <a href="#calculator-section">
+                <img
+                  src="./src/img/calc.png"
+                  alt="Калькулятор окупності"
+                />Калькулятор окупності
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#vidguki">
+                <img src="./src/img/vidguki.png" alt="Відгуки" />Відгуки
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#callback">
+                <img src="./src/img/phone.png" alt="Заявка на дзвінок" />Заявка
+                на дзвінок
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#footer">
+                <img src="./src/img/geo.png" alt="Як нас знайти" />Як нас знайти
+              </a>
             </li>
           </ul>
         </nav>
@@ -147,7 +176,6 @@
           <h1 id="animated-title" class="main-title">
             Встановлення Bi-LED лінз у Львові
           </h1>
-          <button type="submit" class="hero-submit">НАДІСЛАТИ</button>
         </div>
       </section>
       <section id="callback" class="callback">
@@ -365,6 +393,19 @@
                 />
               </svg>
               <a href="tel:+380979092678" class="phone-link">+380979092678</a>
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="contact-icon"
+              >
+                <path
+                  fill="#FFFFFF"
+                  d="M17 1H7C5.9 1 5 1.9 5 3v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 19H7V4h10v16z"
+                />
+              </svg>
+              <a href="tel:+380938000360" class="phone-link">+380938000360</a>
             </li>
             <li>
               <svg
