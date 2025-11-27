@@ -109,20 +109,21 @@
 
     .gbo-station h2{
         font-size: 28px;
-        margin-left: 10px;
+        /* margin-left: 10px; */
     }
 
     .about-section h3{
         font-size: 24px;
+        padding-left: 0px;
     }
 
     .animate-text{
         font-size: 18px;
     }
 
-    .gbo-station .container{
-        padding-left: 60px;
-        padding-right: 40px;
+    .about-content{
+        margin-left: 40px;
+        margin-right: 20px;
     }
 }
 
