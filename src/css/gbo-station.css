@@ -109,6 +109,7 @@
 
     .gbo-station h2{
         font-size: 28px;
+        margin-left: 10px;
     }
 
     .about-section h3{
@@ -117,6 +118,11 @@
 
     .animate-text{
         font-size: 18px;
+    }
+
+    .gbo-station .container{
+        padding-left: 60px;
+        padding-right: 40px;
     }
 }
 
@@ -173,3 +179,4 @@
 .animate-item:nth-child(7) {
     transition-delay: 1.3s;
 }
+

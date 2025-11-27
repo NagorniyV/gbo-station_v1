@@ -145,7 +145,11 @@
     .by-price {
         margin-top: 30px;
         font-size: 28px;
-    }        
+    }       
+    
+    .price-container{
+        margin-left: 15px;
+    }
 }
 
 @media (max-width: 480px) {

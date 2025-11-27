@@ -83,3 +83,6 @@ select option {
     font-weight: bold;
     color: #FFFFFF;
 }
+
+@media (max-width: 768px){
+}

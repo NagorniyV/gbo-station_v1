@@ -9,7 +9,6 @@
     gap: 20px;
     max-width: 70%;
     margin: 0px auto;
-
 }
 
 .faq-item {
@@ -75,6 +74,7 @@
     .faq-container {
         flex-direction: column;
         gap: 15px;
+        margin-left: 30px;
     }
 
     .faq-section h2 {
@@ -88,5 +88,9 @@
 
     .faq-section h2 {
         font-size: 36px;
+    }
+
+    .faq-column {
+        max-width: none;
     }
 }

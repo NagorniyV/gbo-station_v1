@@ -1,6 +1,47 @@
 // ОБЪЕДИНЕННЫЙ ФАЙЛ JS - ВСЕ ФУНКЦИИ В ОДНОМ DOMContentLoaded
 
 document.addEventListener('DOMContentLoaded', function() {
+    // ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ==========
+    
+    // Функция для проверки видимости элемента в viewport
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+            rect.bottom >= 0
+        );
+    }
+
+    // ========== АНИМАЦИЯ ПЕРВОГО SEO БЛОКА ==========
+    function initFirstSEOAnimation() {
+        const firstSeoBlock = document.querySelector('.seo-block:first-child');
+        if (!firstSeoBlock) {
+            console.log('❌ Первый SEO блок не найден');
+            return;
+        }
+        
+        const elementsToAnimate = firstSeoBlock.querySelectorAll('h2, .seo-content p');
+        
+        if (elementsToAnimate.length === 0) {
+            console.log('❌ Элементы для анимации в первом SEO блоке не найдены');
+            return;
+        }
+        
+        function checkAnimation() {
+            elementsToAnimate.forEach(element => {
+                if (isElementInViewport(element) && !element.classList.contains('visible')) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkAnimation);
+        window.addEventListener('load', checkAnimation);
+        checkAnimation();
+        
+        console.log('✅ Анимация первого SEO блока инициализирована');
+    }
+
     // ========== БУРГЕР-МЕНЮ И НАВИГАЦИЯ ==========
     function initBurgerMenu() {
         const burgerMenu = document.getElementById('burgerMenu');
@@ -402,20 +443,10 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('✅ FAQ инициализирован');
     }
 
-    // ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ==========
-    
-    // Функция для проверки видимости элемента в viewport
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
-            rect.bottom >= 0
-        );
-    }
-
     // ========== ЗАПУСК ВСЕХ ИНИЦИАЛИЗАЦИЙ ==========
     
     // Запускаем все функции инициализации
+    initFirstSEOAnimation(); // ДОБАВЬ ЭТУ СТРОЧКУ ВНУТРЬ DOMContentLoaded
     initBurgerMenu();
     initSmoothScroll();
     initHeroAnimation();
