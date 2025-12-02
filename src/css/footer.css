@@ -106,3 +106,145 @@
         padding: 40px 60px;
     }
   }
+
+/* Липкие кнопки */
+.sticky-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-end;
+}
+
+.sticky-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #E5252A, #F77A2D);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(229, 37, 42, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    background-size: 200% 200%;
+    animation: gradientFlow 3s ease infinite;
+}
+
+.sticky-button:hover {
+    animation: none;
+    background-position: 100% 50%;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(229, 37, 42, 0.4);
+}
+
+.sticky-button:active {
+    transform: translateY(-1px);
+}
+
+/* Стили для кнопки телефона */
+.phone-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.phone-panel {
+    position: absolute;
+    right: 70px;
+    background-color: #E5252A;
+    border-radius: 12px;
+    padding: 10px 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(20px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-width: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.phone-panel.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.sticky-phone-link {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 5px;
+    transition: color 0.2s;
+}
+
+/* Кнопка прокрутки вверх */
+.scroll-top-button {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-top-button.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .sticky-buttons {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .sticky-button {
+        width: 55px;
+        height: 55px;
+    }
+
+    .phone-panel {
+        right: 65px;
+        min-width: 180px;
+        padding: 12px 16px;
+    }
+
+    .phone-link {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sticky-buttons {
+        bottom: 10px;
+        right: 10px;
+        gap: 10px;
+    }
+
+    .sticky-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .phone-panel {
+        right: 60px;
+        min-width: 160px;
+        padding: 10px 14px;
+    }
+
+    .phone-link {
+        font-size: 14px;
+    }
+
+    .phone-call-text {
+        font-size: 12px;
+    }
+}

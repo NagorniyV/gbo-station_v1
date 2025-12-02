@@ -149,16 +149,26 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('✅ Плавная прокрутка инициализирована');
     }
 
-    // ========== АНИМАЦИЯ ЗАГОЛОВКА ХИРО ==========
-    function initHeroAnimation() {
-        setTimeout(function() {
-            const animatedTitle = document.getElementById('animated-title');
-            if (animatedTitle) {
-                animatedTitle.classList.add('visible');
-                console.log('✅ Анимация хиро активирована');
-            }
-        }, 1000);
-    }
+// ========== АНИМАЦИЯ ЗАГОЛОВКА ХИРО ==========
+function initHeroAnimation() {
+    setTimeout(function() {
+        const animatedTitle = document.getElementById('animated-title');
+        const animatedSubtitle = document.getElementById('animated-subtitle');
+        
+        if (animatedTitle) {
+            animatedTitle.classList.add('visible');
+            console.log('✅ Анимация заголовка активирована');
+            
+            // Ждем завершения анимации заголовка, затем показываем субтитл
+            setTimeout(() => {
+                if (animatedSubtitle) {
+                    animatedSubtitle.classList.add('visible');
+                    console.log('✅ Анимация субтитра активирована');
+                }
+            }, 500); // Задержка 500ms (соответствует CSS задержке)
+        }
+    }, 1000); // Общая задержка для начала анимации
+}
 
     // ========== ОТПРАВКА ФОРМЫ В TELEGRAM ==========
     function initTelegramForm() {
@@ -443,6 +453,74 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('✅ FAQ инициализирован');
     }
 
+    // ========== ЛИПКИЕ КНОПКИ ==========
+function initStickyButtons() {
+    const phoneButton = document.getElementById('phoneButton');
+    const phonePanel = document.getElementById('phonePanel');
+    const scrollTopButton = document.getElementById('scrollTopButton');
+    
+    if (!phoneButton || !scrollTopButton) {
+        console.log('❌ Липкие кнопки не найдены');
+        return;
+    }
+    
+    // Обработка кнопки телефона
+    phoneButton.addEventListener('click', function() {
+        phonePanel.classList.toggle('active');
+        
+        // Закрываем панель при клике вне ее
+        if (phonePanel.classList.contains('active')) {
+            setTimeout(() => {
+                document.addEventListener('click', closePhonePanelOnClickOutside);
+            }, 10);
+        } else {
+            document.removeEventListener('click', closePhonePanelOnClickOutside);
+        }
+    });
+    
+    // Функция для закрытия панели телефона при клике вне ее
+    function closePhonePanelOnClickOutside(e) {
+        if (!phonePanel.contains(e.target) && !phoneButton.contains(e.target)) {
+            phonePanel.classList.remove('active');
+            document.removeEventListener('click', closePhonePanelOnClickOutside);
+        }
+    }
+    
+    // Обработка кнопки прокрутки вверх
+    scrollTopButton.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Показывать/скрывать кнопку прокрутки вверх при скролле
+    function toggleScrollTopButton() {
+        if (window.pageYOffset > 300) {
+            scrollTopButton.classList.add('visible');
+        } else {
+            scrollTopButton.classList.remove('visible');
+        }
+    }
+    
+    // Закрывать панель телефона при скролле
+    function closePhonePanelOnScroll() {
+        if (phonePanel.classList.contains('active')) {
+            phonePanel.classList.remove('active');
+            document.removeEventListener('click', closePhonePanelOnClickOutside);
+        }
+    }
+    
+    // Начальное состояние и обработчики событий
+    toggleScrollTopButton();
+    window.addEventListener('scroll', function() {
+        toggleScrollTopButton();
+        closePhonePanelOnScroll();
+    });
+    
+    console.log('✅ Липкие кнопки инициализированы');
+}
+
     // ========== ЗАПУСК ВСЕХ ИНИЦИАЛИЗАЦИЙ ==========
     
     // Запускаем все функции инициализации
@@ -455,6 +533,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initAboutAnimations();
     initCalculator();
     initFAQ();
+    initStickyButtons();
     
     console.log('✅ Все модули JavaScript инициализированы');
 });
