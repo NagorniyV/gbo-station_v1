@@ -1,6 +1,6 @@
 .callback, .faq {
     position: relative;
-    background-image: url(../img/callback-bg.webp);
+    background-image: url(../img/bg/callback.webp);
     min-height: 80vh;
     background-repeat: no-repeat;
     background-size: cover;
@@ -14,7 +14,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
 }
 
