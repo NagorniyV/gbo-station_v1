@@ -14,10 +14,17 @@
 .faq-item {
     border-radius: 12px;
     overflow: hidden;
-    background: #FFFFFF; /* Добавляем белый фон для всего элемента */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Тень для объема */
-    border: 1px solid #e0e0e0; /* Граница для четкости */
-    transition: all 0.3s ease;
+    background: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    /* CSS Grid для стабильной анимации */
+    display: grid;
+    grid-template-rows: auto 0fr;
+    transition: grid-template-rows 0.4s ease;
+}
+
+.faq-item.active {
+    grid-template-rows: auto 1fr;
 }
 
 .faq-question {
@@ -28,16 +35,41 @@
     cursor: pointer;
     font-weight: 600;
     font-size: 1.1rem;
+    min-height: 70px;
+    box-sizing: border-box;
+    /* ВОЗВРАЩАЕМ ОРИГИНАЛЬНЫЙ ГРАДИЕНТ */
     background: linear-gradient(to right, #005BBB 0%, #66b3ff 25%, #FFFFFF 45%, #FFFFFF 55%, #ffeb99 75%, #FFD500 100%);
+    /* Фиксируем градиент на одном месте */
+    background-attachment: local;
+    background-size: 100% 100%;
+    position: relative;
 }
 
-.faq-question:hover {
+/* Псевдоэлемент для градиента при наведении */
+.faq-question::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: linear-gradient(to right, #005BBB 0%, #66b3ff 40%, #FFFFFF 60%, #FFFFFF 70%, #ffeb99 85%, #FFD500 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.faq-question:hover::before {
+    opacity: 1;
 }
 
 .faq-question span {
     color: #121212;
-    transition: color 0.3s ease;
+    display: block;
+    flex: 1;
+    padding-right: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .faq-icon {
@@ -45,25 +77,26 @@
     font-weight: 300;
     transition: transform 0.3s ease;
     color: #121212;
+    flex-shrink: 0;
+    width: 24px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .faq-answer {
     padding: 0 20px;
-    max-height: 0;
     overflow: hidden;
-    transition: all 0.3s ease;
     background-color: #f6f8fa;
+    box-sizing: border-box;
 }
 
 .faq-answer p {
-    margin-top: 12px;
-    padding: 0 0 20px 0;
+    margin: 0;
+    padding: 20px 0;
     line-height: 1.6;
     opacity: 0.9;
-}
-
-.faq-item.active .faq-answer {
-    max-height: 300px;
+    box-sizing: border-box;
 }
 
 .faq-item.active .faq-icon {
@@ -84,6 +117,7 @@
     .faq-question {
         padding: 15px;
         font-size: 1rem;
+        min-height: 60px;
     }
 
     .faq-section h2 {
@@ -92,5 +126,9 @@
 
     .faq-column {
         max-width: none;
+    }
+
+    .faq-question span {
+        padding-right: 15px;
     }
 }
