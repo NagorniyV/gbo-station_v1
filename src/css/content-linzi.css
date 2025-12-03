@@ -52,6 +52,7 @@
     align-items: flex-start;
     gap: 24px;
     margin-bottom: 24px;
+    justify-content: center;
 }
 
 .content-text {
@@ -66,8 +67,8 @@
 }
 
 .content-image {
-    flex: 0 0 55%;
-    max-width: 55%;
+    flex: 0 0 40%;
+    max-width: 40%;
 }
 
 /* Галерея внутри блока */

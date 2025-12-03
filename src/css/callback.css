@@ -30,7 +30,7 @@
 }
 
 .callback h2, .faq-title, .pro-nas h2,
-.calculator-section h2, .by-price {
+.calculator-section h2, .by-price, .price-title {
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 50px;
@@ -43,7 +43,8 @@
 
 .callback h2::after, .faq-title::after, .pro-nas h2::after,
 .calculator-section h2::after,
-.by-price::after {
+.by-price::after,
+.price-title::after {
     content: '';
     position: absolute;
     bottom: 0;
