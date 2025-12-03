@@ -519,6 +519,154 @@ function initStickyButtons() {
     });
     
     console.log('✅ Липкие кнопки инициализированы');
+    }
+    
+    // ========== ГАЛЕРЕЯ С МОДАЛЬНЫМ ОКНОМ ==========
+function initGallery() {
+    const galleryModal = document.getElementById('galleryModal');
+    const modalClose = document.getElementById('modalClose');
+    const modalPrev = document.getElementById('modalPrev');
+    const modalNext = document.getElementById('modalNext');
+    const modalImage = document.getElementById('modalImage');
+    const imageCounter = document.getElementById('imageCounter');
+    const modalThumbnails = document.getElementById('modalThumbnails');
+    
+    let currentGallery = null;
+    let currentIndex = 0;
+    let currentImages = [];
+    
+    // Собираем все изображения галереи на странице
+    const galleryImages = document.querySelectorAll('.gallery-container img');
+    
+    if (galleryImages.length === 0) {
+        console.log('❌ Изображения галереи не найдены');
+        return;
+    }
+    
+    // Обработчик клика по изображению
+    galleryImages.forEach((img, index) => {
+        img.addEventListener('click', function() {
+            const galleryContainer = this.closest('.gallery-container');
+            const images = Array.from(galleryContainer.querySelectorAll('img'));
+            
+            currentGallery = galleryContainer;
+            currentImages = images;
+            currentIndex = images.indexOf(this);
+            
+            openGallery(currentImages, currentIndex);
+        });
+    });
+    
+    // Функция открытия галереи
+    function openGallery(images, startIndex) {
+        currentImages = images;
+        currentIndex = startIndex;
+        
+        updateModalImage();
+        updateModalThumbnails();
+        galleryModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        console.log(`✅ Галерея открыта: ${images.length} изображений`);
+    }
+    
+    // Функция закрытия галереи
+    function closeGallery() {
+        galleryModal.classList.remove('active');
+        document.body.style.overflow = '';
+        currentGallery = null;
+        currentImages = [];
+    }
+    
+    // Обновление основного изображения в модальном окне
+    function updateModalImage() {
+        if (currentImages.length === 0) return;
+        
+        const img = currentImages[currentIndex];
+        modalImage.src = img.src;
+        modalImage.alt = img.alt;
+        imageCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+        
+        // Обновляем активную миниатюру
+        document.querySelectorAll('.modal-thumbnails img').forEach((thumb, index) => {
+            thumb.classList.toggle('active', index === currentIndex);
+        });
+    }
+    
+    // Обновление миниатюр в модальном окне
+    function updateModalThumbnails() {
+        modalThumbnails.innerHTML = '';
+        
+        currentImages.forEach((img, index) => {
+            const thumbnail = document.createElement('img');
+            thumbnail.src = img.src;
+            thumbnail.alt = img.alt;
+            thumbnail.dataset.index = index;
+            
+            if (index === currentIndex) {
+                thumbnail.classList.add('active');
+            }
+            
+            thumbnail.addEventListener('click', function() {
+                currentIndex = parseInt(this.dataset.index);
+                updateModalImage();
+            });
+            
+            modalThumbnails.appendChild(thumbnail);
+        });
+    }
+    
+    // Переход к предыдущему изображению
+    function prevImage() {
+        if (currentImages.length === 0) return;
+        
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : currentImages.length - 1;
+        updateModalImage();
+    }
+    
+    // Переход к следующему изображению
+    function nextImage() {
+        if (currentImages.length === 0) return;
+        
+        currentIndex = currentIndex < currentImages.length - 1 ? currentIndex + 1 : 0;
+        updateModalImage();
+    }
+    
+    // Обработчики событий для кнопок
+    modalClose.addEventListener('click', closeGallery);
+    modalPrev.addEventListener('click', prevImage);
+    modalNext.addEventListener('click', nextImage);
+    
+    // Закрытие по клику на оверлей
+    galleryModal.addEventListener('click', function(e) {
+        if (e.target === this || e.target.classList.contains('modal-overlay')) {
+            closeGallery();
+        }
+    });
+    
+    // Управление клавиатурой
+    document.addEventListener('keydown', function(e) {
+        if (!galleryModal.classList.contains('active')) return;
+        
+        switch(e.key) {
+            case 'Escape':
+                closeGallery();
+                break;
+            case 'ArrowLeft':
+                prevImage();
+                break;
+            case 'ArrowRight':
+                nextImage();
+                break;
+        }
+    });
+    
+    // Предотвращаем закрытие при клике на контент
+    document.querySelector('.modal-content').addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+    
+    console.log('✅ Галерея инициализирована');
 }
 
     // ========== ЗАПУСК ВСЕХ ИНИЦИАЛИЗАЦИЙ ==========
@@ -534,6 +682,8 @@ function initStickyButtons() {
     initCalculator();
     initFAQ();
     initStickyButtons();
+    initGallery();
     
     console.log('✅ Все модули JavaScript инициализированы');
 });
+
