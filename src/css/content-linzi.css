@@ -40,6 +40,12 @@
     margin: 30px 10px;
 }
 
+.sub-content{
+    max-width: 1200px;
+    text-align: center;
+    margin: 20px auto 60px;
+}
+
 /* Блок с текстом и изображениями */
 .content-block {
     display: flex;
@@ -56,7 +62,7 @@
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
     border-radius: 8px;
-    height: 250px;
+    min-height: 250px;
 }
 
 .content-image {
