@@ -117,6 +117,21 @@
     transform: translateY(-3px);
 }
 
+.thumbnails video {
+    width: calc(50% - 5px);
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.thumbnails video:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
 /* Модальное окно галереи */
 .gallery-modal {
     display: none;
@@ -349,4 +364,149 @@
 
 .gallery-modal.active .modal-content {
     animation: fadeIn 0.3s ease;
+}
+
+/* Основное видео */
+.main-image .video-wrapper {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #000;
+}
+
+.main-image video {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Миниатюры видео */
+.thumbnail-item {
+    position: relative;
+    width: calc(33.333% - 7px);
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    background: #000;
+}
+
+.thumbnail-item:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
+.thumbnail-item.active {
+    opacity: 1;
+    border: 2px solid #E5252A;
+}
+
+.thumbnail-item video {
+    width: 100%;
+    height: 50px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Иконка воспроизведения для миниатюр */
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(229, 37, 42, 0.8);
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.thumbnail-item:hover .play-icon {
+    opacity: 1;
+}
+
+/* Модальное окно для видео */
+.modal-content {
+    background: #000;
+}
+
+.modal-video-container {
+    width: 100%;
+    max-width: 800px;
+    max-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#modalVideo {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    display: block;
+}
+
+/* Индикатор что это видео */
+.video-indicator {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(229, 37, 42, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 10002;
+}
+
+/* Контролы для видео в модальном окне */
+.modal-video-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 10002;
+}
+
+.video-control-btn {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.video-control-btn:hover {
+    background: #E5252A;
+    border-color: #E5252A;
+}
+
+/* Миниатюры в модальном окне */
+.modal-thumbnails .thumbnail-item {
+    width: 100px;
+    height: 70px;
+}
+
+.modal-thumbnails .thumbnail-item.active {
+    border: 3px solid #E5252A;
 }
