@@ -93,13 +93,12 @@
 
 .thumbnails {
     display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: start;
 }
 
 .thumbnails img {
-    width: calc(33.333% - 7px);
+    /* width: calc(33.333% - 7px); */
     height: 50px;
     object-fit: cover;
     border-radius: 6px;
@@ -287,6 +286,11 @@
     .content-block {
         flex-direction: column;
         gap: 30px;
+        align-items: center;
+    }
+
+    .sub-content{
+       margin-top: 50px;
     }
 
     .content-text,
@@ -368,16 +372,11 @@
     }
 
     .main-image img {
-        height: 150px;
+        height: 200px;
     }
 
     .thumbnails {
         gap: 5px;
-    }
-
-    .thumbnails img {
-        height: 40px;
-        width: calc(33.333% - 4px);
     }
 
     .modal-content {
@@ -434,16 +433,16 @@
 
 @media (max-width: 400px) {
     .main-image img {
-        height: 120px;
+        height: 200px;
     }
 
     .thumbnails img {
-        height: 35px;
+        height: 75px;
     }
 
     .modal-thumbnails img {
         width: 50px;
-        height: 40px;
+        height: 100px;
     }
 }
 
