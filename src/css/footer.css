@@ -24,10 +24,10 @@
 }
 
 .footer-map>iframe {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
+    display: flex;
+    width: 100%;
     border-radius: 12px;
+    align-items: center;
 }
 
 .social-link{
@@ -96,15 +96,35 @@
         padding-bottom: 20px;
     }
 
+    .footer-contacts li, .footer-contacts a{
+        font-size: 26px;
+    }
+
+    .footer-contacts-list{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+  }
+
+  @media (max-width: 575px){
+        .footer-contacts li,
+            .footer-contacts a {
+                font-size: 22px;
+            }
   }
 
   @media (max-width: 480px) {
-            .footer-contacts{
-            margin-left: 0px;
-        }
-            .footer-map {
-        padding: 40px 60px;
+        .footer-social,
+    .footer-contacts,
+    .footer-map {
+        padding: 40px 30px;
     }
+
+        .footer-contacts li,
+        .footer-contacts a {
+            font-size: 18px;
+        }
   }
 
 /* Липкие кнопки */
