@@ -588,26 +588,26 @@
             <div class="content-image">
               <div class="gallery-container">
                 <div class="main-image">
-                  <img
-                    src="./src/img/bg/1.webp"
-                    alt="Сертифікати майстерні"
-                    data-index="0"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="thumbnails">
-                  <img
-                    src="./src/img/bg/2.webp"
-                    alt="Інтер'єр майстерні"
-                    data-index="1"
-                    loading="lazy"
-                  />
-                  <img
-                    src="./src/img/bg/5.webp"
-                    alt="Спеціальне обладнання"
-                    data-index="2"
-                    loading="lazy"
-                  />
+                  <picture>
+                    <source
+                      media="(max-width: 480px)"
+                      srcset="
+                        ./src/img/bi-led/zapotivannya-faru/usunennya-zapotivannya-faru-480.webp
+                      "
+                    />
+                    <source
+                      media="(min-width: 481px)"
+                      srcset="
+                        ./src/img/bi-led/zapotivannya-faru/usunennya-zapotivannya-faru-800.webp
+                      "
+                    />
+                    <img
+                      src="./src/img/bi-led/zapotivannya-faru/usunennya-zapotivannya-faru-800.webp"
+                      alt="Усунення запотівання фари"
+                      title="Усунення запотівання фари"
+                      loading="lazy"
+                    />
+                  </picture>
                 </div>
               </div>
             </div>
@@ -874,8 +874,8 @@
                     />
                     <img
                       src="./src/img/bi-led/doglyad-za-farami/diglyad-za-avtomobilnymi-farami-800-1.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Догляд за фарами Volkswagen Golf Львів - професійне обслуговування"
+                      title="Комплексний догляд за фарами Volkswagen Golf"
                       loading="lazy"
                     />
                   </picture>
@@ -896,8 +896,8 @@
                     />
                     <img
                       src="./src/img/bi-led/doglyad-za-farami/diglyad-za-avtomobilnymi-farami-800-2.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Чистка фар Opel Astra перед поліруванням Львів"
+                      title="Підготовка фар Opel Astra до полірування"
                       loading="lazy"
                     />
                   </picture>
@@ -916,8 +916,8 @@
                     />
                     <img
                       src="./src/img/bi-led/doglyad-za-farami/diglyad-za-avtomobilnymi-farami-800-3.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Догляд за фарами BMW 3 Series Львів - профілактика оптики"
+                      title="Профілактичний догляд за фарами BMW"
                       loading="lazy"
                     />
                   </picture>
@@ -936,8 +936,8 @@
                     />
                     <img
                       src="./src/img/bi-led/doglyad-za-farami/diglyad-za-avtomobilnymi-farami-800-4.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Обслуговування фар Mercedes-Benz C-Class Львів"
+                      title="Професійне обслуговування фар Mercedes"
                       loading="lazy"
                     />
                   </picture>
@@ -956,8 +956,8 @@
                     />
                     <img
                       src="./src/img/bi-led/doglyad-za-farami/diglyad-za-avtomobilnymi-farami-800-5.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Догляд за оптикою Audi A4 Львів - повне відновлення"
+                      title="Повне відновлення оптики Audi A4"
                       loading="lazy"
                     />
                   </picture>
@@ -976,8 +976,8 @@
                     />
                     <img
                       src="./src/img/bi-led/doglyad-za-farami/diglyad-za-avtomobilnymi-farami-800-6.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Профілактика фар Renault Megane Львів - захист від УФ"
+                      title="УФ-захист фар Renault Megane"
                       loading="lazy"
                     />
                   </picture>
@@ -1014,8 +1014,8 @@
                     />
                     <img
                       src="./src/img/bi-led/poliruvanja/poliruvanya-skla-800-1.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Полірування фар Toyota Camry Львів - професійне відновлення"
+                      title="Професійне полірування фар Toyota Camry"
                       loading="lazy"
                     />
                   </picture>
@@ -1036,8 +1036,8 @@
                     />
                     <img
                       src="./src/img/bi-led/poliruvanja/poliruvanya-skla-800-2.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Процес полірування фар Honda Civic Львів"
+                      title="Процес полірування фар Honda Civic"
                       loading="lazy"
                     />
                   </picture>
@@ -1056,8 +1056,8 @@
                     />
                     <img
                       src="./src/img/bi-led/poliruvanja/poliruvanya-skla-800-3.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Результат полірування фар Mazda 6 Львів - фото до/після"
+                      title="Результат полірування фар Mazda 6 до/після"
                       loading="lazy"
                     />
                   </picture>
@@ -1076,8 +1076,8 @@
                     />
                     <img
                       src="./src/img/bi-led/poliruvanja/poliruvanya-skla-800-4.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Полірування фар Ford Focus Львів - відновлення прозорості"
+                      title="Відновлення прозорості фар Ford Focus"
                       loading="lazy"
                     />
                   </picture>
@@ -1096,8 +1096,8 @@
                     />
                     <img
                       src="./src/img/bi-led/poliruvanja/poliruvanya-skla-800-5.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Захисне покриття після полірування фар Skoda Octavia Львів"
+                      title="Захисне UV-покриття для фар Skoda Octavia"
                       loading="lazy"
                     />
                   </picture>
@@ -1138,8 +1138,8 @@
                     />
                     <img
                       src="./src/img/bi-led/poliruvanya-skla-fari/vidnovlenja-prozorosti-800-1.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Полірування скла фари Nissan Qashqai Львів - 3-етапна система"
+                      title="3-етапне полірування скла фари Nissan Qashqai"
                       loading="lazy"
                     />
                   </picture>
@@ -1160,8 +1160,8 @@
                     />
                     <img
                       src="./src/img/bi-led/poliruvanya-skla-fari/vidnovlenja-prozorosti-800-2.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Грубе шліфування скла фари Kia Sportage Львів"
+                      title="Грубе шліфування скла фари Kia Sportage"
                       loading="lazy"
                     />
                   </picture>
@@ -1180,8 +1180,8 @@
                     />
                     <img
                       src="./src/img/bi-led/poliruvanya-skla-fari/vidnovlenja-prozorosti-800-3.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Тонке полірування скла фари Hyundai Tucson Львів"
+                      title="Тонке полірування скла фари Hyundai Tucson"
                       loading="lazy"
                     />
                   </picture>
@@ -1221,8 +1221,8 @@
                     />
                     <img
                       src="./src/img/bi-led/v-zavodsku-optiku/vstanovlenya-v-zavodsku-opticu-800-5.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Встановлення LED ламп в оптику Volkswagen Passat Львів"
+                      title="LED лампи в заводську оптику Volkswagen Passat"
                       loading="lazy"
                     />
                   </picture>
@@ -1243,8 +1243,8 @@
                     />
                     <img
                       src="./src/img/bi-led/v-zavodsku-optiku/vstanovlenya-v-zavodsku-opticu-800-6.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Міні-лінзи для Audi A3 Львів - компактне встановлення"
+                      title="Міні-лінзи для Audi A3"
                       loading="lazy"
                     />
                   </picture>
@@ -1263,8 +1263,8 @@
                     />
                     <img
                       src="./src/img/bi-led/v-zavodsku-optiku/vstanovlenya-v-zavodsku-opticu-800-4.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Професійне встановлення LED ламп у BMW 1 Series Львів"
+                      title="LED лампи для BMW 1 Series"
                       loading="lazy"
                     />
                   </picture>
@@ -1283,8 +1283,8 @@
                     />
                     <img
                       src="./src/img/bi-led/v-zavodsku-optiku/vstanovlenya-v-zavodsku-opticu-800-1.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Правильне позиціонування LED ламп у Mercedes A-Class Львів"
+                      title="Позиціонування LED ламп Mercedes A-Class"
                       loading="lazy"
                     />
                   </picture>
@@ -1303,8 +1303,8 @@
                     />
                     <img
                       src="./src/img/bi-led/v-zavodsku-optiku/vstanovlenya-v-zavodsku-opticu-800-2.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Регулювання світла LED ламп у Toyota Corolla Львів"
+                      title="Регулювання світла LED ламп Toyota Corolla"
                       loading="lazy"
                     />
                   </picture>
@@ -1323,8 +1323,8 @@
                     />
                     <img
                       src="./src/img/bi-led/v-zavodsku-optiku/vstanovlenya-v-zavodsku-opticu-800-3.webp"
-                      alt="Заміна скла фари Skoda Octavia Львів"
-                      title="Заміна скла Skoda Octavia"
+                      alt="Встановлення LED ламп в заводську оптику Ford Mondeo Львів"
+                      title="LED лампи в заводську оптику Ford Mondeo"
                       loading="lazy"
                     />
                   </picture>
@@ -1362,12 +1362,22 @@
                     />
                     <img
                       src="./src/img/bi-led/test-na-germetichnist/testna-germetichnost-800.webp"
-                      alt="Тест на герметичність фари Ford Focus Львів"
-                      title="Тестування герметичності Ford Focus"
+                      alt="Тест на герметичність фари Opel Astra Львів - перевірка якості"
+                      title="Тестування герметичності фари Opel Astra"
                       loading="lazy"
                     />
                   </picture>
                 </div>
+                <!-- Если есть миниатюры для теста герметичности, добавьте их сюда -->
+                <!-- Пример:
+          <div class="thumbnails">
+            <picture>
+              <source media="(max-width: 480px)" srcset="./path/to/thumb1-480.webp">
+              <source media="(min-width: 481px)" srcset="./path/to/thumb1-800.webp">
+              <img src="./path/to/thumb1-800.webp" alt="Герметизація фари Chevrolet Cruze Львів" title="Герметизація фари Chevrolet Cruze" loading="lazy">
+            </picture>
+          </div>
+          -->
               </div>
             </div>
           </div>
@@ -1725,7 +1735,7 @@
             </li>
             <li>
               <a
-                href="https://www.facebook.com/"
+                href="https://www.facebook.com/share/15RLvZkvVZP/"
                 class="social-btn"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -1746,7 +1756,7 @@
             </li>
             <li>
               <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/gbostation?utm_source=qr&igsh=MWEwdHY1bzBhems2Zw%3D%3D"
                 class="social-btn"
                 target="_blank"
                 rel="noopener noreferrer"
