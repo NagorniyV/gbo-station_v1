@@ -1,689 +1,336 @@
-// ОБЪЕДИНЕННЫЙ ФАЙЛ JS - ВСЕ ФУНКЦИИ В ОДНОМ DOMContentLoaded
-
 document.addEventListener('DOMContentLoaded', function() {
-    // ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ==========
-    
-    // Функция для проверки видимости элемента в viewport
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
-            rect.bottom >= 0
-        );
-    }
+    console.log('✅ DOM загружен, инициализация...');
 
-    // ========== АНИМАЦИЯ ПЕРВОГО SEO БЛОКА ==========
-    function initFirstSEOAnimation() {
-        const firstSeoBlock = document.querySelector('.seo-block:first-child');
-        if (!firstSeoBlock) {
-            console.log('❌ Первый SEO блок не найден');
-            return;
-        }
+    // ========== ОБЩИЕ УТИЛИТЫ ==========
+    const utils = {
+        inViewport: (el) => {
+            const rect = el.getBoundingClientRect();
+            return rect.top <= (window.innerHeight * 0.8) && rect.bottom >= 0;
+        },
         
-        const elementsToAnimate = firstSeoBlock.querySelectorAll('h2, .seo-content p');
-        
-        if (elementsToAnimate.length === 0) {
-            console.log('❌ Элементы для анимации в первом SEO блоке не найдены');
-            return;
-        }
-        
-        function checkAnimation() {
-            elementsToAnimate.forEach(element => {
-                if (isElementInViewport(element) && !element.classList.contains('visible')) {
-                    element.classList.add('visible');
+        animateCounter: (element, target, duration = 1500) => {
+            let start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
                 }
-            });
+                element.textContent = Math.floor(current);
+            }, 16);
         }
+    };
 
-        window.addEventListener('scroll', checkAnimation);
-        window.addEventListener('load', checkAnimation);
-        checkAnimation();
-        
-        console.log('✅ Анимация первого SEO блока инициализирована');
-    }
-
-    // ========== БУРГЕР-МЕНЮ И НАВИГАЦИЯ ==========
-    function initBurgerMenu() {
-        const burgerMenu = document.getElementById('burgerMenu');
-        const header = document.getElementById('header');
-        const overlay = document.getElementById('overlay');
-        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-        
-        if (!burgerMenu || !header || !overlay) {
-            console.log('❌ Элементы бургер-меню не найдены');
-            return;
-        }
-        
-        // Открытие/закрытие меню на мобильных
-        burgerMenu.addEventListener('click', function() {
-            this.classList.toggle('active');
-            header.classList.toggle('active');
-            overlay.classList.toggle('active');
-            document.body.style.overflow = header.classList.contains('active') ? 'hidden' : '';
+    // ========== БУРГЕР-МЕНЮ ==========
+    const burger = document.getElementById('burgerMenu');
+    const header = document.getElementById('header');
+    const overlay = document.getElementById('overlay');
+    
+    if (burger && header && overlay) {
+        burger.addEventListener('click', () => {
+            const isActive = burger.classList.toggle('active');
+            header.classList.toggle('active', isActive);
+            overlay.classList.toggle('active', isActive);
+            document.body.style.overflow = isActive ? 'hidden' : '';
         });
         
-        // Закрытие меню при клике на оверлей
-        overlay.addEventListener('click', function() {
-            burgerMenu.classList.remove('active');
+        overlay.addEventListener('click', () => {
+            burger.classList.remove('active');
             header.classList.remove('active');
-            this.classList.remove('active');
+            overlay.classList.remove('active');
             document.body.style.overflow = '';
         });
         
-        // Обработка выпадающих меню на мобильных
-        dropdownToggles.forEach(toggle => {
-            toggle.addEventListener('click', function(e) {
+        // Выпадающие меню на мобильных
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
-                    const dropdown = this.parentElement;
-                    dropdown.classList.toggle('active');
+                    toggle.parentElement.classList.toggle('active');
                 }
             });
         });
-        
-        // Закрытие меню при клике вне его области
-        document.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768 && 
-                !header.contains(e.target) && 
-                !burgerMenu.contains(e.target) && 
-                header.classList.contains('active')) {
-                burgerMenu.classList.remove('active');
-                header.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-        
-        // Закрытие выпадающих меню при изменении размера окна
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                burgerMenu.classList.remove('active');
-                header.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.style.overflow = '';
-                
-                // Сброс активных выпадающих меню
-                document.querySelectorAll('.dropdown').forEach(dropdown => {
-                    dropdown.classList.remove('active');
-                });
-            }
-        });
-        
-        console.log('✅ Бургер-меню инициализировано');
     }
 
-    // ========== ПЛАВНАЯ ПРОКРУТКА ПО ЯКОРЯМ ==========
-    function initSmoothScroll() {
-        const navLinks = document.querySelectorAll('.nav-item a[href^="#"]');
-        
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
+    // ========== ПЛАВНАЯ ПРОКРУТКА ==========
+    document.querySelectorAll('.nav-item a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const top = target.getBoundingClientRect().top + window.pageYOffset;
+                window.scrollTo({ top, behavior: 'smooth' });
                 
-                const href = this.getAttribute('href');
-                const targetElement = document.querySelector(href);
-                
-                if (targetElement) {
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Закрываем меню на мобильных
-                    if (window.innerWidth <= 768) {
-                        const burgerMenu = document.getElementById('burgerMenu');
-                        const header = document.getElementById('header');
-                        const overlay = document.getElementById('overlay');
-                        
-                        burgerMenu?.classList.remove('active');
-                        header?.classList.remove('active');
-                        overlay?.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
+                // Закрыть меню на мобильных
+                if (window.innerWidth <= 768 && burger) {
+                    burger.classList.remove('active');
+                    header.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
                 }
-            });
+            }
         });
-        
-        console.log('✅ Плавная прокрутка инициализирована');
-    }
+    });
 
-// ========== АНИМАЦИЯ ЗАГОЛОВКА ХИРО ==========
-function initHeroAnimation() {
-    setTimeout(function() {
-        const animatedTitle = document.getElementById('animated-title');
-        const animatedSubtitle = document.getElementById('animated-subtitle');
+    // ========== АНИМАЦИЯ ХИРО ==========
+    setTimeout(() => {
+        const title = document.getElementById('animated-title');
+        const subtitle = document.getElementById('animated-subtitle');
         
-        if (animatedTitle) {
-            animatedTitle.classList.add('visible');
-            console.log('✅ Анимация заголовка активирована');
-            
-            // Ждем завершения анимации заголовка, затем показываем субтитл
-            setTimeout(() => {
-                if (animatedSubtitle) {
-                    animatedSubtitle.classList.add('visible');
-                    console.log('✅ Анимация субтитра активирована');
-                }
-            }, 500); // Задержка 500ms (соответствует CSS задержке)
-        }
-    }, 1000); // Общая задержка для начала анимации
-}
+        if (title) title.classList.add('visible');
+        if (subtitle) setTimeout(() => subtitle.classList.add('visible'), 500);
+    }, 1000);
 
-    // ========== ОТПРАВКА ФОРМЫ В TELEGRAM ==========
-    function initTelegramForm() {
-        const form = document.querySelector('.callback-form .form');
-        
-        if (!form) {
-            console.log('❌ Форма не найдена');
-            return;
-        }
-        
-        form.addEventListener('submit', function(e) {
+    // ========== ФОРМА TELEGRAM ==========
+    const form = document.querySelector('.callback-form .form');
+    if (form) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Собираем данные из формы
-            const formData = {
+            const data = {
                 name: document.getElementById('name').value,
                 phone: document.getElementById('phone').value,
                 car: document.getElementById('car').value,
                 service: document.getElementById('service').value
             };
             
-            console.log('📝 Данные формы:', formData);
-            
-            // Проверяем обязательные поля
-            if (!formData.phone) {
+            if (!data.phone) {
                 alert('Будь ласка, введіть номер телефону');
                 return;
             }
             
-            // Отправляем в Telegram
-            sendToTelegram(formData);
+            const serviceType = data.service === 'gbo' ? 'Обслуговування ГБО' : 
+                               data.service === 'lights' ? 'Обслуговування фар' : 'Не вказано';
             
-            // Очищаем форму после отправки
+            const text = `📞 Нова заявка з сайту!\n\n👤 Ім'я: ${data.name || 'Не вказано'}\n📱 Телефон: ${data.phone}\n🚗 Авто: ${data.car || 'Не вказано'}\n🔧 Послуга: ${serviceType}\n⏰ Час: ${new Date().toLocaleString('uk-UA')}`;
+            
+            // Отправка в Telegram
+            const botToken = '8567006740:AAEjnWs1YgLfzhiedvEIoEL_9jFJD8_gzKc';
+            const chatIds = ['398501551', '600710233'];
+            
+            for (const chatId of chatIds) {
+                try {
+                    const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`);
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                } catch (error) {
+                    console.error('Ошибка отправки:', error);
+                }
+            }
+            
             form.reset();
-            
-            // Показываем сообщение об успехе
-            alert('Дякуємо! Ваша заявка відправлена. Ми зв\'яжемося з вами найближчим часом.');
+            alert('Дякуємо! Ваша заявка відправлена.');
         });
-        
-        console.log('✅ Форма Telegram инициализирована');
     }
 
-    // Функция отправки в Telegram
-    function sendToTelegram(data) {
-        console.log('🟢 sendToTelegram ВЫЗВАНА!', data);
-        
-        const botToken = '8567006740:AAEjnWs1YgLfzhiedvEIoEL_9jFJD8_gzKc';
-        const chatIds = ['398501551', '600710233'];
-        
-        // Определяем тип услуги
-        let serviceType = 'Не вказано';
-        if (data.service === 'gbo') serviceType = 'Обслуговування ГБО';
-        if (data.service === 'lights') serviceType = 'Обслуговування фар';
-        
-        // Кодируем сообщение для URL
-        const text = encodeURIComponent(
-            `📞 Нова заявка з сайту!\n\n👤 Ім'я: ${data.name || 'Не вказано'}\n📱 Телефон: ${data.phone}\n🚗 Авто: ${data.car || 'Не вказано'}\n🔧 Послуга: ${serviceType}\n⏰ Час: ${new Date().toLocaleString('uk-UA')}`
-        );
-        
-        console.log('🟡 Закодированное сообщение:', text);
-
-        // Отправляем сообщение всем в массиве
-        chatIds.forEach((chatId, index) => {
-            console.log(`🟡 Отправка ${index + 1}/${chatIds.length} для chat_id: ${chatId}`);
-            
-            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${text}&parse_mode=HTML`;
-            
-            console.log('🟡 URL запроса:', url);
-            
-            // Используем fetch с обработкой ошибок
-            fetch(url)
-                .then(response => {
-                    console.log(`🟡 Ответ получен для ${chatId}, статус:`, response.status);
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(result => {
-                    console.log(`✅ Результат для ${chatId}:`, result);
-                    if (result.ok) {
-                        console.log(`✅ УСПЕХ: Сообщение отправлено в Telegram для ${chatId}`);
-                    } else {
-                        console.error(`❌ ОШИБКА Telegram для ${chatId}:`, result.description);
-                    }
-                })
-                .catch(error => {
-                    console.error(`❌ ОШИБКА сети для ${chatId}:`, error);
-                });
+    // ========== АНИМАЦИИ ПРИ СКРОЛЛЕ ==========
+    const animateOnScroll = () => {
+        // SEO блок
+        document.querySelectorAll('.seo-block:first-child h2, .seo-block:first-child .seo-content p').forEach(el => {
+            if (utils.inViewport(el) && !el.classList.contains('visible')) {
+                el.classList.add('visible');
+            }
         });
         
-        console.log('🟢 sendToTelegram ЗАВЕРШЕНА');
-    }
-
-    // ========== АНИМАЦИИ СЕКЦИИ ОПЫТА ==========
-    function initExperienceAnimations() {
+        // Опыт
         const experienceSection = document.getElementById('experience');
-        const title = document.getElementById('experience-title');
-        const counters = document.querySelectorAll('.counter');
-        
-        if (!experienceSection || !title) {
-            console.log('❌ Секция опыта не найдена');
-            return;
-        }
-        
-        let animated = false;
-
-        function checkAnimation() {
-            if (!animated && isElementInViewport(experienceSection)) {
-                animated = true;
-                
-                // Анимация заголовка через 1 секунду
-                setTimeout(() => {
-                    title.classList.add('visible');
-                }, 1000);
-                
-                // Анимация счетчиков через 1.5 секунды (после заголовка)
-                setTimeout(() => {
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.getAttribute('data-target'));
-                        animateCounter(counter, target, 1500);
-                    });
-                }, 1500);
-                
-                console.log('✅ Анимации опыта активированы');
-            }
-        }
-
-        // Проверяем при загрузке и скролле
-        window.addEventListener('scroll', checkAnimation);
-        window.addEventListener('load', checkAnimation);
-        checkAnimation(); // Проверить сразу
-    }
-
-    // Функция для анимации счетчика
-    function animateCounter(counterElement, targetNumber, duration = 2000) {
-        let startNumber = 0;
-        const increment = targetNumber / (duration / 16); // 60 FPS
-        let currentNumber = startNumber;
-        
-        const timer = setInterval(() => {
-            currentNumber += increment;
-            if (currentNumber >= targetNumber) {
-                currentNumber = targetNumber;
-                clearInterval(timer);
-            }
-            counterElement.textContent = Math.floor(currentNumber);
-        }, 16);
-    }
-
-    // ========== АНИМАЦИИ СЕКЦИИ "О НАС" ==========
-    function initAboutAnimations() {
-        const elementsToAnimate = document.querySelectorAll('#about-title, .about-section h3, .animate-text, .animate-item');
-        
-        if (elementsToAnimate.length === 0) {
-            console.log('❌ Элементы для анимации "О нас" не найдены');
-            return;
-        }
-        
-        function checkAnimation() {
-            elementsToAnimate.forEach(element => {
-                if (isElementInViewport(element) && !element.classList.contains('visible')) {
-                    // Добавляем небольшую случайную задержку для естественности
-                    const delay = Math.random() * 300 + 200; // 200-500ms
-                    setTimeout(() => {
-                        element.classList.add('visible');
-                    }, delay);
+        if (experienceSection && utils.inViewport(experienceSection)) {
+            const title = document.getElementById('experience-title');
+            if (title) title.classList.add('visible');
+            
+            document.querySelectorAll('.counter').forEach(counter => {
+                if (!counter.classList.contains('animated')) {
+                    counter.classList.add('animated');
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    utils.animateCounter(counter, target);
                 }
             });
         }
+        
+        // О нас
+        document.querySelectorAll('#about-title, .about-section h3, .animate-text, .animate-item').forEach(el => {
+            if (utils.inViewport(el) && !el.classList.contains('visible')) {
+                setTimeout(() => el.classList.add('visible'), Math.random() * 300 + 200);
+            }
+        });
+    };
+    
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+    animateOnScroll();
 
-        // Проверяем при загрузке и скролле
-        window.addEventListener('scroll', checkAnimation);
-        window.addEventListener('load', checkAnimation);
-        checkAnimation(); // Проверить сразу
+    // ========== КАЛЬКУЛЯТОР ГБО ==========
+    const calculatorInputs = ['petrol-price', 'gas-price', 'monthly-mileage', 'fuel-consumption', 'gbo-kit'];
+    
+    const calculatePayback = () => {
+        const values = calculatorInputs.map(id => {
+            const el = document.getElementById(id);
+            return el ? parseFloat(el.value) : 0;
+        });
         
-        console.log('✅ Анимации "О нас" инициализированы');
-    }
-
-    // ========== КАЛЬКУЛЯТОР ОКУПАЕМОСТИ ГБО ==========
-    function initCalculator() {
-        const petrolInput = document.getElementById('petrol-price');
-        const gasInput = document.getElementById('gas-price');
-        const mileageInput = document.getElementById('monthly-mileage');
-        const consumptionInput = document.getElementById('fuel-consumption');
-        const gboKitSelect = document.getElementById('gbo-kit');
-        
-        if (!petrolInput || !gasInput || !mileageInput || !consumptionInput || !gboKitSelect) {
-            console.log('❌ Элементы калькулятора не найдены');
-            return;
-        }
-        
-        // Добавляем обработчики событий для всех полей ввода
-        petrolInput.addEventListener('input', calculatePayback);
-        gasInput.addEventListener('input', calculatePayback);
-        mileageInput.addEventListener('input', calculatePayback);
-        consumptionInput.addEventListener('input', calculatePayback);
-        gboKitSelect.addEventListener('change', calculatePayback);
-        
-        // Выполняем первоначальный расчет
-        calculatePayback();
-        
-        console.log('✅ Калькулятор инициализирован');
-    }
-
-    // Функция для расчета окупаемости
-    function calculatePayback() {
-        // Получаем значения из полей ввода
-        const petrolPrice = parseFloat(document.getElementById('petrol-price').value);
-        const gasPrice = parseFloat(document.getElementById('gas-price').value);
-        const monthlyMileage = parseFloat(document.getElementById('monthly-mileage').value);
-        const fuelConsumption = parseFloat(document.getElementById('fuel-consumption').value);
-        const gboKitPrice = parseFloat(document.getElementById('gbo-kit').value);
-        
-        // Проверяем корректность введенных данных
-        if (isNaN(petrolPrice) || isNaN(gasPrice) || isNaN(monthlyMileage) || 
-            isNaN(fuelConsumption) || isNaN(gboKitPrice) || 
-            petrolPrice <= 0 || gasPrice <= 0 || monthlyMileage <= 0 || 
-            fuelConsumption <= 0 || gboKitPrice <= 0) {
+        if (values.some(v => isNaN(v) || v <= 0)) {
             document.getElementById('result').textContent = 'Введіть коректні дані';
             return;
         }
         
-        // Рассчитываем расход топлива в месяц
-        const monthlyFuelConsumption = (monthlyMileage / 100) * fuelConsumption;
+        const [petrol, gas, mileage, consumption, gboPrice] = values;
+        const monthlyConsumption = (mileage / 100) * consumption;
+        const monthlySavings = (monthlyConsumption * petrol) - (monthlyConsumption * gas);
         
-        // Рассчитываем стоимость топлива в месяц
-        const monthlyPetrolCost = monthlyFuelConsumption * petrolPrice;
-        const monthlyGasCost = monthlyFuelConsumption * gasPrice;
-        
-        // Рассчитываем экономию в месяц
-        const monthlySavings = monthlyPetrolCost - monthlyGasCost;
-        
-        // Рассчитываем окупаемость (в месяцах)
         if (monthlySavings <= 0) {
             document.getElementById('result').textContent = 'Не окупиться';
             return;
         }
         
-        const paybackMonths = gboKitPrice / monthlySavings;
-        
-        // Отображаем результат
-        if (paybackMonths < 1) {
-            document.getElementById('result').textContent = 'Менше 1 місяця';
-        } else if (paybackMonths > 120) { // 10 лет
-            document.getElementById('result').textContent = 'Більше 10 років';
-        } else {
-            document.getElementById('result').textContent = Math.ceil(paybackMonths) + ' місяців';
-        }
-    }
+        const months = gboPrice / monthlySavings;
+        document.getElementById('result').textContent = 
+            months < 1 ? 'Менше 1 місяця' : 
+            months > 120 ? 'Більше 10 років' : 
+            Math.ceil(months) + ' місяців';
+    };
+    
+    calculatorInputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', calculatePayback);
+    });
+    if (document.getElementById('gbo-kit')) calculatePayback();
 
-    // ========== FAQ СЕКЦИЯ ==========
-    function initFAQ() {
-        const faqItems = document.querySelectorAll('.faq-item');
-        
-        if (faqItems.length === 0) {
-            console.log('❌ FAQ элементы не найдены');
-            return;
-        }
-        
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            
+    // ========== FAQ ==========
+    document.querySelectorAll('.faq-item').forEach((item, index) => {
+        const question = item.querySelector('.faq-question');
+        if (question) {
             question.addEventListener('click', () => {
-                // Закриваємо всі інші відкриті питання
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                    }
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    if (i !== item) i.classList.remove('active');
                 });
-                
-                // Перемикаємо поточний елемент
                 item.classList.toggle('active');
             });
-        });
-        
-        // Відкриваємо перше питання за замовчуванням
-        if (faqItems.length > 0) {
-            faqItems[0].classList.add('active');
+            
+            // Открыть первый вопрос
+            if (index === 0) item.classList.add('active');
         }
-        
-        console.log('✅ FAQ инициализирован');
-    }
+    });
 
     // ========== ЛИПКИЕ КНОПКИ ==========
-function initStickyButtons() {
-    const phoneButton = document.getElementById('phoneButton');
+    const phoneBtn = document.getElementById('phoneButton');
     const phonePanel = document.getElementById('phonePanel');
-    const scrollTopButton = document.getElementById('scrollTopButton');
+    const scrollBtn = document.getElementById('scrollTopButton');
     
-    if (!phoneButton || !scrollTopButton) {
-        console.log('❌ Липкие кнопки не найдены');
-        return;
-    }
-    
-    // Обработка кнопки телефона
-    phoneButton.addEventListener('click', function() {
-        phonePanel.classList.toggle('active');
-        
-        // Закрываем панель при клике вне ее
-        if (phonePanel.classList.contains('active')) {
-            setTimeout(() => {
-                document.addEventListener('click', closePhonePanelOnClickOutside);
-            }, 10);
-        } else {
-            document.removeEventListener('click', closePhonePanelOnClickOutside);
-        }
-    });
-    
-    // Функция для закрытия панели телефона при клике вне ее
-    function closePhonePanelOnClickOutside(e) {
-        if (!phonePanel.contains(e.target) && !phoneButton.contains(e.target)) {
-            phonePanel.classList.remove('active');
-            document.removeEventListener('click', closePhonePanelOnClickOutside);
-        }
-    }
-    
-    // Обработка кнопки прокрутки вверх
-    scrollTopButton.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (phoneBtn && phonePanel) {
+        phoneBtn.addEventListener('click', () => {
+            phonePanel.classList.toggle('active');
         });
-    });
-    
-    // Показывать/скрывать кнопку прокрутки вверх при скролле
-    function toggleScrollTopButton() {
-        if (window.pageYOffset > 300) {
-            scrollTopButton.classList.add('visible');
-        } else {
-            scrollTopButton.classList.remove('visible');
-        }
+        
+        // Закрыть при клике вне
+        document.addEventListener('click', (e) => {
+            if (!phonePanel.contains(e.target) && !phoneBtn.contains(e.target)) {
+                phonePanel.classList.remove('active');
+            }
+        });
     }
     
-    // Закрывать панель телефона при скролле
-    function closePhonePanelOnScroll() {
-        if (phonePanel.classList.contains('active')) {
-            phonePanel.classList.remove('active');
-            document.removeEventListener('click', closePhonePanelOnClickOutside);
-        }
+    if (scrollBtn) {
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        const toggleScrollBtn = () => {
+            scrollBtn.classList.toggle('visible', window.pageYOffset > 300);
+            if (phonePanel) phonePanel.classList.remove('active');
+        };
+        
+        toggleScrollBtn();
+        window.addEventListener('scroll', toggleScrollBtn);
     }
-    
-    // Начальное состояние и обработчики событий
-    toggleScrollTopButton();
-    window.addEventListener('scroll', function() {
-        toggleScrollTopButton();
-        closePhonePanelOnScroll();
-    });
-    
-    console.log('✅ Липкие кнопки инициализированы');
-    }
-    
-    // ========== ГАЛЕРЕЯ С МОДАЛЬНЫМ ОКНОМ ==========
-function initGallery() {
+
+    // ========== ГАЛЕРЕЯ ==========
     const galleryModal = document.getElementById('galleryModal');
-    const modalClose = document.getElementById('modalClose');
-    const modalPrev = document.getElementById('modalPrev');
-    const modalNext = document.getElementById('modalNext');
-    const modalImage = document.getElementById('modalImage');
-    const imageCounter = document.getElementById('imageCounter');
-    const modalThumbnails = document.getElementById('modalThumbnails');
-    
-    let currentGallery = null;
-    let currentIndex = 0;
-    let currentImages = [];
-    
-    // Собираем все изображения галереи на странице
-    const galleryImages = document.querySelectorAll('.gallery-container img');
-    
-    if (galleryImages.length === 0) {
-        console.log('❌ Изображения галереи не найдены');
-        return;
-    }
-    
-    // Обработчик клика по изображению
-    galleryImages.forEach((img, index) => {
-        img.addEventListener('click', function() {
-            const galleryContainer = this.closest('.gallery-container');
-            const images = Array.from(galleryContainer.querySelectorAll('img'));
+    if (galleryModal) {
+        let currentImages = [];
+        let currentIndex = 0;
+        
+        const updateGallery = () => {
+            const img = document.getElementById('modalImage');
+            const counter = document.getElementById('imageCounter');
+            const thumbs = document.getElementById('modalThumbnails');
             
-            currentGallery = galleryContainer;
-            currentImages = images;
-            currentIndex = images.indexOf(this);
+            if (!img || !counter) return;
             
-            openGallery(currentImages, currentIndex);
-        });
-    });
-    
-    // Функция открытия галереи
-    function openGallery(images, startIndex) {
-        currentImages = images;
-        currentIndex = startIndex;
-        
-        updateModalImage();
-        updateModalThumbnails();
-        galleryModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        
-        console.log(`✅ Галерея открыта: ${images.length} изображений`);
-    }
-    
-    // Функция закрытия галереи
-    function closeGallery() {
-        galleryModal.classList.remove('active');
-        document.body.style.overflow = '';
-        currentGallery = null;
-        currentImages = [];
-    }
-    
-    // Обновление основного изображения в модальном окне
-    function updateModalImage() {
-        if (currentImages.length === 0) return;
-        
-        const img = currentImages[currentIndex];
-        modalImage.src = img.src;
-        modalImage.alt = img.alt;
-        imageCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
-        
-        // Обновляем активную миниатюру
-        document.querySelectorAll('.modal-thumbnails img').forEach((thumb, index) => {
-            thumb.classList.toggle('active', index === currentIndex);
-        });
-    }
-    
-    // Обновление миниатюр в модальном окне
-    function updateModalThumbnails() {
-        modalThumbnails.innerHTML = '';
-        
-        currentImages.forEach((img, index) => {
-            const thumbnail = document.createElement('img');
-            thumbnail.src = img.src;
-            thumbnail.alt = img.alt;
-            thumbnail.dataset.index = index;
-            
-            if (index === currentIndex) {
-                thumbnail.classList.add('active');
+            if (currentImages.length > 0) {
+                img.src = currentImages[currentIndex].src;
+                img.alt = currentImages[currentIndex].alt;
+                counter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
             }
             
-            thumbnail.addEventListener('click', function() {
-                currentIndex = parseInt(this.dataset.index);
-                updateModalImage();
+            if (thumbs) {
+                thumbs.innerHTML = '';
+                currentImages.forEach((image, i) => {
+                    const thumb = document.createElement('img');
+                    thumb.src = image.src;
+                    thumb.alt = image.alt;
+                    thumb.classList.toggle('active', i === currentIndex);
+                    thumb.addEventListener('click', () => {
+                        currentIndex = i;
+                        updateGallery();
+                    });
+                    thumbs.appendChild(thumb);
+                });
+            }
+        };
+        
+        // Открытие галереи
+        document.querySelectorAll('.gallery-container img').forEach((img, index, images) => {
+            img.addEventListener('click', () => {
+                currentImages = Array.from(images);
+                currentIndex = index;
+                updateGallery();
+                galleryModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             });
+        });
+        
+        // Закрытие
+        document.getElementById('modalClose')?.addEventListener('click', () => {
+            galleryModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        galleryModal.addEventListener('click', (e) => {
+            if (e.target === galleryModal || e.target.classList.contains('modal-overlay')) {
+                galleryModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Навигация
+        document.getElementById('modalPrev')?.addEventListener('click', () => {
+            currentIndex = currentIndex > 0 ? currentIndex - 1 : currentImages.length - 1;
+            updateGallery();
+        });
+        
+        document.getElementById('modalNext')?.addEventListener('click', () => {
+            currentIndex = currentIndex < currentImages.length - 1 ? currentIndex + 1 : 0;
+            updateGallery();
+        });
+        
+        // Клавиатура
+        document.addEventListener('keydown', (e) => {
+            if (!galleryModal.classList.contains('active')) return;
             
-            modalThumbnails.appendChild(thumbnail);
+            if (e.key === 'Escape') {
+                galleryModal.classList.remove('active');
+                document.body.style.overflow = '';
+            } else if (e.key === 'ArrowLeft') {
+                currentIndex = currentIndex > 0 ? currentIndex - 1 : currentImages.length - 1;
+                updateGallery();
+            } else if (e.key === 'ArrowRight') {
+                currentIndex = currentIndex < currentImages.length - 1 ? currentIndex + 1 : 0;
+                updateGallery();
+            }
         });
     }
-    
-    // Переход к предыдущему изображению
-    function prevImage() {
-        if (currentImages.length === 0) return;
-        
-        currentIndex = currentIndex > 0 ? currentIndex - 1 : currentImages.length - 1;
-        updateModalImage();
-    }
-    
-    // Переход к следующему изображению
-    function nextImage() {
-        if (currentImages.length === 0) return;
-        
-        currentIndex = currentIndex < currentImages.length - 1 ? currentIndex + 1 : 0;
-        updateModalImage();
-    }
-    
-    // Обработчики событий для кнопок
-    modalClose.addEventListener('click', closeGallery);
-    modalPrev.addEventListener('click', prevImage);
-    modalNext.addEventListener('click', nextImage);
-    
-    // Закрытие по клику на оверлей
-    galleryModal.addEventListener('click', function(e) {
-        if (e.target === this || e.target.classList.contains('modal-overlay')) {
-            closeGallery();
-        }
-    });
-    
-    // Управление клавиатурой
-    document.addEventListener('keydown', function(e) {
-        if (!galleryModal.classList.contains('active')) return;
-        
-        switch(e.key) {
-            case 'Escape':
-                closeGallery();
-                break;
-            case 'ArrowLeft':
-                prevImage();
-                break;
-            case 'ArrowRight':
-                nextImage();
-                break;
-        }
-    });
-    
-    // Предотвращаем закрытие при клике на контент
-    document.querySelector('.modal-content').addEventListener('click', function(e) {
-        e.stopPropagation();
-    });
-    
-    console.log('✅ Галерея инициализирована');
-}
 
-    // ========== ЗАПУСК ВСЕХ ИНИЦИАЛИЗАЦИЙ ==========
-    
-    // Запускаем все функции инициализации
-    initFirstSEOAnimation(); // ДОБАВЬ ЭТУ СТРОЧКУ ВНУТРЬ DOMContentLoaded
-    initBurgerMenu();
-    initSmoothScroll();
-    initHeroAnimation();
-    initTelegramForm();
-    initExperienceAnimations();
-    initAboutAnimations();
-    initCalculator();
-    initFAQ();
-    initStickyButtons();
-    initGallery();
-    
-    console.log('✅ Все модули JavaScript инициализированы');
+    console.log('✅ Все модули инициализированы');
 });
-
