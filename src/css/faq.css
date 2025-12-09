@@ -107,7 +107,7 @@
     .faq-container {
         flex-direction: column;
         gap: 15px;
-        margin-left: 30px;
+        margin-left: 20px;
     }
 
     .faq-section h2 {
