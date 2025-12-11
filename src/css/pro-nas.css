@@ -73,7 +73,7 @@
 }
 
 .brand-item {
-    background: linear-gradient(to bottom, #005BBB 0%, #66b3ff 25%, #FFFFFF 45%, #FFFFFF 55%, #ffeb99 75%, #FFD500 100%);
+    background: #FFFFFF;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
@@ -104,7 +104,7 @@
 }
 
 .reason-item {
-    background: linear-gradient(to bottom, #005BBB 0%, #66b3ff 25%, #FFFFFF 45%, #FFFFFF 55%, #ffeb99 75%, #FFD500 100%);
+    background: linear-gradient(135deg, #E5252A, #F77A2D);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
@@ -113,14 +113,14 @@
 .reason-item h3 {
     font-size: 18px;
     font-weight: 600;
-    color: #121212;
+    color: #FFFFFF;
     margin-bottom: 10px;
 }
 
 .reason-item p {
     font-size: 15px;
     line-height: 1.5;
-    color: #666;
+    color: #FFFFFF;
     margin: 0;
 }
 
