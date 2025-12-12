@@ -207,3 +207,120 @@
 .seo-block:first-child .seo-content p:nth-child(3) {
     transition-delay: 0.6s;
 }
+
+/* Отключение анимации на мобильных устройствах (до 720px) */
+@media (max-width: 720px) {
+    .pro-nas .seo-block:first-child h2 {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        transition: none !important;
+    }
+
+    .pro-nas .seo-block:first-child .seo-content p {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        transition: none !important;
+        transition-delay: 0s !important;
+    }
+
+    .pro-nas #about-title,
+    .pro-nas .about-section h3,
+    .pro-nas .animate-text,
+    .pro-nas .animate-item {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        transition: none !important;
+    }
+}
+
+/* Улучшение видимости текста на мобильных */
+@media (max-width: 720px) {
+    .pro-nas {
+        position: relative;
+        min-height: auto;
+        padding: 40px 0;
+    }
+
+    .pro-nas::before {
+        background: rgba(0, 0, 0, 0.7);
+        /* Немного светлее для лучшей читаемости */
+    }
+
+    .pro-nas p {
+        font-size: 16px;
+        line-height: 1.6;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        /* Добавляем тень для лучшей читаемости */
+    }
+
+    .seo-block {
+        margin-bottom: 30px;
+    }
+
+    .seo-block:first-child h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        color: #FFFFFF;
+    }
+
+    .seo-block:first-child h2::after {
+        width: 60px;
+        height: 2px;
+    }
+
+    .seo-content p {
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+
+    /* Улучшение контраста для остальных блоков */
+    .advantage-item,
+    .brand-item,
+    .reason-item {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .advantage-item h3,
+    .brand-item h3,
+    .reason-item h3 {
+        color: #121212;
+        font-size: 17px;
+    }
+
+    .advantage-item p,
+    .brand-item p,
+    .reason-item p {
+        color: #333;
+        font-size: 14px;
+    }
+
+    /* Уменьшаем внутренние отступы на маленьких экранах */
+    .advantage-item,
+    .brand-item,
+    .reason-item {
+        padding: 20px 15px;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .pro-nas {
+        padding: 30px 0;
+    }
+
+    .pro-nas p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .seo-block:first-child h2 {
+        font-size: 22px;
+    }
+
+    .seo-content {
+        margin-left: 0;
+        padding: 0 15px;
+    }
+}
