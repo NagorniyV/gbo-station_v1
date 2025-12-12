@@ -1,9 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('✅ DOM загружен, инициализация...');
 
-    // Проверяем мобильное устройство
-    const isMobile = window.innerWidth <= 720;
-    
     // ========== ОБЩИЕ УТИЛИТЫ ==========
     const utils = {
         inViewport: (el) => {
@@ -12,35 +9,18 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         
         animateCounter: (element, target, duration = 1500) => {
-            if (isMobile) {
-                // На мобильных оптимизируем анимацию счетчика
-                let start = 0;
-                const increment = target / (duration / 32); // Медленнее для мобильных
-                let current = start;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    element.textContent = Math.floor(current);
-                }, 32); // Реже обновляем на мобильных
-            } else {
-                // На десктопе оригинальная анимация
-                let start = 0;
-                const increment = target / (duration / 16);
-                let current = start;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    element.textContent = Math.floor(current);
-                }, 16);
-            }
+            let start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current);
+            }, 16);
         }
     };
 
@@ -127,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const text = `📞 Нова заявка з сайту!\n\n👤 Ім'я: ${data.name || 'Не вказано'}\n📱 Телефон: ${data.phone}\n🚗 Авто: ${data.car || 'Не вказано'}\n🔧 Послуга: ${serviceType}\n⏰ Час: ${new Date().toLocaleString('uk-UA')}`;
             
+            // Отправка в Telegram
             const botToken = '8567006740:AAEjnWs1YgLfzhiedvEIoEL_9jFJD8_gzKc';
             const chatIds = ['398501551', '600710233'];
             
@@ -146,46 +127,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ========== АНИМАЦИИ ПРИ СКРОЛЛЕ ==========
     const animateOnScroll = () => {
-        // ========== SEO БЛОК (ТОЛЬКО ПЕРВЫЙ) ==========
-        // Если мобильное устройство, не добавляем классы анимации для pro-nas секции
-        if (!isMobile) {
-            // SEO блок (только первый)
-            document.querySelectorAll('.seo-block:first-child h2, .seo-block:first-child .seo-content p').forEach(el => {
-                if (utils.inViewport(el) && !el.classList.contains('visible')) {
-                    el.classList.add('visible');
-                }
-            });
-            
-            // О нас в pro-nas
-            document.querySelectorAll('.pro-nas #about-title, .pro-nas .about-section h3, .pro-nas .animate-text, .pro-nas .animate-item').forEach(el => {
-                if (utils.inViewport(el) && !el.classList.contains('visible')) {
-                    setTimeout(() => el.classList.add('visible'), Math.random() * 300 + 200);
-                }
-            });
-        } else {
-            // На мобильных устройствах сразу показываем все элементы в pro-nas
-            document.querySelectorAll('.pro-nas .seo-block:first-child h2, .pro-nas .seo-block:first-child .seo-content p').forEach(el => {
-                if (!el.classList.contains('visible')) {
-                    el.classList.add('visible');
-                }
-            });
-            
-            document.querySelectorAll('.pro-nas #about-title, .pro-nas .about-section h3, .pro-nas .animate-text, .pro-nas .animate-item').forEach(el => {
-                if (!el.classList.contains('visible')) {
-                    el.classList.add('visible');
-                }
-            });
-        }
+        // SEO блок
+        document.querySelectorAll('.seo-block:first-child h2, .seo-block:first-child .seo-content p').forEach(el => {
+            if (utils.inViewport(el) && !el.classList.contains('visible')) {
+                el.classList.add('visible');
+            }
+        });
         
-        // ========== СЕКЦИЯ ОПЫТ (ОБЯЗАТЕЛЬНО РАБОТАЕТ НА ВСЕХ УСТРОЙСТВАХ) ==========
+        // Опыт
         const experienceSection = document.getElementById('experience');
         if (experienceSection && utils.inViewport(experienceSection)) {
             const title = document.getElementById('experience-title');
-            if (title && !title.classList.contains('visible')) {
-                title.classList.add('visible');
-            }
+            if (title) title.classList.add('visible');
             
-            // Анимация счетчиков
             document.querySelectorAll('.counter').forEach(counter => {
                 if (!counter.classList.contains('animated')) {
                     counter.classList.add('animated');
@@ -195,14 +149,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // ========== ДРУГИЕ АНИМАЦИИ (только на десктопе) ==========
-        if (!isMobile) {
-            document.querySelectorAll('#about-title, .about-section h3, .animate-text, .animate-item').forEach(el => {
-                if (utils.inViewport(el) && !el.classList.contains('visible')) {
-                    setTimeout(() => el.classList.add('visible'), Math.random() * 300 + 200);
-                }
-            });
-        }
+        // О нас
+        document.querySelectorAll('#about-title, .about-section h3, .animate-text, .animate-item').forEach(el => {
+            if (utils.inViewport(el) && !el.classList.contains('visible')) {
+                setTimeout(() => el.classList.add('visible'), Math.random() * 300 + 200);
+            }
+        });
     };
     
     window.addEventListener('scroll', animateOnScroll);
@@ -382,3 +334,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('✅ Все модули инициализированы');
 });
+
+// ========== АНИМАЦИИ ПРИ СКРОЛЛЕ ==========
+const animateOnScroll = () => {
+    // Проверяем, мобильное ли устройство (ширина до 720px)
+    const isMobile = window.innerWidth <= 720;
+    
+    // Если мобильное устройство, не добавляем классы анимации для pro-nas секции
+    if (!isMobile) {
+        // SEO блок
+        document.querySelectorAll('.pro-nas .seo-block:first-child h2, .pro-nas .seo-block:first-child .seo-content p').forEach(el => {
+            if (utils.inViewport(el) && !el.classList.contains('visible')) {
+                el.classList.add('visible');
+            }
+        });
+        
+        // О нас
+        document.querySelectorAll('.pro-nas #about-title, .pro-nas .about-section h3, .pro-nas .animate-text, .pro-nas .animate-item').forEach(el => {
+            if (utils.inViewport(el) && !el.classList.contains('visible')) {
+                setTimeout(() => el.classList.add('visible'), Math.random() * 300 + 200);
+            }
+        });
+    } else {
+        // На мобильных устройствах сразу показываем все элементы в pro-nas
+        document.querySelectorAll('.pro-nas .seo-block:first-child h2, .pro-nas .seo-block:first-child .seo-content p').forEach(el => {
+            el.classList.add('visible');
+        });
+        
+        document.querySelectorAll('.pro-nas #about-title, .pro-nas .about-section h3, .pro-nas .animate-text, .pro-nas .animate-item').forEach(el => {
+            el.classList.add('visible');
+        });
+    }
+    
+    // Опыт (эту анимацию оставляем всегда)
+    const experienceSection = document.getElementById('experience');
+    if (experienceSection && utils.inViewport(experienceSection)) {
+        const title = document.getElementById('experience-title');
+        if (title) title.classList.add('visible');
+        
+        document.querySelectorAll('.counter').forEach(counter => {
+            if (!counter.classList.contains('animated')) {
+                counter.classList.add('animated');
+                const target = parseInt(counter.getAttribute('data-target'));
+                utils.animateCounter(counter, target);
+            }
+        });
+    }
+};
