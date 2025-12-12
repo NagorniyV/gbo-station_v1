@@ -1,14 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('✅ DOM загружен, инициализация...');
 
+    // Проверяем мобильное устройство
+    const isMobile = window.innerWidth <= 720;
+    
     // ========== ОБЩИЕ УТИЛИТЫ ==========
     const utils = {
         inViewport: (el) => {
+            if (isMobile) return true; // На мобильных сразу показываем
             const rect = el.getBoundingClientRect();
             return rect.top <= (window.innerHeight * 0.8) && rect.bottom >= 0;
         },
         
         animateCounter: (element, target, duration = 1500) => {
+            if (isMobile) {
+                // На мобильных сразу показываем результат
+                element.textContent = target;
+                return;
+            }
+            
             let start = 0;
             const increment = target / (duration / 16);
             let current = start;
@@ -24,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // ========== БУРГЕР-МЕНЮ ==========
+    // ========== БУРГЕР-МЕНЮ (уже оптимизировано) ==========
     const burger = document.getElementById('burgerMenu');
     const header = document.getElementById('header');
     const overlay = document.getElementById('overlay');
@@ -55,14 +65,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ========== ПЛАВНАЯ ПРОКРУТКА ==========
+    // ========== ПЛАВНАЯ ПРОКРУТКА (упрощаем для мобильных) ==========
     document.querySelectorAll('.nav-item a[href^="#"]').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 const top = target.getBoundingClientRect().top + window.pageYOffset;
-                window.scrollTo({ top, behavior: 'smooth' });
+                
+                // На мобильных используем быструю прокрутку
+                if (isMobile) {
+                    window.scrollTo({ top, behavior: 'auto' });
+                } else {
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
                 
                 // Закрыть меню на мобильных
                 if (window.innerWidth <= 768 && burger) {
@@ -75,16 +91,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ========== АНИМАЦИЯ ХИРО ==========
+    // ========== АНИМАЦИЯ ХИРО (упрощаем для мобильных) ==========
     setTimeout(() => {
         const title = document.getElementById('animated-title');
         const subtitle = document.getElementById('animated-subtitle');
         
-        if (title) title.classList.add('visible');
-        if (subtitle) setTimeout(() => subtitle.classList.add('visible'), 500);
-    }, 1000);
+        if (title) {
+            if (isMobile) {
+                title.classList.add('visible'); // Сразу показываем
+            } else {
+                title.classList.add('visible');
+            }
+        }
+        
+        if (subtitle) {
+            if (isMobile) {
+                subtitle.classList.add('visible'); // Сразу показываем
+            } else {
+                setTimeout(() => subtitle.classList.add('visible'), 500);
+            }
+        }
+    }, isMobile ? 100 : 1000); // На мобильных меньше задержка
 
-    // ========== ФОРМА TELEGRAM ==========
+    // ========== ФОРМА TELEGRAM (оставляем без изменений) ==========
     const form = document.querySelector('.callback-form .form');
     if (form) {
         form.addEventListener('submit', async function(e) {
@@ -107,7 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const text = `📞 Нова заявка з сайту!\n\n👤 Ім'я: ${data.name || 'Не вказано'}\n📱 Телефон: ${data.phone}\n🚗 Авто: ${data.car || 'Не вказано'}\n🔧 Послуга: ${serviceType}\n⏰ Час: ${new Date().toLocaleString('uk-UA')}`;
             
-            // Отправка в Telegram
             const botToken = '8567006740:AAEjnWs1YgLfzhiedvEIoEL_9jFJD8_gzKc';
             const chatIds = ['398501551', '600710233'];
             
@@ -125,43 +153,66 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ========== АНИМАЦИИ ПРИ СКРОЛЛЕ ==========
+    // ========== ОДНА ФУНКЦИЯ АНИМАЦИИ ПРИ СКРОЛЛЕ ==========
     const animateOnScroll = () => {
-        // SEO блок
-        document.querySelectorAll('.seo-block:first-child h2, .seo-block:first-child .seo-content p').forEach(el => {
-            if (utils.inViewport(el) && !el.classList.contains('visible')) {
+        // Если мобильное устройство, сразу показываем все элементы
+        if (isMobile) {
+            // SEO блок pro-nas
+            document.querySelectorAll('.pro-nas .seo-block:first-child h2, .pro-nas .seo-block:first-child .seo-content p').forEach(el => {
                 el.classList.add('visible');
-            }
-        });
-        
-        // Опыт
-        const experienceSection = document.getElementById('experience');
-        if (experienceSection && utils.inViewport(experienceSection)) {
-            const title = document.getElementById('experience-title');
-            if (title) title.classList.add('visible');
+            });
             
-            document.querySelectorAll('.counter').forEach(counter => {
-                if (!counter.classList.contains('animated')) {
-                    counter.classList.add('animated');
-                    const target = parseInt(counter.getAttribute('data-target'));
-                    utils.animateCounter(counter, target);
+            // О нас
+            document.querySelectorAll('.pro-nas #about-title, .pro-nas .about-section h3, .pro-nas .animate-text, .pro-nas .animate-item').forEach(el => {
+                el.classList.add('visible');
+            });
+            
+            // Другие элементы тоже сразу показываем
+            document.querySelectorAll('.seo-block:first-child h2, .seo-block:first-child .seo-content p').forEach(el => {
+                el.classList.add('visible');
+            });
+        } else {
+            // SEO блок
+            document.querySelectorAll('.seo-block:first-child h2, .seo-block:first-child .seo-content p').forEach(el => {
+                if (utils.inViewport(el) && !el.classList.contains('visible')) {
+                    el.classList.add('visible');
+                }
+            });
+            
+            // Опыт
+            const experienceSection = document.getElementById('experience');
+            if (experienceSection && utils.inViewport(experienceSection)) {
+                const title = document.getElementById('experience-title');
+                if (title) title.classList.add('visible');
+                
+                document.querySelectorAll('.counter').forEach(counter => {
+                    if (!counter.classList.contains('animated')) {
+                        counter.classList.add('animated');
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        utils.animateCounter(counter, target);
+                    }
+                });
+            }
+            
+            // О нас
+            document.querySelectorAll('#about-title, .about-section h3, .animate-text, .animate-item').forEach(el => {
+                if (utils.inViewport(el) && !el.classList.contains('visible')) {
+                    setTimeout(() => el.classList.add('visible'), Math.random() * 300 + 200);
                 }
             });
         }
-        
-        // О нас
-        document.querySelectorAll('#about-title, .about-section h3, .animate-text, .animate-item').forEach(el => {
-            if (utils.inViewport(el) && !el.classList.contains('visible')) {
-                setTimeout(() => el.classList.add('visible'), Math.random() * 300 + 200);
-            }
-        });
     };
     
-    window.addEventListener('scroll', animateOnScroll);
-    window.addEventListener('load', animateOnScroll);
-    animateOnScroll();
+    // На мобильных запускаем сразу, на десктопе - при скролле
+    if (isMobile) {
+        animateOnScroll(); // Сразу показываем все
+    } else {
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+        animateOnScroll();
+    }
 
-    // ========== КАЛЬКУЛЯТОР ГБО ==========
+    // ========== КАЛЬКУЛЯТОР ГБО (оставляем без изменений) ==========
     const calculatorInputs = ['petrol-price', 'gas-price', 'monthly-mileage', 'fuel-consumption', 'gbo-kit'];
     
     const calculatePayback = () => {
@@ -197,23 +248,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     if (document.getElementById('gbo-kit')) calculatePayback();
 
-    // ========== FAQ ==========
+    // ========== FAQ (упрощаем для мобильных) ==========
     document.querySelectorAll('.faq-item').forEach((item, index) => {
         const question = item.querySelector('.faq-question');
         if (question) {
             question.addEventListener('click', () => {
-                document.querySelectorAll('.faq-item').forEach(i => {
-                    if (i !== item) i.classList.remove('active');
-                });
+                // На мобильных закрываем другие элементы
+                if (isMobile) {
+                    document.querySelectorAll('.faq-item').forEach(i => {
+                        if (i !== item && i.classList.contains('active')) {
+                            i.classList.remove('active');
+                        }
+                    });
+                }
                 item.classList.toggle('active');
             });
             
-            // Открыть первый вопрос
-            if (index === 0) item.classList.add('active');
+            // На мобильных не открываем первый вопрос автоматически
+            if (index === 0 && !isMobile) item.classList.add('active');
         }
     });
 
-    // ========== ЛИПКИЕ КНОПКИ ==========
+    // ========== ЛИПКИЕ КНОПКИ (упрощаем для мобильных) ==========
     const phoneBtn = document.getElementById('phoneButton');
     const phonePanel = document.getElementById('phonePanel');
     const scrollBtn = document.getElementById('scrollTopButton');
@@ -233,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (scrollBtn) {
         scrollBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: isMobile ? 'auto' : 'smooth' });
         });
         
         const toggleScrollBtn = () => {
@@ -242,16 +298,23 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         toggleScrollBtn();
-        window.addEventListener('scroll', toggleScrollBtn);
+        // На мобильных реже проверяем скролл
+        window.addEventListener('scroll', isMobile ? 
+            () => setTimeout(toggleScrollBtn, 100) : // Дебаунс для мобильных
+            toggleScrollBtn
+        );
     }
 
-    // ========== ГАЛЕРЕЯ ==========
+    // ========== ГАЛЕРЕЯ (ВАЖНО! Оптимизация для мобильных) ==========
     const galleryModal = document.getElementById('galleryModal');
     if (galleryModal) {
         let currentImages = [];
         let currentIndex = 0;
+        let isAnimating = false; // Флаг для предотвращения множественных кликов
         
         const updateGallery = () => {
+            if (isAnimating) return;
+            
             const img = document.getElementById('modalImage');
             const counter = document.getElementById('imageCounter');
             const thumbs = document.getElementById('modalThumbnails');
@@ -259,125 +322,174 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!img || !counter) return;
             
             if (currentImages.length > 0) {
+                // На мобильных предзагружаем следующее изображение
+                const nextIndex = (currentIndex + 1) % currentImages.length;
+                const nextImage = new Image();
+                nextImage.src = currentImages[nextIndex].src;
+                
                 img.src = currentImages[currentIndex].src;
                 img.alt = currentImages[currentIndex].alt;
                 counter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
-            }
-            
-            if (thumbs) {
-                thumbs.innerHTML = '';
-                currentImages.forEach((image, i) => {
-                    const thumb = document.createElement('img');
-                    thumb.src = image.src;
-                    thumb.alt = image.alt;
-                    thumb.classList.toggle('active', i === currentIndex);
-                    thumb.addEventListener('click', () => {
-                        currentIndex = i;
-                        updateGallery();
+                
+                // На мобильных добавляем loading="lazy" для миниатюр
+                if (thumbs) {
+                    thumbs.innerHTML = '';
+                    currentImages.forEach((image, i) => {
+                        const thumb = document.createElement('img');
+                        thumb.src = image.src;
+                        thumb.alt = image.alt;
+                        thumb.loading = "lazy";
+                        thumb.classList.toggle('active', i === currentIndex);
+                        
+                        // Упрощаем обработчик для мобильных
+                        thumb.addEventListener('click', () => {
+                            if (isMobile) {
+                                currentIndex = i;
+                                updateGallery();
+                            } else {
+                                if (!isAnimating) {
+                                    currentIndex = i;
+                                    updateGallery();
+                                }
+                            }
+                        });
+                        
+                        thumbs.appendChild(thumb);
                     });
-                    thumbs.appendChild(thumb);
-                });
+                }
             }
         };
         
         // Открытие галереи
         document.querySelectorAll('.gallery-container img').forEach((img, index, images) => {
             img.addEventListener('click', () => {
-                currentImages = Array.from(images);
-                currentIndex = index;
-                updateGallery();
-                galleryModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                // На мобильных используем requestAnimationFrame для плавности
+                if (isMobile) {
+                    requestAnimationFrame(() => {
+                        currentImages = Array.from(images);
+                        currentIndex = index;
+                        updateGallery();
+                        galleryModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    });
+                } else {
+                    currentImages = Array.from(images);
+                    currentIndex = index;
+                    updateGallery();
+                    galleryModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
             });
         });
         
         // Закрытие
         document.getElementById('modalClose')?.addEventListener('click', () => {
-            galleryModal.classList.remove('active');
-            document.body.style.overflow = '';
+            if (isMobile) {
+                requestAnimationFrame(() => {
+                    galleryModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            } else {
+                galleryModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         });
         
         galleryModal.addEventListener('click', (e) => {
             if (e.target === galleryModal || e.target.classList.contains('modal-overlay')) {
-                galleryModal.classList.remove('active');
-                document.body.style.overflow = '';
+                if (isMobile) {
+                    requestAnimationFrame(() => {
+                        galleryModal.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                } else {
+                    galleryModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
             }
         });
         
         // Навигация
         document.getElementById('modalPrev')?.addEventListener('click', () => {
-            currentIndex = currentIndex > 0 ? currentIndex - 1 : currentImages.length - 1;
-            updateGallery();
+            if (isAnimating) return;
+            
+            isAnimating = true;
+            if (isMobile) {
+                requestAnimationFrame(() => {
+                    currentIndex = currentIndex > 0 ? currentIndex - 1 : currentImages.length - 1;
+                    updateGallery();
+                    setTimeout(() => isAnimating = false, 100);
+                });
+            } else {
+                currentIndex = currentIndex > 0 ? currentIndex - 1 : currentImages.length - 1;
+                updateGallery();
+                setTimeout(() => isAnimating = false, 300);
+            }
         });
         
         document.getElementById('modalNext')?.addEventListener('click', () => {
-            currentIndex = currentIndex < currentImages.length - 1 ? currentIndex + 1 : 0;
-            updateGallery();
-        });
-        
-        // Клавиатура
-        document.addEventListener('keydown', (e) => {
-            if (!galleryModal.classList.contains('active')) return;
+            if (isAnimating) return;
             
-            if (e.key === 'Escape') {
-                galleryModal.classList.remove('active');
-                document.body.style.overflow = '';
-            } else if (e.key === 'ArrowLeft') {
-                currentIndex = currentIndex > 0 ? currentIndex - 1 : currentImages.length - 1;
-                updateGallery();
-            } else if (e.key === 'ArrowRight') {
+            isAnimating = true;
+            if (isMobile) {
+                requestAnimationFrame(() => {
+                    currentIndex = currentIndex < currentImages.length - 1 ? currentIndex + 1 : 0;
+                    updateGallery();
+                    setTimeout(() => isAnimating = false, 100);
+                });
+            } else {
                 currentIndex = currentIndex < currentImages.length - 1 ? currentIndex + 1 : 0;
                 updateGallery();
+                setTimeout(() => isAnimating = false, 300);
             }
         });
+        
+        // Клавиатура (только для десктопа)
+        if (!isMobile) {
+            document.addEventListener('keydown', (e) => {
+                if (!galleryModal.classList.contains('active')) return;
+                
+                if (e.key === 'Escape') {
+                    galleryModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                } else if (e.key === 'ArrowLeft') {
+                    currentIndex = currentIndex > 0 ? currentIndex - 1 : currentImages.length - 1;
+                    updateGallery();
+                } else if (e.key === 'ArrowRight') {
+                    currentIndex = currentIndex < currentImages.length - 1 ? currentIndex + 1 : 0;
+                    updateGallery();
+                }
+            });
+        }
+    }
+
+    // ========== ДОПОЛНИТЕЛЬНАЯ ОПТИМИЗАЦИЯ ДЛЯ МОБИЛЬНЫХ ==========
+    if (isMobile) {
+        // 1. Упрощаем обработку событий
+        const passiveOptions = { passive: true };
+        
+        // 2. Добавляем touch-action для лучшей прокрутки
+        document.querySelectorAll('.modal-thumbnails, .thumbnails').forEach(el => {
+            if (el) {
+                el.style.touchAction = 'pan-y';
+            }
+        });
+        
+        // 3. Предотвращаем масштабирование при быстром тапе
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, passiveOptions);
+        
+        // 4. Отключаем ненужные слушатели событий
+        window.addEventListener('scroll', () => {}, passiveOptions);
+        
+        console.log('📱 Мобильная оптимизация активирована');
     }
 
     console.log('✅ Все модули инициализированы');
 });
-
-// ========== АНИМАЦИИ ПРИ СКРОЛЛЕ ==========
-const animateOnScroll = () => {
-    // Проверяем, мобильное ли устройство (ширина до 720px)
-    const isMobile = window.innerWidth <= 720;
-    
-    // Если мобильное устройство, не добавляем классы анимации для pro-nas секции
-    if (!isMobile) {
-        // SEO блок
-        document.querySelectorAll('.pro-nas .seo-block:first-child h2, .pro-nas .seo-block:first-child .seo-content p').forEach(el => {
-            if (utils.inViewport(el) && !el.classList.contains('visible')) {
-                el.classList.add('visible');
-            }
-        });
-        
-        // О нас
-        document.querySelectorAll('.pro-nas #about-title, .pro-nas .about-section h3, .pro-nas .animate-text, .pro-nas .animate-item').forEach(el => {
-            if (utils.inViewport(el) && !el.classList.contains('visible')) {
-                setTimeout(() => el.classList.add('visible'), Math.random() * 300 + 200);
-            }
-        });
-    } else {
-        // На мобильных устройствах сразу показываем все элементы в pro-nas
-        document.querySelectorAll('.pro-nas .seo-block:first-child h2, .pro-nas .seo-block:first-child .seo-content p').forEach(el => {
-            el.classList.add('visible');
-        });
-        
-        document.querySelectorAll('.pro-nas #about-title, .pro-nas .about-section h3, .pro-nas .animate-text, .pro-nas .animate-item').forEach(el => {
-            el.classList.add('visible');
-        });
-    }
-    
-    // Опыт (эту анимацию оставляем всегда)
-    const experienceSection = document.getElementById('experience');
-    if (experienceSection && utils.inViewport(experienceSection)) {
-        const title = document.getElementById('experience-title');
-        if (title) title.classList.add('visible');
-        
-        document.querySelectorAll('.counter').forEach(counter => {
-            if (!counter.classList.contains('animated')) {
-                counter.classList.add('animated');
-                const target = parseInt(counter.getAttribute('data-target'));
-                utils.animateCounter(counter, target);
-            }
-        });
-    }
-};
