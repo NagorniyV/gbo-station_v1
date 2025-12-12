@@ -7,34 +7,44 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========== ОБЩИЕ УТИЛИТЫ ==========
     const utils = {
         inViewport: (el) => {
-            if (isMobile) return true; // На мобильных сразу показываем
             const rect = el.getBoundingClientRect();
             return rect.top <= (window.innerHeight * 0.8) && rect.bottom >= 0;
         },
         
         animateCounter: (element, target, duration = 1500) => {
             if (isMobile) {
-                // На мобильных сразу показываем результат
-                element.textContent = target;
-                return;
+                // На мобильных оптимизируем анимацию счетчика
+                let start = 0;
+                const increment = target / (duration / 32); // Медленнее для мобильных
+                let current = start;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    element.textContent = Math.floor(current);
+                }, 32); // Реже обновляем на мобильных
+            } else {
+                // На десктопе оригинальная анимация
+                let start = 0;
+                const increment = target / (duration / 16);
+                let current = start;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    element.textContent = Math.floor(current);
+                }, 16);
             }
-            
-            let start = 0;
-            const increment = target / (duration / 16);
-            let current = start;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                element.textContent = Math.floor(current);
-            }, 16);
         }
     };
 
-    // ========== БУРГЕР-МЕНЮ (уже оптимизировано) ==========
+    // ========== БУРГЕР-МЕНЮ ==========
     const burger = document.getElementById('burgerMenu');
     const header = document.getElementById('header');
     const overlay = document.getElementById('overlay');
@@ -65,20 +75,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ========== ПЛАВНАЯ ПРОКРУТКА (упрощаем для мобильных) ==========
+    // ========== ПЛАВНАЯ ПРОКРУТКА ==========
     document.querySelectorAll('.nav-item a[href^="#"]').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 const top = target.getBoundingClientRect().top + window.pageYOffset;
-                
-                // На мобильных используем быструю прокрутку
-                if (isMobile) {
-                    window.scrollTo({ top, behavior: 'auto' });
-                } else {
-                    window.scrollTo({ top, behavior: 'smooth' });
-                }
+                window.scrollTo({ top, behavior: 'smooth' });
                 
                 // Закрыть меню на мобильных
                 if (window.innerWidth <= 768 && burger) {
@@ -91,29 +95,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ========== АНИМАЦИЯ ХИРО (упрощаем для мобильных) ==========
+    // ========== АНИМАЦИЯ ХИРО ==========
     setTimeout(() => {
         const title = document.getElementById('animated-title');
         const subtitle = document.getElementById('animated-subtitle');
         
-        if (title) {
-            if (isMobile) {
-                title.classList.add('visible'); // Сразу показываем
-            } else {
-                title.classList.add('visible');
-            }
-        }
-        
-        if (subtitle) {
-            if (isMobile) {
-                subtitle.classList.add('visible'); // Сразу показываем
-            } else {
-                setTimeout(() => subtitle.classList.add('visible'), 500);
-            }
-        }
-    }, isMobile ? 100 : 1000); // На мобильных меньше задержка
+        if (title) title.classList.add('visible');
+        if (subtitle) setTimeout(() => subtitle.classList.add('visible'), 500);
+    }, 1000);
 
-    // ========== ФОРМА TELEGRAM (оставляем без изменений) ==========
+    // ========== ФОРМА TELEGRAM ==========
     const form = document.querySelector('.callback-form .form');
     if (form) {
         form.addEventListener('submit', async function(e) {
@@ -153,48 +144,59 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ========== ОДНА ФУНКЦИЯ АНИМАЦИИ ПРИ СКРОЛЛЕ ==========
+    // ========== АНИМАЦИИ ПРИ СКРОЛЛЕ ==========
     const animateOnScroll = () => {
-        // Если мобильное устройство, сразу показываем все элементы
-        if (isMobile) {
-            // SEO блок pro-nas
-            document.querySelectorAll('.pro-nas .seo-block:first-child h2, .pro-nas .seo-block:first-child .seo-content p').forEach(el => {
-                el.classList.add('visible');
-            });
-            
-            // О нас
-            document.querySelectorAll('.pro-nas #about-title, .pro-nas .about-section h3, .pro-nas .animate-text, .pro-nas .animate-item').forEach(el => {
-                el.classList.add('visible');
-            });
-            
-            // Другие элементы тоже сразу показываем
-            document.querySelectorAll('.seo-block:first-child h2, .seo-block:first-child .seo-content p').forEach(el => {
-                el.classList.add('visible');
-            });
-        } else {
-            // SEO блок
+        // ========== SEO БЛОК (ТОЛЬКО ПЕРВЫЙ) ==========
+        // Если мобильное устройство, не добавляем классы анимации для pro-nas секции
+        if (!isMobile) {
+            // SEO блок (только первый)
             document.querySelectorAll('.seo-block:first-child h2, .seo-block:first-child .seo-content p').forEach(el => {
                 if (utils.inViewport(el) && !el.classList.contains('visible')) {
                     el.classList.add('visible');
                 }
             });
             
-            // Опыт
-            const experienceSection = document.getElementById('experience');
-            if (experienceSection && utils.inViewport(experienceSection)) {
-                const title = document.getElementById('experience-title');
-                if (title) title.classList.add('visible');
-                
-                document.querySelectorAll('.counter').forEach(counter => {
-                    if (!counter.classList.contains('animated')) {
-                        counter.classList.add('animated');
-                        const target = parseInt(counter.getAttribute('data-target'));
-                        utils.animateCounter(counter, target);
-                    }
-                });
+            // О нас в pro-nas
+            document.querySelectorAll('.pro-nas #about-title, .pro-nas .about-section h3, .pro-nas .animate-text, .pro-nas .animate-item').forEach(el => {
+                if (utils.inViewport(el) && !el.classList.contains('visible')) {
+                    setTimeout(() => el.classList.add('visible'), Math.random() * 300 + 200);
+                }
+            });
+        } else {
+            // На мобильных устройствах сразу показываем все элементы в pro-nas
+            document.querySelectorAll('.pro-nas .seo-block:first-child h2, .pro-nas .seo-block:first-child .seo-content p').forEach(el => {
+                if (!el.classList.contains('visible')) {
+                    el.classList.add('visible');
+                }
+            });
+            
+            document.querySelectorAll('.pro-nas #about-title, .pro-nas .about-section h3, .pro-nas .animate-text, .pro-nas .animate-item').forEach(el => {
+                if (!el.classList.contains('visible')) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        
+        // ========== СЕКЦИЯ ОПЫТ (ОБЯЗАТЕЛЬНО РАБОТАЕТ НА ВСЕХ УСТРОЙСТВАХ) ==========
+        const experienceSection = document.getElementById('experience');
+        if (experienceSection && utils.inViewport(experienceSection)) {
+            const title = document.getElementById('experience-title');
+            if (title && !title.classList.contains('visible')) {
+                title.classList.add('visible');
             }
             
-            // О нас
+            // Анимация счетчиков
+            document.querySelectorAll('.counter').forEach(counter => {
+                if (!counter.classList.contains('animated')) {
+                    counter.classList.add('animated');
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    utils.animateCounter(counter, target);
+                }
+            });
+        }
+        
+        // ========== ДРУГИЕ АНИМАЦИИ (только на десктопе) ==========
+        if (!isMobile) {
             document.querySelectorAll('#about-title, .about-section h3, .animate-text, .animate-item').forEach(el => {
                 if (utils.inViewport(el) && !el.classList.contains('visible')) {
                     setTimeout(() => el.classList.add('visible'), Math.random() * 300 + 200);
@@ -203,16 +205,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-    // На мобильных запускаем сразу, на десктопе - при скролле
-    if (isMobile) {
-        animateOnScroll(); // Сразу показываем все
-    } else {
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-        animateOnScroll();
-    }
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+    animateOnScroll();
 
-    // ========== КАЛЬКУЛЯТОР ГБО (оставляем без изменений) ==========
+    // ========== КАЛЬКУЛЯТОР ГБО ==========
     const calculatorInputs = ['petrol-price', 'gas-price', 'monthly-mileage', 'fuel-consumption', 'gbo-kit'];
     
     const calculatePayback = () => {
@@ -248,28 +245,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     if (document.getElementById('gbo-kit')) calculatePayback();
 
-    // ========== FAQ (упрощаем для мобильных) ==========
+    // ========== FAQ ==========
     document.querySelectorAll('.faq-item').forEach((item, index) => {
         const question = item.querySelector('.faq-question');
         if (question) {
             question.addEventListener('click', () => {
-                // На мобильных закрываем другие элементы
-                if (isMobile) {
-                    document.querySelectorAll('.faq-item').forEach(i => {
-                        if (i !== item && i.classList.contains('active')) {
-                            i.classList.remove('active');
-                        }
-                    });
-                }
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    if (i !== item) i.classList.remove('active');
+                });
                 item.classList.toggle('active');
             });
             
-            // На мобильных не открываем первый вопрос автоматически
-            if (index === 0 && !isMobile) item.classList.add('active');
+            // Открыть первый вопрос
+            if (index === 0) item.classList.add('active');
         }
     });
 
-    // ========== ЛИПКИЕ КНОПКИ (упрощаем для мобильных) ==========
+    // ========== ЛИПКИЕ КНОПКИ ==========
     const phoneBtn = document.getElementById('phoneButton');
     const phonePanel = document.getElementById('phonePanel');
     const scrollBtn = document.getElementById('scrollTopButton');
@@ -289,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (scrollBtn) {
         scrollBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: isMobile ? 'auto' : 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         
         const toggleScrollBtn = () => {
@@ -298,23 +290,16 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         toggleScrollBtn();
-        // На мобильных реже проверяем скролл
-        window.addEventListener('scroll', isMobile ? 
-            () => setTimeout(toggleScrollBtn, 100) : // Дебаунс для мобильных
-            toggleScrollBtn
-        );
+        window.addEventListener('scroll', toggleScrollBtn);
     }
 
-    // ========== ГАЛЕРЕЯ (ВАЖНО! Оптимизация для мобильных) ==========
+    // ========== ГАЛЕРЕЯ ==========
     const galleryModal = document.getElementById('galleryModal');
     if (galleryModal) {
         let currentImages = [];
         let currentIndex = 0;
-        let isAnimating = false; // Флаг для предотвращения множественных кликов
         
         const updateGallery = () => {
-            if (isAnimating) return;
-            
             const img = document.getElementById('modalImage');
             const counter = document.getElementById('imageCounter');
             const thumbs = document.getElementById('modalThumbnails');
@@ -322,173 +307,77 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!img || !counter) return;
             
             if (currentImages.length > 0) {
-                // На мобильных предзагружаем следующее изображение
-                const nextIndex = (currentIndex + 1) % currentImages.length;
-                const nextImage = new Image();
-                nextImage.src = currentImages[nextIndex].src;
-                
                 img.src = currentImages[currentIndex].src;
                 img.alt = currentImages[currentIndex].alt;
                 counter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
-                
-                // На мобильных добавляем loading="lazy" для миниатюр
-                if (thumbs) {
-                    thumbs.innerHTML = '';
-                    currentImages.forEach((image, i) => {
-                        const thumb = document.createElement('img');
-                        thumb.src = image.src;
-                        thumb.alt = image.alt;
-                        thumb.loading = "lazy";
-                        thumb.classList.toggle('active', i === currentIndex);
-                        
-                        // Упрощаем обработчик для мобильных
-                        thumb.addEventListener('click', () => {
-                            if (isMobile) {
-                                currentIndex = i;
-                                updateGallery();
-                            } else {
-                                if (!isAnimating) {
-                                    currentIndex = i;
-                                    updateGallery();
-                                }
-                            }
-                        });
-                        
-                        thumbs.appendChild(thumb);
+            }
+            
+            if (thumbs) {
+                thumbs.innerHTML = '';
+                currentImages.forEach((image, i) => {
+                    const thumb = document.createElement('img');
+                    thumb.src = image.src;
+                    thumb.alt = image.alt;
+                    thumb.classList.toggle('active', i === currentIndex);
+                    thumb.addEventListener('click', () => {
+                        currentIndex = i;
+                        updateGallery();
                     });
-                }
+                    thumbs.appendChild(thumb);
+                });
             }
         };
         
         // Открытие галереи
         document.querySelectorAll('.gallery-container img').forEach((img, index, images) => {
             img.addEventListener('click', () => {
-                // На мобильных используем requestAnimationFrame для плавности
-                if (isMobile) {
-                    requestAnimationFrame(() => {
-                        currentImages = Array.from(images);
-                        currentIndex = index;
-                        updateGallery();
-                        galleryModal.classList.add('active');
-                        document.body.style.overflow = 'hidden';
-                    });
-                } else {
-                    currentImages = Array.from(images);
-                    currentIndex = index;
-                    updateGallery();
-                    galleryModal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                }
+                currentImages = Array.from(images);
+                currentIndex = index;
+                updateGallery();
+                galleryModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             });
         });
         
         // Закрытие
         document.getElementById('modalClose')?.addEventListener('click', () => {
-            if (isMobile) {
-                requestAnimationFrame(() => {
-                    galleryModal.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            } else {
+            galleryModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        galleryModal.addEventListener('click', (e) => {
+            if (e.target === galleryModal || e.target.classList.contains('modal-overlay')) {
                 galleryModal.classList.remove('active');
                 document.body.style.overflow = '';
             }
         });
         
-        galleryModal.addEventListener('click', (e) => {
-            if (e.target === galleryModal || e.target.classList.contains('modal-overlay')) {
-                if (isMobile) {
-                    requestAnimationFrame(() => {
-                        galleryModal.classList.remove('active');
-                        document.body.style.overflow = '';
-                    });
-                } else {
-                    galleryModal.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            }
-        });
-        
         // Навигация
         document.getElementById('modalPrev')?.addEventListener('click', () => {
-            if (isAnimating) return;
-            
-            isAnimating = true;
-            if (isMobile) {
-                requestAnimationFrame(() => {
-                    currentIndex = currentIndex > 0 ? currentIndex - 1 : currentImages.length - 1;
-                    updateGallery();
-                    setTimeout(() => isAnimating = false, 100);
-                });
-            } else {
-                currentIndex = currentIndex > 0 ? currentIndex - 1 : currentImages.length - 1;
-                updateGallery();
-                setTimeout(() => isAnimating = false, 300);
-            }
+            currentIndex = currentIndex > 0 ? currentIndex - 1 : currentImages.length - 1;
+            updateGallery();
         });
         
         document.getElementById('modalNext')?.addEventListener('click', () => {
-            if (isAnimating) return;
+            currentIndex = currentIndex < currentImages.length - 1 ? currentIndex + 1 : 0;
+            updateGallery();
+        });
+        
+        // Клавиатура
+        document.addEventListener('keydown', (e) => {
+            if (!galleryModal.classList.contains('active')) return;
             
-            isAnimating = true;
-            if (isMobile) {
-                requestAnimationFrame(() => {
-                    currentIndex = currentIndex < currentImages.length - 1 ? currentIndex + 1 : 0;
-                    updateGallery();
-                    setTimeout(() => isAnimating = false, 100);
-                });
-            } else {
+            if (e.key === 'Escape') {
+                galleryModal.classList.remove('active');
+                document.body.style.overflow = '';
+            } else if (e.key === 'ArrowLeft') {
+                currentIndex = currentIndex > 0 ? currentIndex - 1 : currentImages.length - 1;
+                updateGallery();
+            } else if (e.key === 'ArrowRight') {
                 currentIndex = currentIndex < currentImages.length - 1 ? currentIndex + 1 : 0;
                 updateGallery();
-                setTimeout(() => isAnimating = false, 300);
             }
         });
-        
-        // Клавиатура (только для десктопа)
-        if (!isMobile) {
-            document.addEventListener('keydown', (e) => {
-                if (!galleryModal.classList.contains('active')) return;
-                
-                if (e.key === 'Escape') {
-                    galleryModal.classList.remove('active');
-                    document.body.style.overflow = '';
-                } else if (e.key === 'ArrowLeft') {
-                    currentIndex = currentIndex > 0 ? currentIndex - 1 : currentImages.length - 1;
-                    updateGallery();
-                } else if (e.key === 'ArrowRight') {
-                    currentIndex = currentIndex < currentImages.length - 1 ? currentIndex + 1 : 0;
-                    updateGallery();
-                }
-            });
-        }
-    }
-
-    // ========== ДОПОЛНИТЕЛЬНАЯ ОПТИМИЗАЦИЯ ДЛЯ МОБИЛЬНЫХ ==========
-    if (isMobile) {
-        // 1. Упрощаем обработку событий
-        const passiveOptions = { passive: true };
-        
-        // 2. Добавляем touch-action для лучшей прокрутки
-        document.querySelectorAll('.modal-thumbnails, .thumbnails').forEach(el => {
-            if (el) {
-                el.style.touchAction = 'pan-y';
-            }
-        });
-        
-        // 3. Предотвращаем масштабирование при быстром тапе
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function(event) {
-            const now = Date.now();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, passiveOptions);
-        
-        // 4. Отключаем ненужные слушатели событий
-        window.addEventListener('scroll', () => {}, passiveOptions);
-        
-        console.log('📱 Мобильная оптимизация активирована');
     }
 
     console.log('✅ Все модули инициализированы');
