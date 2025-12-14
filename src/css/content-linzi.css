@@ -481,3 +481,47 @@
 .modal-thumbnails::-webkit-scrollbar-thumb:hover {
     background: rgba(229, 37, 42, 0.8);
 }
+
+/* ================= FPS OPTIMIZATION ================= */
+
+/* Убираем blur на мобильных */
+@media (max-width: 768px) {
+
+    .content-linzi::before,
+    .content-text,
+    .modal-overlay {
+        backdrop-filter: none !important;
+        background: rgba(0, 0, 0, 0.75);
+    }
+}
+
+/* Hover только для мыши */
+@media (hover: hover) {
+    .main-image:hover {
+        transform: scale(1.02);
+    }
+}
+
+/* Отключаем hover эффекты на touch */
+@media (hover: none) {
+
+    .main-image:hover,
+    .thumbnails img:hover {
+        transform: none;
+    }
+}
+
+/* GPU оптимизация */
+.modal-content,
+.modal-image-container,
+#modalImage {
+    will-change: transform;
+}
+
+/* Модалка — без лишних теней */
+@media (max-width: 768px) {
+    .modal-content {
+        box-shadow: none;
+        border-radius: 6px;
+    }
+}

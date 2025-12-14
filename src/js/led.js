@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'initHeader',
         'initForms',
         'initAnimations',
-        'initStickyButtons',
+        'initFAQ',
+        'initStickyButtons'
     ];
     
     let missingModules = [];
@@ -45,12 +46,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (typeof window.initAnimations === 'function') {
             window.initAnimations();
         }
-
-        // 5. Липкие кнопки
+        
+        // 6. FAQ
+        if (typeof window.initFAQ === 'function') {
+            window.initFAQ();
+        }
+        
+        // 7. Липкие кнопки
         if (typeof window.initStickyButtons === 'function') {
             window.initStickyButtons();
         }
         
+       
         console.log('🎉 Все модули успешно инициализированы!');
         
     } catch (error) {
