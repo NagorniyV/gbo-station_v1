@@ -239,11 +239,8 @@
         position: relative;
         min-height: auto;
         padding: 40px 0;
-    }
-
-    .pro-nas::before {
-        background: rgba(0, 0, 0, 0.7);
-        /* Немного светлее для лучшей читаемости */
+        background-image: none;
+        background-color: #121212;
     }
 
     .pro-nas p {
