@@ -1,12 +1,14 @@
 .pro-nas {
     position: relative;
     background-image: url(../img/bg/pexels-photo-804130.webp);
-    min-height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    min-height: 100vh;
+    min-height: 100dvh;
 }
 
+/* Overlay */
 .pro-nas::before {
     content: '';
     position: absolute;
@@ -19,23 +21,23 @@
     z-index: 1;
 }
 
+/* Контейнер контента */
 .pro-nas .container {
     position: relative;
     z-index: 2;
 }
 
-.seo-block {
-    margin-bottom: 50px;
-}
-
+/* Общие стили текста */
 .pro-nas p {
     font-size: 18px;
     line-height: 1.7;
-    color: #FFFFFF;
+    color: #fff;
     margin-bottom: 20px;
 }
 
-/* Стили для преимуществ */
+/* ===========================
+   Блок преимуществ
+   =========================== */
 .advantages-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -44,7 +46,7 @@
 }
 
 .advantage-item {
-    background: #FFFFFF;
+    background: #fff;
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
@@ -64,7 +66,6 @@
     margin: 0;
 }
 
-/* Стили для брендов */
 .brands-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -73,7 +74,7 @@
 }
 
 .brand-item {
-    background: #FFFFFF;
+    background: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
@@ -95,7 +96,6 @@
     margin: 0;
 }
 
-/* Стили для причин */
 .reasons-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -104,7 +104,7 @@
 }
 
 .reason-item {
-    background: #FFFFFF;
+    background: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
@@ -124,41 +124,19 @@
     margin: 0;
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-
-    .advantages-grid,
-    .brands-grid,
-    .reasons-list {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .seo-block h2 {
-        font-size: 28px;
-    }
-
-    .seo-content p {
-        font-size: 16px;
-    }
-
-    .seo-content {
-        margin-left: 30px;
-    }
+.seo-block {
+    margin-bottom: 30px;
 }
 
-/* АНИМАЦИЯ */
-
-/* Анимация ТОЛЬКО для первого SEO блока с газом */
 .seo-block:first-child h2 {
     font-size: 34px;
     font-weight: bold;
-    margin-bottom: 26px;
+    margin-bottom: 14px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     position: relative;
     display: inline-block;
     padding-bottom: 15px;
-    color: #FFFFFF;
+    color: #fff;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 1s ease, transform 1s ease;
@@ -183,7 +161,7 @@
 .seo-block:first-child .seo-content p {
     font-size: 18px;
     line-height: 1.7;
-    color: #FFFFFF;
+    color: #fff;
     margin-bottom: 20px;
     opacity: 0;
     transform: translateY(20px);
@@ -195,7 +173,7 @@
     transform: translateY(0);
 }
 
-/* Задержки для последовательной анимации ТОЛЬКО первого блока */
+/* Порядок анимации */
 .seo-block:first-child .seo-content p:nth-child(1) {
     transition-delay: 0.2s;
 }
@@ -208,100 +186,85 @@
     transition-delay: 0.6s;
 }
 
-/* Отключение анимации на мобильных устройствах (до 720px) */
-@media (max-width: 720px) {
-    .pro-nas .seo-block:first-child h2 {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-        transition: none !important;
+/* ===========================
+   Адаптивность
+   =========================== */
+@media (max-width: 768px) {
+
+    .advantages-grid,
+    .brands-grid,
+    .reasons-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
-    .pro-nas .seo-block:first-child .seo-content p {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-        transition: none !important;
-        transition-delay: 0s !important;
+    .seo-block h2 {
+        font-size: 28px;
     }
 
-    .pro-nas #about-title,
-    .pro-nas .about-section h3,
-    .pro-nas .animate-text,
-    .pro-nas .animate-item {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-        transition: none !important;
+    .seo-content p {
+        font-size: 16px;
+    }
+
+    .seo-content {
+        margin-left: 30px;
     }
 }
 
-/* Улучшение видимости текста на мобильных */
 @media (max-width: 720px) {
+
+    /* Отключаем анимацию */
+    .seo-block:first-child h2,
+    .seo-block:first-child .seo-content p,
+    #about-title,
+    .about-section h3,
+    .animate-text,
+    .animate-item {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        transition: none !important;
+    }
+
     .pro-nas {
-        position: relative;
         min-height: auto;
         padding: 40px 0;
         background-image: none;
         background-color: #121212;
     }
 
+    .pro-nas::before {
+        backdrop-filter: none;
+    }
+
     .pro-nas p {
         font-size: 16px;
         line-height: 1.6;
         text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        /* Добавляем тень для лучшей читаемости */
     }
 
-    .seo-block {
-        margin-bottom: 30px;
-    }
-
-    .seo-block:first-child h2 {
-        font-size: 24px;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        color: #FFFFFF;
-    }
-
-    .seo-block:first-child h2::after {
-        width: 60px;
-        height: 2px;
-    }
-
-    .seo-content p {
-        font-size: 15px;
-        margin-bottom: 15px;
-    }
-
-    /* Улучшение контраста для остальных блоков */
     .advantage-item,
     .brand-item,
     .reason-item {
         background: rgba(255, 255, 255, 0.95);
         border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 20px 15px;
     }
 
     .advantage-item h3,
     .brand-item h3,
     .reason-item h3 {
-        color: #121212;
         font-size: 17px;
+        color: #121212;
     }
 
     .advantage-item p,
     .brand-item p,
     .reason-item p {
-        color: #333;
         font-size: 14px;
-    }
-
-    /* Уменьшаем внутренние отступы на маленьких экранах */
-    .advantage-item,
-    .brand-item,
-    .reason-item {
-        padding: 20px 15px;
+        color: #333;
     }
 }
 
-/* Для очень маленьких экранов */
 @media (max-width: 480px) {
     .pro-nas {
         padding: 30px 0;
