@@ -160,23 +160,25 @@
 }
 
 @media (max-width: 700px){
-        .benefits-price {
-                flex-direction: column;
-            }
+    .benefits-price {
+        flex-direction: column;
+        width: auto;
+    }
          
     .by-price {
         margin-top: 30px;
         font-size: 28px;
     }       
-    
-    .price-container{
-        margin-left: 15px;
+
+    .price-content {
+        width: auto;
+        margin: 28px 10px;
     }
 }
 
 @media (max-width: 480px) {
     .price-container {
-        padding: 15px 10px;
+        /* padding: 10px 10px; */
         gap: 12px;
     }
 
@@ -196,13 +198,9 @@
         text-align: center;
     }
 
-
-
     .country-list {
         margin-left: 0px;
     }
-
-
 
     .price-title {
         font-size: 36px;
