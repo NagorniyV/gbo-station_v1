@@ -169,7 +169,7 @@
           <ul class="nav-list">
             <li class="nav-item dropdown">
               <a href="#services" class="dropdown-toggle">
-                <img src="./src/img/uslugi.png" alt="Послуги" />Послуги
+                <img src="./src/img/uslugi.png" alt="" />Послуги
               </a>
               <ul class="dropdown-menu">
                 <li><a href="./vstanovlenja-gbo.html">Встановлення ГБО</a></li>
@@ -180,18 +180,17 @@
             </li>
             <li class="nav-item">
               <a href="#gbo-station">
-                <img src="./src/img/o-nas.png" alt="Про нас" />Про нас
+                <img src="./src/img/o-nas.png" alt="" />Про нас
               </a>
             </li>
             <li class="nav-item">
               <a href="#callback">
-                <img src="./src/img/phone.png" alt="Заявка на дзвінок" />Заявка
-                на дзвінок
+                <img src="./src/img/phone.png" alt="" />Заявка на дзвінок
               </a>
             </li>
             <li class="nav-item">
               <a href="#footer">
-                <img src="./src/img/geo.png" alt="Як нас знайти" />Як нас знайти
+                <img src="./src/img/geo.png" alt="" />Як нас знайти
               </a>
             </li>
           </ul>
@@ -367,8 +366,16 @@
 
               <div>
                 <div class="form-group">
-                  <select id="service" class="form-select">
-                    <option value="" disabled selected>Тип послуги</option>
+                  <label for="service" class="visually-hidden"
+                    >Тип послуги</label
+                  >
+                  <select
+                    id="service"
+                    name="service"
+                    class="form-select"
+                    required
+                  >
+                    <option value="" disabled selected>Оберіть послугу</option>
                     <option value="gbo">Обслуговування ГБО</option>
                     <option value="lights">Обслуговування фар</option>
                   </select>
@@ -390,6 +397,7 @@
               <a
                 href="viber://chat?number=+380979092678"
                 class="social-btn viber"
+                aria-label="Написати у Viber"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
@@ -430,6 +438,7 @@
                 href="https://t.me/GBOStstion"
                 target="_blank"
                 class="social-btn telegram"
+                aria-label="Написати у Telegram"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
@@ -471,6 +480,7 @@
                 class="social-btn"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Ми у Facebook"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -492,6 +502,7 @@
                 class="social-btn"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Ми в Instagram"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -513,6 +524,7 @@
                 class="social-btn"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Ми у TikTok"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 448 512"
@@ -604,7 +616,11 @@
     <div class="sticky-buttons">
       <!-- Кнопка телефона -->
       <div class="sticky-button-wrapper phone-wrapper">
-        <button class="sticky-button phone-button" id="phoneButton">
+        <button
+          class="sticky-button phone-button"
+          id="phoneButton"
+          aria-label="Зателефонувати"
+        >
           <svg
             width="24"
             height="24"
@@ -629,7 +645,11 @@
       </div>
 
       <!-- Кнопка прокрутки вверх -->
-      <button class="sticky-button scroll-top-button" id="scrollTopButton">
+      <button
+        class="sticky-button scroll-top-button"
+        id="scrollTopButton"
+        aria-label="Прокрутити вгору"
+      >
         <svg
           width="24"
           height="24"
