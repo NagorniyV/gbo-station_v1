@@ -27,7 +27,28 @@ window.initHeader = function() {
             toggle.addEventListener('click', (e) => {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
-                    toggle.parentElement.classList.toggle('active');
+                    e.stopPropagation();
+                    const parent = toggle.parentElement;
+                    const isActive = parent.classList.contains('active');
+                    
+                    // Закрыть другие открытые меню
+                    document.querySelectorAll('.dropdown.active, .dropdown-submenu.active').forEach(el => {
+                        if (el !== parent) el.classList.remove('active');
+                    });
+                    
+                    parent.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Вложенное меню оптики на мобильных
+        document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const parent = toggle.parentElement;
+                    parent.classList.toggle('active');
                 }
             });
         });
@@ -51,6 +72,18 @@ window.initHeader = function() {
                 }
             }
         });
+    });
+
+    // ========== ЗАКРЫТИЕ МЕНЮ ПРИ КЛИКЕ ВНЕ ЕГО (для десктопа) ==========
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth > 768) {
+            const isClickInsideMenu = header.contains(e.target);
+            if (!isClickInsideMenu) {
+                document.querySelectorAll('.dropdown-submenu.active, .dropdown.active').forEach(el => {
+                    el.classList.remove('active');
+                });
+            }
+        }
     });
 
     // ========== АНИМАЦИЯ ХИРО ==========

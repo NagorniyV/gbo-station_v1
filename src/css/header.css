@@ -350,3 +350,108 @@
           font-size: 14px;
       }
   }
+
+  /* СТИЛИ ДЛЯ ВЛОЖЕННОГО МЕНЮ ОПТИКИ */
+  .dropdown-submenu {
+      position: relative;
+  }
+
+  .dropdown-submenu .arrow {
+      float: right;
+      font-size: 16px;
+      margin-left: 10px;
+      transition: transform 0.3s ease;
+  }
+
+  .dropdown-submenu:hover .arrow {
+      transform: rotate(90deg);
+  }
+
+  .dropdown-submenu-inner {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      background-color: #1a1a1a;
+      min-width: 250px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4);
+      border-radius: 4px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-10px);
+      transition: all 0.3s ease;
+      z-index: 1002;
+  }
+
+  .dropdown-submenu:hover .dropdown-submenu-inner {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+  }
+
+  .dropdown-submenu-inner li {
+      margin: 0;
+      /* border-left: 3px solid #0372e9; */
+  }
+
+  .dropdown-submenu-inner a {
+      padding: 12px 20px;
+      color: #FFFFFF;
+      text-decoration: none;
+      display: block;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      white-space: nowrap;
+  }
+
+  .dropdown-submenu-inner a:hover {
+      /* background-color: #0372e9; */
+      color: #FFFFFF;
+  }
+
+  /* Адаптация для мобильных */
+  @media (max-width: 768px) {
+      .dropdown-submenu-inner {
+          position: static;
+          background-color: #333;
+          width: 100%;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          display: none;
+          box-shadow: none;
+          border-radius: 0;
+      }
+
+      .dropdown-submenu.active .dropdown-submenu-inner {
+          display: block;
+      }
+
+      .dropdown-submenu-inner a {
+          padding-left: 50px;
+          font-size: 14px;
+      }
+
+      .dropdown-submenu .arrow {
+          float: right;
+          margin-left: auto;
+          padding-right: 10px;
+      }
+
+      .dropdown-submenu.active .arrow {
+          transform: rotate(90deg);
+      }
+  }
+
+  /* Исправление для корректного отображения вложенных меню */
+  .dropdown-menu li {
+      position: relative;
+  }
+
+  .dropdown-submenu .submenu-toggle {
+      display: flex;
+      justify-content: space-between;
+      /* align-items: center; */
+  }
