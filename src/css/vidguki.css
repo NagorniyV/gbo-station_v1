@@ -1,7 +1,7 @@
 .vidguki {
     position: relative;
     background-image: url(../img/bg/vidguki.webp);
-    min-height: 100vh;
+    min-height: 30vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

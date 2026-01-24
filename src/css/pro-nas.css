@@ -46,10 +46,12 @@
 }
 
 .advantage-item {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e8ecef;
 }
 
 .advantage-item h3 {
@@ -62,7 +64,7 @@
 .advantage-item p {
     font-size: 16px;
     line-height: 1.5;
-    color: #121212;
+    color: #f3f3f3;
     margin: 0;
 }
 
@@ -74,7 +76,8 @@
 }
 
 .brand-item {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
@@ -92,7 +95,7 @@
 .brand-item p {
     font-size: 14px;
     line-height: 1.5;
-    color: #121212;
+    color: #f3f3f3;
     margin: 0;
 }
 
@@ -104,10 +107,12 @@
 }
 
 .reason-item {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e8ecef;
 }
 
 .reason-item h3 {
@@ -120,7 +125,7 @@
 .reason-item p {
     font-size: 15px;
     line-height: 1.5;
-    color: #121212;
+    color: #f3f3f3;
     margin: 0;
 }
 
@@ -156,6 +161,13 @@
     height: 3px;
     background-color: #E5252A;
     border-radius: 2px;
+}
+
+.seo-block h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
 }
 
 .seo-block:first-child .seo-content p {

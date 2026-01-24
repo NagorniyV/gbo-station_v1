@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <!-- Кодировка и масштабирование -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="./src/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./src/img/favicon-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="64x64"
+      href="./src/img/favicon-64.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="./src/img/favicon-512.png"
+    />
+    <link rel="icon" type="image/svg+xml" href="./src/img/favicon.svg" />
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="./src/img/favicon-512.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./src/style.css" />
+
+    <!-- ТАЙТЛ И МЕТА ТЕГИ -->
+    <title>
+      Налаштування ГБО у Львові ⚙️ Корекція та калібрування газового обладнання
+      | GBO STATION
+    </title>
+    <meta
+      name="description"
+      content="⚙️ Професійне налаштування ГБО у Львові. Калібрування форсунок, корекція карт подачі газу, оптимізація витрати палива. Гарантія роботи! ☎ (097) 909-26-78"
+    />
+    <meta
+      name="keywords"
+      content="налаштування гбо, налаштування гбо львів, калібрування гбо, корекція гбо, настройка газового оборудования, калибровка форсунок гбо, регулировка гбо, гбо троит, большой расход газа"
+    />
+
+    <link
+      rel="canonical"
+      href="https://gbo-station.lviv.ua/nalashtuvannja-gbo.html"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Налаштування ГБО у Львові | Калібрування та оптимізація | GBO STATION"
+    />
+    <meta
+      property="og:description"
+      content="Професійне налаштування ГБО 2-5 поколінь. Оптимізуємо витрату газу, усуваємо 'троєння', покращуємо динаміку. Досвід з 2012 року!"
+    />
+    <meta
+      property="og:image"
+      content="https://gbo-station.lviv.ua/src/img/og-image-gbo-tuning.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://gbo-station.lviv.ua/nalashtuvannja-gbo.html"
+    />
+    <meta property="og:site_name" content="GBO STATION Львів" />
+    <meta property="og:locale" content="uk_UA" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Налаштування ГБО у Львові | Оптимізація витрати | GBO STATION"
+    />
+    <meta
+      name="twitter:description"
+      content="Калібрування ГБО для мінімальної витрати та максимальної потужності. Гарантія результату!"
+    />
+
+    <!-- Scripts -->
+    <script src="./src/js/utils.js" defer></script>
+    <script src="./src/js/header.js" defer></script>
+    <script src="./src/js/forms.js" defer></script>
+    <script src="./src/js/animations.js" defer></script>
+    <script src="./src/js/calculator.js" defer></script>
+    <script src="./src/js/faq.js" defer></script>
+    <script src="./src/js/sticky-buttons.js" defer></script>
+    <script src="./src/js/gbo.js" defer></script>
+
+    <!-- Автор и копирайт -->
+    <meta name="author" content="GBO STATION" />
+    <meta name="copyright" content="GBO STATION" />
+
+    <!-- Индексация -->
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
+
+    <!-- Мобильная оптимизация -->
+    <meta name="format-detection" content="telephone=yes" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="width" />
+
+    <!-- Тема браузера -->
+    <meta name="theme-color" content="#121212" />
+    <meta name="msapplication-TileColor" content="#121212" />
+
+    <!-- Schema.org для настройки -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "GBO STATION - Налаштування ГБО",
+        "description": "Професійна калібрування та налаштування газобалонного обладнання у Львові",
+        "url": "https://gbo-station.lviv.ua/nalashtuvannja-gbo.html",
+        "telephone": "+380979092678",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "вул. Конюшинна 8а",
+          "addressLocality": "Львів",
+          "addressCountry": "UA"
+        },
+        "serviceType": [
+          "Налаштування ГБО",
+          "Калібрування форсунок",
+          "Оптимізація витрати палива",
+          "Корекція карт подачі газу"
+        ],
+        "areaServed": "Львів та область"
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Бургер-меню -->
+    <div class="burger-menu" id="burgerMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <!-- Оверлей -->
+    <div class="overlay" id="overlay"></div>
+    <!-- Хедер -->
+    <header class="header" id="header">
+      <div class="container">
+        <a href="./" class="logo">
+          <span class="logo-span">GBO </span>STATION
+        </a>
+        <nav class="nav" aria-label="Основна навігація">
+          <ul class="nav-list">
+            <li class="nav-item dropdown">
+              <a href="#services" class="dropdown-toggle">
+                <img src="./src/img/uslugi.png" alt="Послуги" />Послуги
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="./">Головна</a></li>
+                <li class="dropdown-submenu">
+                  <a href="./vstanovlenja-gbo.html" class="submenu-toggle">
+                    Послуги ГБО
+                  </a>
+                  <ul class="dropdown-submenu-inner">
+                    <li>
+                      <a href="./vstanovlenja-gbo.html">Встановлення ГБО</a>
+                    </li>
+                    <li>
+                      <a href="./diagnostika-gbo.html">Діагностика ГБО</a>
+                    </li>
+                    <li><a href="./remont-gbo.html">Ремонт ГБО</a></li>
+                    <li>
+                      <a href="./nalashtuvannja-gbo.html">Налаштування ГБО</a>
+                    </li>
+                    <li>
+                      <a href="./sertyfikatsiya-gbo.html">Сертифікація ГБО</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown-submenu">
+                  <a href="./vstanovlenya-linz.html" class="submenu-toggle">
+                    Послуги автосвітла
+                  </a>
+                  <ul class="dropdown-submenu-inner">
+                    <li>
+                      <a href="./vstanovlenya-linz.html">Послуги автосвітла</a>
+                    </li>
+                    <li><a href="./bi-led-linzy.html">BI-LED лінзи</a></li>
+                    <li>
+                      <a href="./doglyad-za-faramy.html">Догляд за фарами</a>
+                    </li>
+                    <li>
+                      <a href="./led-lampy-v-optiku.html">LED лампи в оптику</a>
+                    </li>
+                    <li>
+                      <a href="./poliruvannya-far.html">Полірування фар</a>
+                    </li>
+                    <li>
+                      <a href="./remont-far-pislya-dtp.html"
+                        >Ремонт фар після ДТП</a
+                      >
+                    </li>
+                    <li>
+                      <a href="./usunennya-zapotivannya.html"
+                        >Усунення запотівання</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#pro-nas">
+                <img src="./src/img/o-nas.png" alt="" />Про нас
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#vidguki">
+                <img src="./src/img/vidguki.png" alt="" />Відгуки
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#callback">
+                <img src="./src/img/phone.png" alt="" />Заявка на дзвінок
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#faq">
+                <img src="./src/img/ask.png" alt="" />Поширені питання
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#footer">
+                <img src="./src/img/geo.png" alt="" />Як нас знайти
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+      <section class="hero">
+        <div class="container">
+          <h1 id="animated-title" class="main-title">
+            Налаштування ГБО у Львові
+          </h1>
+          <h2 id="animated-subtitle" class="hero-sub-title">
+            Точна калібрування газового обладнання для ідеальної роботи<br />
+            Знижуємо витрату газу | Підвищуємо потужність | Усуваємо "троєння"
+          </h2>
+        </div>
+      </section>
+      <section class="pro-nas" id="pro-nas">
+        <div class="container">
+          <!-- Блок: НАЛАШТУВАННЯ ГБО -->
+          <div class="seo-block">
+            <h2 class="seo-main-heading">Налаштування ГБО у Львові</h2>
+            <div class="seo-content">
+              <p>
+                <strong>Налаштування ГБО</strong> — це точна калібрування
+                параметрів газової системи для ідеальної роботи двигуна. У
+                <strong>GBO STATION</strong> ми виконуємо
+                <strong>професійне налаштування ГБО</strong> для всіх поколінь
+                систем та типів двигунів. Правильне налаштування забезпечує
+                мінімальну витрату палива, максимальну потужність та довгий
+                ресурс двигуна.
+              </p>
+
+              <p>
+                <strong>Чому важливе професійне налаштування ГБО?</strong>
+                Неправильні налаштування призводять до підвищеної витрати газу,
+                втрати потужності, перегріву двигуна та передчасної поломки
+                клапанів. Тільки точне
+                <strong>налаштування газового обладнання</strong>
+                за допомогою спеціального обладнання гарантує оптимальну роботу
+                системи.
+              </p>
+
+              <p>
+                Ми пропонуємо як
+                <strong>коригування налаштувань ГБО</strong> після установки,
+                так і <strong>повну оптимізацію</strong> вже існуючої системи.
+                Налаштовуємо систему під конкретний стиль водіння та умови
+                експлуатації автомобіля.
+              </p>
+            </div>
+          </div>
+
+          <!-- Блок: Види налаштування ГБО -->
+          <div class="seo-block">
+            <h2>Види налаштування ГБО</h2>
+
+            <h3>Калібрування форсунок ГБО</h3>
+            <div class="seo-content">
+              <p>
+                <strong>Коли потрібно:</strong> Після чищення або заміни
+                форсунок, при нерівній роботі двигуна, підвищеній витраті газу,
+                провалах потужності при розгоні.
+              </p>
+
+              <p>
+                <strong>Що робимо:</strong> Визначаємо продуктивність кожної
+                форсунки, встановлюємо оптимальний час впорскування, балансуємо
+                подачу газу по циліндрах, перевіряємо синхронізацію з роботою
+                бензинових форсунок.
+              </p>
+            </div>
+
+            <h3>Корекція карт подачі газу</h3>
+            <div class="seo-content">
+              <p>
+                <strong>Коли потрібно:</strong> При зміні стилю водіння, після
+                ремонту двигуна, при зміні якості газу, після заміни датчиків
+                або при підготовці до зими/літа.
+              </p>
+
+              <p>
+                <strong>Що робимо:</strong> Адаптуємо карту подачі газу під
+                реальні умови експлуатації, оптимізуємо співвідношення
+                повітря/паливо на різних режимах роботи, коригуємо параметри для
+                холодного та прогрітого двигуна.
+              </p>
+            </div>
+
+            <h3>Налаштування системи запалювання для ГБО</h3>
+            <div class="seo-content">
+              <p>
+                <strong>Коли потрібно:</strong> Після заміни свічок, катушок
+                запалювання, при втраті потужності на газі, якщо двигун "троїть"
+                або має провали при роботі на газі.
+              </p>
+
+              <p>
+                <strong>Що робимо:</strong> Встановлюємо оптимальний кут
+                випередження запалювання для газу, синхронізуємо роботу системи
+                запалювання з подачею газу, коригуємо обороти холостого ходу для
+                стабільної роботи.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="vidguki" id="vidguki">
+        <div class="container">
+          <h2 class="by-price">Відгуки наших клієнтів про налаштування ГБО</h2>
+          <div class="reviews-container">
+            <!-- Відгук 1: Настройка после установки -->
+            <div class="review-card">
+              <div class="review-header">
+                <img
+                  src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=100&h=100&fit=crop&crop=face"
+                  alt="Олександр Петренко"
+                  class="review-photo"
+                />
+                <div class="review-info">
+                  <h3 class="review-name">Олександр Петренко</h3>
+                  <span class="review-date">15.04.2024</span>
+                </div>
+                <div class="review-rating">★★★★★</div>
+              </div>
+              <div class="review-text">
+                <p>
+                  Після встановлення ГБО в іншому сервісі авто погано їхало на
+                  газі. Приїхав до GBO STATION для налаштування ГБО. Фахівці
+                  провели калібрування форсунок, відкоригували карту подачі
+                  газу. Після налаштування динаміка покращилась, витрата
+                  зменшилась. Професійна настройка газового обладнання.
+                </p>
+              </div>
+            </div>
+
+            <!-- Відгук 2: Оптимизация расхода -->
+            <div class="review-card">
+              <div class="review-header">
+                <img
+                  src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop&crop=face"
+                  alt="Наталія Ковальчук"
+                  class="review-photo"
+                />
+                <div class="review-info">
+                  <h3 class="review-name">Наталія Ковальчук</h3>
+                  <span class="review-date">08.04.2024</span>
+                </div>
+                <div class="review-rating">★★★★★</div>
+              </div>
+              <div class="review-text">
+                <p>
+                  Після зими витрата газу збільшилась на 30%. Звернулась для
+                  налаштування ГБО у Львові. Провели оптимізацію системи,
+                  відкалібрували датчики температури, налаштували роботу
+                  редуктора. Витрата повернулась до норми. Ефективна настройка
+                  газового обладнання для економії палива.
+                </p>
+              </div>
+            </div>
+
+            <!-- Відгук 3: Устранение троения -->
+            <div class="review-card">
+              <div class="review-header">
+                <img
+                  src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&h=100&fit=crop&crop=face"
+                  alt="Віктор Захарченко"
+                  class="review-photo"
+                />
+                <div class="review-info">
+                  <h3 class="review-name">Віктор Захарченко</h3>
+                  <span class="review-date">01.04.2024</span>
+                </div>
+                <div class="review-rating">★★★★★</div>
+              </div>
+              <div class="review-text">
+                <p>
+                  Авто почало троїти на газі після заміни свічок. Приїхав для
+                  налаштування системи запалювання ГБО. Фахівці синхронізували
+                  момент запалювання з подачею газу, відкоригували обороти
+                  холостого ходу. Після налаштування двигун працює рівно. Якісна
+                  настройка ГБО для стабільної роботи двигуна.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="callback" class="callback">
+        <div class="container">
+          <h2>Станція технічного обслуговування GBO STATION</h2>
+          <div class="callback-form">
+            <h3 class="callback-title">ЗАМОВЛЕННЯ ПОСЛУГИ ЧИ КОНСУЛЬТАЦІЇ</h3>
+            <form class="form">
+              <div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="name"
+                    class="form-input"
+                    placeholder="Ваше ім'я"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="tel"
+                    id="phone"
+                    class="form-input"
+                    required
+                    placeholder="+38 (0__) ___ __ __"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="car"
+                    class="form-input"
+                    placeholder="Марка та модель авто"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <div class="form-group">
+                  <select id="service" class="form-select">
+                    <option value="" disabled selected>Тип послуги</option>
+                    <option value="gbo">Обслуговування ГБО</option>
+                    <option value="lights">Обслуговування фар</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="form-submit">НАДІСЛАТИ</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section class="faq" id="faq">
+        <div class="container">
+          <h2 class="faq-title">
+            Поширені запитання щодо налаштування ГБО у Львові
+          </h2>
+          <div class="faq-container">
+            <div class="faq-column">
+              <!-- Вопрос 1 -->
+              <div class="faq-item">
+                <div class="faq-question">
+                  <span>Коли потрібна настройка ГБО після установки?</span>
+                  <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Налаштування ГБО потрібне завжди після установки. Базові
+                    налаштування роблять при монтажі, але через 500-1000 км
+                    пробігу рекомендуємо корекцію під стиль водіння. Також
+                    налаштування потрібне після заміни деталей двигуна або при
+                    зміні сезону.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Вопрос 2 -->
+              <div class="faq-item">
+                <div class="faq-question">
+                  <span>Скільки коштує професійна настройка ГБО?</span>
+                  <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Базова настройка ГБО (корекція карт подачі газу) - від 400
+                    грн. Повна налаштування з калібруванням форсунок,
+                    оптимізацією витрати та тестуванням динаміки - від 700 грн.
+                    Ціна залежить від складності системи.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Вопрос 3 -->
+              <div class="faq-item">
+                <div class="faq-question">
+                  <span
+                    >Чи можна самостійно налаштувати ГБО через телефон?</span
+                  >
+                  <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Ні, це небезпечно. Самостійна настройка через додатки може
+                    призвести до неправильних параметрів, що викличе перегрів
+                    двигуна, детонацію або пошкодження клапанів. Професійна
+                    настройка вимагає спеціального обладнання та досвіду.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Вопрос 4 -->
+              <div class="faq-item">
+                <div class="faq-question">
+                  <span>Чому після налаштування зменшилась витрата газу?</span>
+                  <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Правильна настройка ГБО оптимізує співвідношення
+                    повітря/паливо, калібрує момент впорскування газу, коригує
+                    роботу системи під конкретний двигун. Це дає економію палива
+                    10-20% без втрати потужності.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Вопрос 5 -->
+              <div class="faq-item">
+                <div class="faq-question">
+                  <span>Як часто потрібна перенастройка ГБО?</span>
+                  <div class="faq-icon">+</div>
+                </div>
+                <div class="faq-answer">
+                  <p>
+                    Регулярна перенастройка ГБО рекомендується кожні 15-20 тис.
+                    км або при зміні сезону (перехід на зимовий/літній режим).
+                    Також обов'язкова настройка після заміни свічок, фільтрів
+                    або ремонту системи запалювання.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="footer" class="footer">
+      <div class="container">
+        <div class="footer-social">
+          <h3>Знаходь нас у соціальних мережах:</h3>
+          <ul class="social-link">
+            <li>
+              <a
+                href="viber://chat?number=+380979092678"
+                class="social-btn viber"
+                aria-label="Написати у Viber"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="30"
+                  height="30"
+                  viewBox="0,0,256,256"
+                  style="fill: #ffffff"
+                >
+                  <g
+                    fill="#ffffff"
+                    fill-rule="nonzero"
+                    stroke="none"
+                    stroke-width="4"
+                    stroke-linecap="butt"
+                    stroke-linejoin="miter"
+                    stroke-miterlimit="10"
+                    stroke-dasharray=""
+                    stroke-dashoffset="0"
+                    font-family="none"
+                    font-weight="none"
+                    font-size="none"
+                    text-anchor="none"
+                    style="mix-blend-mode: normal"
+                  >
+                    <g transform="scale(8,8)">
+                      <path
+                        d="M15.69922,4c-1.9,0 -6.59961,0.19961 -9.09961,2.59961c-1.8,1.7 -2.49961,4.30039 -2.59961,7.40039c-0.2,4.9 0.89922,7.99961 2.69922,9.59961c0.4,0.3 1.40078,1.10117 3.30078,1.70117v2.5c0,0 -0.00039,0.99922 0.59961,1.19922c0.1,0 0.20078,0.09961 0.30078,0.09961c0.6,0 1.09883,-0.70039 1.79883,-1.40039c0.6,-0.7 1.10039,-1.19922 1.40039,-1.69922h1.40039h0.80078c1.9,0 6.59961,-0.19961 9.09961,-2.59961c1.8,-1.8 2.5,-4.40117 2.5,-7.70117c0.1,-0.5 0.09961,-1.09922 0.09961,-1.69922c-0.1,-3.7 -1.19922,-6.19961 -2.69922,-7.59961c-0.6,-0.5 -3.20078,-2.40039 -8.80078,-2.40039zM15.5,5.90039h0.69922h0.10156h0.09961c5.3,0 7.3,1.70039 7.5,1.90039c1.2,1 1.9,3.19961 2,6.09961v0.40039c0.1,0.6 0.09961,1.09844 0.09961,1.39844c-0.1,3 -0.70039,5.00078 -1.90039,6.30078c-2.1,1.9 -6.49922,2 -7.69922,2h-0.70117h-0.09961h-0.09961h-1l-1.59961,1.80078l-1,1.09961l-0.20117,0.29883c-0.2,0.2 -0.49922,0.60117 -0.69922,0.70117v-0.20117v-4.29883c-2,-0.5 -2.8,-1.20039 -3,-1.40039c-1.4,-1.2 -2.2,-4.1 -2,-8v-1c0.2,-2.4 0.80078,-3.99961 1.80078,-5.09961c2.1,-1.9 6.49922,-2 7.69922,-2zM15.40039,8.09961c-0.5,0 -0.5,0.70117 0,0.70117c3.7,0 6.90039,2.49922 6.90039,7.19922c0,0.5 0.69922,0.5 0.69922,0c0,-5.1 -3.39961,-8.00039 -7.59961,-7.90039zM11.4375,9.02539c-0.2125,-0.025 -0.43672,0.02383 -0.63672,0.17383c-1,0.5 -2.00117,1.50156 -1.70117,2.60156c0,0 0.20078,0.89883 1.30078,2.79883c0.6,0.9 1.09961,1.70078 1.59961,2.30078c0.5,0.7 1.29961,1.49961 2.09961,2.09961c1.6,1.3 4.10117,2.60039 5.20117,2.90039c1,0.3 2.09961,-0.70117 2.59961,-1.70117c0.2,-0.4 0.09922,-0.89922 -0.30078,-1.19922c-0.6,-0.6 -1.59883,-1.29922 -2.29883,-1.69922c-0.5,-0.3 -1.10078,-0.10078 -1.30078,0.19922l-0.5,0.59961c-0.2,0.3 -0.69922,0.30078 -0.69922,0.30078c-3.3,-0.9 -4.20117,-4.30078 -4.20117,-4.30078c0,0 0.00078,-0.39922 0.30078,-0.69922l0.59961,-0.5c0.3,-0.2 0.49922,-0.80078 0.19922,-1.30078c-0.2,-0.3 -0.49883,-0.89922 -0.79883,-1.19922c-0.3,-0.4 -0.90039,-1.09961 -0.90039,-1.09961c-0.15,-0.15 -0.35,-0.25039 -0.5625,-0.27539zM16.09961,10.09961c-0.5,-0.1 -0.59961,0.70117 -0.09961,0.70117c2.8,0.2 4.40078,2.1 4.30078,4.5c-0.1,0.5 0.69922,0.5 0.69922,0c0.1,-2.8 -1.70039,-5.10117 -4.90039,-5.20117zM16.40039,12c-0.5,-0.1 -0.5,0.69922 0,0.69922c1.2,0 1.79883,0.70039 1.79883,1.90039c0.1,0.5 0.80078,0.5 0.80078,0c-0.1,-1.6 -0.99961,-2.59961 -2.59961,-2.59961z"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+                <i class="fab fa-viber social-icon"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://t.me/GBOStstion"
+                target="_blank"
+                class="social-btn telegram"
+                aria-label="Написати у Telegram"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="30"
+                  height="30"
+                  viewBox="0,0,256,256"
+                  style="fill: #ffffff"
+                >
+                  <g
+                    fill="#ffffff"
+                    fill-rule="nonzero"
+                    stroke="none"
+                    stroke-width="1"
+                    stroke-linecap="butt"
+                    stroke-linejoin="miter"
+                    stroke-miterlimit="10"
+                    stroke-dasharray=""
+                    stroke-dashoffset="0"
+                    font-family="none"
+                    font-weight="none"
+                    font-size="none"
+                    text-anchor="none"
+                    style="mix-blend-mode: normal"
+                  >
+                    <g transform="scale(5.12,5.12)">
+                      <path
+                        d="M46.137,6.552c-0.75,-0.636 -1.928,-0.727 -3.146,-0.238h-0.002c-1.281,0.514 -36.261,15.518 -37.685,16.131c-0.259,0.09 -2.521,0.934 -2.288,2.814c0.208,1.695 2.026,2.397 2.248,2.478l8.893,3.045c0.59,1.964 2.765,9.21 3.246,10.758c0.3,0.965 0.789,2.233 1.646,2.494c0.752,0.29 1.5,0.025 1.984,-0.355l5.437,-5.043l8.777,6.845l0.209,0.125c0.596,0.264 1.167,0.396 1.712,0.396c0.421,0 0.825,-0.079 1.211,-0.237c1.315,-0.54 1.841,-1.793 1.896,-1.935l6.556,-34.077c0.4,-1.82 -0.156,-2.746 -0.694,-3.201zM22,32l-3,8l-3,-10l23,-17z"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+                <i class="fab fa-telegram social-icon"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/share/15RLvZkvVZP/"
+                class="social-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ми у Facebook"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 320 512"
+                  width="30"
+                  height="30"
+                >
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    fill="#FFFFFF"
+                    d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/gbostation?utm_source=qr&igsh=MWEwdHY1bzBhems2Zw%3D%3D"
+                class="social-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ми в Instagram"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                  width="30"
+                  height="30"
+                >
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    fill="#FFFFFF"
+                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.tiktok.com/@gbo.station"
+                class="social-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ми у TikTok"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                  width="30"
+                  height="30"
+                >
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    fill="#FFFFFF"
+                    d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-contacts">
+          <h3>Наші контакти:</h3>
+          <ul class="footer-contacts-list">
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="contact-icon"
+              >
+                <path
+                  fill="#FFFFFF"
+                  d="M17 1H7C5.9 1 5 1.9 5 3v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 19H7V4h10v16z"
+                />
+              </svg>
+              <a href="tel:+380979092678" class="phone-link">+380979092678</a>
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="contact-icon"
+              >
+                <path
+                  fill="#FFFFFF"
+                  d="M17 1H7C5.9 1 5 1.9 5 3v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 19H7V4h10v16z"
+                />
+              </svg>
+              <a href="tel:+380938000360" class="phone-link">+380938000360</a>
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="contact-icon"
+              >
+                <path
+                  fill="#FFFFFF"
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+              <p>м. Львів, вул. Конюшинна 8а</p>
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="contact-icon"
+              >
+                <path
+                  fill="#FFFFFF"
+                  d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"
+                />
+              </svg>
+              <p>Пн-Пт 09:00-17:00</p>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d643.4199468596927!2d23.933522000589385!3d49.829683303018214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ae7768912798b%3A0xa00538e1cfc8a40f!2sHaz%20Na%20Avto!5e0!3m2!1sru!2sua!4v1763828193540!5m2!1sua!2sua"
+            width="auto"
+            height="auto"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Карта розташування GBO STATION у Львові"
+          ></iframe>
+        </div>
+      </div>
+    </footer>
+    <!-- Липкие кнопки -->
+    <div class="sticky-buttons">
+      <!-- Кнопка телефона -->
+      <div class="sticky-button-wrapper phone-wrapper">
+        <button
+          class="sticky-button phone-button"
+          id="phoneButton"
+          aria-label="Зателефонувати"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M22 16.92V19.92C22 20.47 21.55 20.93 21 20.99C20.28 21.07 19.57 21.11 18.87 21.11C11.16 21.11 4.89 14.84 4.89 7.13C4.89 6.43 4.93 5.72 5.01 5C5.07 4.45 5.53 4 6.08 4H9.08C9.57 4 9.98 4.36 10.03 4.85C10.08 5.34 10.13 5.83 10.2 6.31C10.27 6.79 10.09 7.25 9.7 7.54C8.98 8.09 8.45 8.85 8.15 9.71C8 10.11 8.02 10.55 8.22 10.93C9.06 12.5 11.5 14.94 13.07 15.78C13.26 15.88 13.47 15.94 13.69 15.94C13.86 15.94 14.03 15.91 14.2 15.85C15.06 15.55 15.82 15.02 16.37 14.3C16.66 13.91 17.12 13.73 17.6 13.8C18.08 13.87 18.57 13.92 19.06 13.97C19.55 14.02 19.91 14.43 19.91 14.92V17.92"
+              stroke="white"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <div class="phone-panel" id="phonePanel">
+          <a href="tel:+380979092678" class="sticky-phone-link"
+            >+38 (097) 909-26-78</a
+          >
+        </div>
+      </div>
+
+      <!-- Кнопка прокрутки вверх -->
+      <button
+        class="sticky-button scroll-top-button"
+        id="scrollTopButton"
+        aria-label="Прокрутити вгору"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 19V5M5 12L12 5L19 12"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+  </body>
+</html>
