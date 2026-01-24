@@ -9,48 +9,68 @@
 
 <url>
   <loc>https://gbo-station.lviv.ua/</loc>
-  <lastmod>2026-01-08T22:06:59+00:00</lastmod>
+  <lastmod>2026-01-24T18:19:27+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://gbo-station.lviv.ua/vstanovlenja-gbo.html</loc>
-  <lastmod>2026-01-08T22:06:59+00:00</lastmod>
+  <lastmod>2026-01-24T18:19:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gbo-station.lviv.ua/diagnostika-gbo.html</loc>
+  <lastmod>2026-01-24T18:19:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gbo-station.lviv.ua/remont-gbo.html</loc>
+  <lastmod>2026-01-24T18:19:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gbo-station.lviv.ua/nalashtuvannja-gbo.html</loc>
+  <lastmod>2026-01-24T18:19:27+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gbo-station.lviv.ua/sertyfikatsiya-gbo.html</loc>
+  <lastmod>2026-01-24T18:19:27+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://gbo-station.lviv.ua/vstanovlenya-linz.html</loc>
-  <lastmod>2026-01-08T22:06:59+00:00</lastmod>
-  <priority>0.90</priority>
+  <lastmod>2026-01-24T18:19:27+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://gbo-station.lviv.ua/bi-led-linzy.html</loc>
-  <lastmod>2026-01-08T22:06:59+00:00</lastmod>
+  <lastmod>2026-01-24T18:19:27+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://gbo-station.lviv.ua/doglyad-za-faramy.html</loc>
-  <lastmod>2026-01-08T22:06:59+00:00</lastmod>
-  <priority>0.70</priority>
+  <lastmod>2026-01-24T18:19:27+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://gbo-station.lviv.ua/led-lampy-v-optiku.html</loc>
-  <lastmod>2026-01-08T22:06:59+00:00</lastmod>
+  <lastmod>2026-01-24T18:19:27+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://gbo-station.lviv.ua/poliruvannya-far.html</loc>
-  <lastmod>2026-01-08T22:06:59+00:00</lastmod>
-  <priority>0.90</priority>
+  <lastmod>2026-01-24T18:19:27+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://gbo-station.lviv.ua/remont-far-pislya-dtp.html</loc>
-  <lastmod>2026-01-08T22:06:59+00:00</lastmod>
-  <priority>0.70</priority>
+  <lastmod>2026-01-24T18:19:27+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://gbo-station.lviv.ua/usunennya-zapotivannya.html</loc>
-  <lastmod>2026-01-08T22:06:59+00:00</lastmod>
-  <priority>0.70</priority>
+  <lastmod>2026-01-24T18:19:27+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 
 
